@@ -132,7 +132,7 @@
             </div>
         </div>
 
-        <!-- 手機端下拉選單 (加入 x-cloak 防止初始狀態在 iOS 暴露) -->
+        <!-- 手機端下拉選單 -->
         <div x-show="mobileMenu" x-transition x-cloak class="md:hidden bg-white border-b border-slate-200 px-5 pt-2 pb-6 space-y-4 shadow-inner">
             <a href="#tech" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-crosshairs mr-2 text-brand-500"></i> 雷射技術</a>
             <a href="#gallery" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-camera mr-2 text-brand-500"></i> 診療實景</a>
@@ -421,7 +421,7 @@
                                     <div>
                                         <h4 class="font-extrabold text-slate-800 text-base">遇全身系統性疾病束手無策</h4>
                                         <p class="text-slate-500 text-sm mt-1 leading-relaxed font-semibold">
-                                            當病患有糖尿病、全身性紅斑性狼瘡或乾燥症等免疫疾病，其角膜癒合力與一般人不同。診所因無內科及風濕科資源，無法進行跨學科多中心聯合會診與全面數據綜合評估。
+                                            當病患有糖尿病、全身性紅斑性狼瘡 or 乾燥症等免疫疾病，其角膜癒合力與一般人不同。診所因無內科及風濕科資源，無法進行跨學科多中心聯合會診與全面數據綜合評估。
                                         </p>
                                     </div>
                                 </li>
@@ -509,32 +509,58 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-slate-50/70 border border-slate-100 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
-                        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-6 text-xl">
-                            <i class="fa-solid fa-shield-slash"></i>
+                    <!-- Card 1: 不翻瓣、不掀瓣 (noflap.jpg) -->
+                    <div class="bg-slate-50/70 border border-slate-100 p-6 sm:p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <!-- 高階示意圖容器 -->
+                            <div class="overflow-hidden rounded-xl border border-slate-200/60 mb-6 bg-slate-100 aspect-[3/2] shadow-inner relative">
+                                <img src="noflap.jpg" alt="不翻瓣、不掀瓣 示意圖" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/600x400/fee2e2/991b1b?text=No+Flap'">
+                                <!-- 懸浮特色 Icon 標記 -->
+                                <div class="absolute top-3 left-3 bg-red-500 text-white w-8 h-8 rounded-lg flex items-center justify-center shadow-md">
+                                    <i class="fa-solid fa-shield-slash text-sm"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">01. 不翻瓣、不掀瓣 (無傷口位移風險)</h3>
+                            <p class="text-slate-650 text-base leading-relaxed font-semibold">
+                                傳統 LASIK 需要在眼球上切開一片角膜瓣再蓋回，若未來遇到揉眼或劇烈運動碰撞，有終身位移的風險。我們採用的 SMART TransPRK 直接在角膜表層雷射塑型，保留最完整的眼球結構，運動員、軍警、愛運動者首選！
+                            </p>
                         </div>
-                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">01. 不翻瓣、不掀瓣 (無傷口位移風險)</h3>
-                        <p class="text-slate-650 text-base leading-relaxed font-semibold">
-                            傳統 LASIK 需要在眼球上切開一片角膜瓣再蓋回，若未來遇到揉眼或劇烈運動碰撞，有終身位移的風險。我們採用的 SMART TransPRK 直接在角膜表層雷射塑型，保留最完整的眼球結構，運動員、軍警、愛運動者首選！
-                        </p>
                     </div>
-                    <div class="bg-slate-50/70 border border-slate-100 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
-                        <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-6 text-xl">
-                            <i class="fa-solid fa-hand-fist-slash"></i>
+                    
+                    <!-- Card 2: 器械零接觸 (notouch.jpg) -->
+                    <div class="bg-slate-50/70 border border-slate-100 p-6 sm:p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <!-- 高階示意圖容器 -->
+                            <div class="overflow-hidden rounded-xl border border-slate-200/60 mb-6 bg-slate-100 aspect-[3/2] shadow-inner relative">
+                                <img src="notouch.jpg" alt="器械零接觸 示意圖" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/600x400/ccfbf1/0d9488?text=No+Touch'">
+                                <!-- 懸浮特色 Icon 標記 -->
+                                <div class="absolute top-3 left-3 bg-teal-500 text-white w-8 h-8 rounded-lg flex items-center justify-center shadow-md">
+                                    <i class="fa-solid fa-hand-fist-slash text-sm"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">02. 器械零接觸 (降低心理恐懼感)</h3>
+                            <p class="text-slate-650 text-base leading-relaxed font-semibold">
+                                手術全程僅使用高階雷射進行，沒有任何鋼刀切削，也不做任何真空負壓抽吸（避免拉扯眼球造成的視網膜剝離隱憂）。這排除了器械接觸眼球的巨大心理壓迫感，怕痛、容易緊張的個案也能輕鬆配合。
+                            </p>
                         </div>
-                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">02. 器械零接觸 (降低心理恐懼感)</h3>
-                        <p class="text-slate-650 text-base leading-relaxed font-semibold">
-                            手術全程僅使用高階雷射進行，沒有任何鋼刀切削，也不做任何真空負壓抽吸（避免拉扯眼球造成的視網膜剝離隱憂）。這排除了器械接觸眼球的巨大心理壓迫感，怕痛、容易緊張的個案也能輕鬆配合。
-                        </p>
                     </div>
-                    <div class="bg-slate-50/70 border border-slate-100 p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
-                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6 text-xl">
-                            <i class="fa-solid fa-heart-circle-check"></i>
+                    
+                    <!-- Card 3: 術後不乾眼 (lessdryeye.jpg) -->
+                    <div class="bg-slate-50/70 border border-slate-100 p-6 sm:p-8 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <!-- 高階示意圖容器 -->
+                            <div class="overflow-hidden rounded-xl border border-slate-200/60 mb-6 bg-slate-100 aspect-[3/2] shadow-inner relative">
+                                <img src="lessdryeye.jpg" alt="術後不乾眼 示意圖" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/600x400/dbeafe/1d4ed8?text=Less+Dry+Eye'">
+                                <!-- 懸浮特色 Icon 標記 -->
+                                <div class="absolute top-3 left-3 bg-blue-500 text-white w-8 h-8 rounded-lg flex items-center justify-center shadow-md">
+                                    <i class="fa-solid fa-heart-circle-check text-sm"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">03. 術後不乾眼 (守護角膜神經)</h3>
+                            <p class="text-slate-650 text-base leading-relaxed font-semibold">
+                                因為手術不深入削切角膜基質層深層，對角膜神經的破壞是主流手術中極微小的。臨床文獻證實，這能大幅度減少近視雷射手術後最常見的「長期眼睛乾澀」副作用，守護淚液分泌。
+                            </p>
                         </div>
-                        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3">03. 術後不乾眼 (守護角膜神經)</h3>
-                        <p class="text-slate-650 text-base leading-relaxed font-semibold">
-                            因為手術不深入削切角膜基質層深層，對角膜神經的破壞是主流手術中極微小的。臨床文獻證實，這能大幅度減少近視雷射手術後最常見的「長期眼睛乾澀」副作用，守護淚液分泌。
-                        </p>
                     </div>
                 </div>
             </div>
@@ -717,7 +743,7 @@
                             </p>
                             <div class="bg-white p-5 border border-slate-200/60 rounded-xl space-y-3 text-sm sm:text-base text-slate-600 font-semibold">
                                 <p class="font-extrabold text-slate-850 flex items-center text-base"><i class="fa-solid fa-shield-virus text-brand-500 mr-2"></i>安全防禦黃金指標：</p>
-                                <p>• <strong class="text-slate-900">專屬屈光手術室</strong>：不與一般眼科或外科手術共用，從根本上避免了細菌與病毒交叉感染的可能。</p>
+                                <p>• <strong class="text-slate-900">專屬屈光手術室</strong>：不與一般眼科 or 外科手術共用，從根本上避免了細菌與病毒交叉感染的可能。</p>
                                 <p>• <strong class="text-slate-900">符合國際標準潔淨度</strong>：溫濕度、氣壓與氣流皆受全天候正壓密閉監控，高效率空氣微粒過濾器（HEPA）確保落塵符合標準。</p>
                                 <p>• <strong class="text-slate-900">100% 拋棄式無菌包</strong>：上台使用的眼部包、沖洗針劑、敷料均為全新耗材，用後即棄，杜絕感染可能。</p>
                             </div>
@@ -985,7 +1011,7 @@
                                     <!-- 週二 -->
                                     <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
-                                    <!-- 週三 (移除黃克豪週三上午，僅保留特約診08:00~09:00 - 統一紫色) -->
+                                    <!-- 週三 -->
                                     <td class="py-3 px-4">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
                                             <i class="fa-solid fa-user-doctor mr-1 text-[10px]"></i>術後特約
@@ -993,7 +1019,7 @@
                                         <span class="text-[10px] text-slate-400 block mt-0.5">08:00 ~ 09:00</span>
                                     </td>
                                     
-                                    <!-- 週四 (週四夜診精確為 18:00~20:00 - 統一紫色) -->
+                                    <!-- 週四 -->
                                     <td class="py-3 px-4 space-y-1.5">
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
@@ -1037,7 +1063,7 @@
                                         <span class="text-[10px] text-slate-400 block mt-0.5">14:00 ~ 17:00</span>
                                     </td>
                                     
-                                    <!-- 週二 (週二上午屈光特約 - 統一紫色) -->
+                                    <!-- 週二 -->
                                     <td class="py-3 px-4 space-y-1.5">
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
