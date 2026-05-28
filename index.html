@@ -113,6 +113,7 @@
 
                 <!-- 服務選單 - 桌面端 -->
                 <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#why-us" class="text-slate-605 hover:text-brand-600 text-base font-extrabold transition-colors duration-200"><i class="fa-solid fa-shield-heart mr-1 text-brand-500"></i> 為何選擇我們</a>
                     <a href="#tech" class="text-slate-600 hover:text-brand-600 text-base font-bold transition-colors duration-200">雷射技術</a>
                     <a href="#gallery" class="text-slate-600 hover:text-brand-600 text-base font-bold transition-colors duration-200">診療實景</a>
                     <a href="#doctors" class="text-slate-600 hover:text-brand-600 text-base font-bold transition-colors duration-200">醫師團隊</a>
@@ -134,6 +135,7 @@
 
         <!-- 手機端下拉選單 -->
         <div x-show="mobileMenu" x-transition x-cloak class="md:hidden bg-white border-b border-slate-200 px-5 pt-2 pb-6 space-y-4 shadow-inner">
+            <a href="#why-us" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-shield-heart mr-2 text-brand-500"></i> 為何選擇我們</a>
             <a href="#tech" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-crosshairs mr-2 text-brand-500"></i> 雷射技術</a>
             <a href="#gallery" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-camera mr-2 text-brand-500"></i> 診療實景</a>
             <a href="#doctors" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-user-doctor mr-2 text-brand-500"></i> 醫師團隊</a>
@@ -220,8 +222,8 @@
                             <a href="#quick-reserve" class="bg-brand-500 hover:bg-brand-600 text-white text-center px-8 py-4 rounded-xl font-bold transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brand-500/20 text-base sm:text-lg">
                                 <i class="fa-brands fa-line mr-2 text-xl"></i> 立即免費預約近視雷射術前檢查
                             </a>
-                            <a href="#tech" class="border border-slate-250 hover:border-slate-400 bg-white/50 text-slate-700 hover:text-slate-900 text-center px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-sm text-base">
-                                了解全雷射手術方式 <i class="fa-solid fa-arrow-down ml-1.5 text-brand-500"></i>
+                            <a href="#why-us" class="border border-slate-250 hover:border-slate-400 bg-white/50 text-slate-700 hover:text-slate-900 text-center px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-sm text-base">
+                                為何選擇三總團隊？ <i class="fa-solid fa-arrow-down ml-1.5 text-brand-500"></i>
                             </a>
                         </div>
                     </div>
@@ -278,7 +280,8 @@
             </div>
         </section>
 
-        <section class="relative bg-gradient-to-br from-navy-950 via-slate-900 to-navy-900 text-white py-20 overflow-hidden border-b border-slate-800">
+        <!-- ==================== 為何選擇我們 (why-us) 首位黃金看板 ==================== -->
+        <section id="why-us" class="relative bg-gradient-to-br from-navy-950 via-slate-900 to-navy-900 text-white py-20 overflow-hidden border-b border-slate-800">
             <!-- 裝飾背景射線與戰機漂浮粒子微光 -->
             <div class="absolute inset-0 opacity-10 pointer-events-none">
                 <div class="absolute top-1/4 left-10 w-96 h-96 bg-brand-400 rounded-full blur-3xl"></div>
@@ -303,7 +306,7 @@
                             
                             <div class="space-y-6 mt-8">
                                 <div class="flex items-center space-x-4 border-b border-white/5 pb-4">
-                                    <div class="bg-brand-500/10 text-brand-400 p-3.5 rounded-2xl border border-brand-500/20 text-2xl">
+                                    <div class="bg-brand-500/10 text-brand-400 p-3.5 rounded-2xl border border-brand-500/20 text-2xl w-14 h-14 flex items-center justify-center shrink-0">
                                         <i class="fa-solid fa-calendar-check"></i>
                                     </div>
                                     <div>
@@ -312,7 +315,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-4 border-b border-white/5 pb-4">
-                                    <div class="bg-brand-500/10 text-brand-400 p-3.5 rounded-2xl border border-brand-500/20 text-2xl">
+                                    <div class="bg-brand-500/10 text-brand-400 p-3.5 rounded-2xl border border-brand-500/20 text-2xl w-14 h-14 flex items-center justify-center shrink-0">
                                         <i class="fa-solid fa-user-astronaut"></i>
                                     </div>
                                     <div>
@@ -321,7 +324,7 @@
                                     </div>
                                 </div>
                                 <div class="flex items-center space-x-4">
-                                    <div class="bg-brand-500/10 text-brand-400 p-3.5 rounded-2xl border border-brand-500/20 text-2xl">
+                                    <div class="bg-brand-500/10 text-brand-400 p-3.5 rounded-2xl border border-brand-500/20 text-2xl w-14 h-14 flex items-center justify-center shrink-0">
                                         <i class="fa-solid fa-plane-departure"></i>
                                     </div>
                                     <div>
@@ -356,27 +359,13 @@
                             <p>
                                 過去，這套「國防航空級」的頂尖屈光雷射技術，需要在醫學中心歷經漫長的預約與排隊等待。現在，我們正式推出<strong class="text-brand-400">「一條龍快速通道服務」</strong>，將這個國家級安全防護標準，推廣至<strong class="text-white">國軍弟兄、第一線軍警消人員以及廣大一般民眾</strong>。
                             </p>
-                            <p class="text-slate-400 text-sm sm:text-base font-normal">
-                                我們的宗旨是：讓每一位追求安全與極致視覺品質的國民，都能享受與國家捍衛者同等規格、安全無虞的頂級醫學中心服務。
-                            </p>
-                        </div>
-                        
-                        <!-- CTA 橫幅快速連結 -->
-                        <div class="pt-4 flex flex-col sm:flex-row items-center gap-4">
-                            <a href="#quick-reserve" class="w-full sm:w-auto bg-brand-500 hover:bg-brand-600 text-white text-center px-8 py-4 rounded-xl font-bold transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brand-500/20 text-base">
-                                <i class="fa-brands fa-line mr-2 text-xl"></i> 立即透過快速通道安排預約
-                            </a>
-                            <div class="flex items-center space-x-2 text-slate-400 text-xs sm:text-sm font-semibold">
-                                <i class="fa-solid fa-shield-heart text-brand-400"></i>
-                                <span>國軍、警消、民眾一視同仁的高規呵護</span>
-                            </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </section>
 
+        <!-- ==================== 醫學中心級強勢優勢 ==================== -->
         <section class="py-16 bg-white border-b border-slate-200/60 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -386,6 +375,40 @@
                     <p class="text-slate-605 mt-3 text-base sm:text-lg font-bold">
                         近視雷射不只是一次角膜整形，更是一次對全眼底健康的嚴格考驗。唯有「國家級醫學中心」能給您全方位、跨次專科的萬無一失安全守護。
                     </p>
+                </div>
+
+                <!-- 雙院聯動安全網與流程地圖展示 (Visual Dual-Hospital Safety Net) -->
+                <div class="max-w-6xl mx-auto mb-12 bg-gradient-to-br from-slate-900 to-navy-950 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl relative overflow-hidden">
+                    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-500/5 rounded-full blur-3xl"></div>
+                    <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-4 space-y-4">
+                            <span class="bg-brand-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">首創 • 跨院區綠色通道</span>
+                            <h3 class="text-xl sm:text-2xl font-black">睛采視界雙院聯防網</h3>
+                            <p class="text-slate-450 text-sm leading-relaxed">
+                                術前高精儀器篩檢在松山分院完成，手術當天快速預約直接對接內湖總院高階手術室，術後回診可就近自由選擇。數據實時同步，兩院專家雙向聯防。
+                            </p>
+                        </div>
+                        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
+                                <h4 class="font-bold text-brand-400 flex items-center text-base"><i class="fa-solid fa-hospital-user mr-2"></i>三總松山分院 (門診檢查)</h4>
+                                <ul class="text-xs text-slate-350 space-y-2 mt-3 list-disc list-inside">
+                                    <li>捷運南京三民站，交通極便利</li>
+                                    <li>專屬綠色通道：免大排長龍候診</li>
+                                    <li>20 多項高精細全方位屈光術檢</li>
+                                    <li>航醫級視野與夜間對比視力評估</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white/5 border border-white/10 p-5 rounded-2xl">
+                                <h4 class="font-bold text-brand-400 flex items-center text-base"><i class="fa-solid fa-hospital-alt mr-2"></i>三總內湖總院 (高階手術)</h4>
+                                <ul class="text-xs text-slate-350 space-y-2 mt-3 list-disc list-inside">
+                                    <li>頂規無菌正壓密閉屈光手術室</li>
+                                    <li>國家級醫學中心全眼科次專科聯防</li>
+                                    <li>配備血液、血庫與重症急救支持</li>
+                                    <li>AMARIS 1050RS 極速雷射執行</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-6xl mx-auto">
@@ -430,14 +453,14 @@
                                     <div>
                                         <h4 class="font-extrabold text-slate-800 text-base">重症麻醉與無菌環境的應變劣勢</h4>
                                         <p class="text-slate-500 text-sm mt-1 leading-relaxed font-semibold">
-                                            一般診所雖環境裝潢漂亮，但無菌手術室通常無氣流、氣壓精密雙向正壓監控，亦無配備麻醉學主治醫師及跨學科加護病房重症急救備援，難以面對罕見的急重症緊急危機。
+                                            一般診所雖環境裝潢漂亮，但無菌手術室通常無氣流、氣壓精密雙向正壓密閉監控，亦無配備麻醉學主治醫師及跨學科加護病房重症急救備援，難以面對罕見的急重症緊急危機。
                                         </p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
                         <div class="bg-slate-200/50 p-4 rounded-2xl text-center text-xs text-slate-500 font-semibold mt-8 border border-slate-200">
-                            *一般診所功能多在眼球前房近視雷射，缺乏完整的全眼疾病聯聯防網絡
+                            *一般診所功能多在眼球前房近視雷射，缺乏完整的全眼疾病聯防網絡
                         </div>
                     </div>
 
@@ -500,6 +523,7 @@
             </div>
         </section>
 
+        <!-- ==================== 為什麼選擇表層零接觸全雷射手術 ==================== -->
         <section class="py-16 bg-white border-b border-slate-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
@@ -512,10 +536,9 @@
                     <!-- Card 1: 不翻瓣、不掀瓣 -->
                     <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-355 flex flex-col justify-between">
                         <div>
-                            <!-- 高階動態 SVG 容器 - 已徹底移除左上角絕對定位小方塊 -->
+                            <!-- 高階動態 SVG 容器 -->
                             <div class="overflow-hidden rounded-2xl border border-slate-200/60 mb-6 bg-slate-950 aspect-[4/3] shadow-inner relative flex items-center justify-center p-4">
                                 <svg viewBox="0 0 240 180" class="w-full h-full max-h-44" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- 網格背景，增添精密科技感 -->
                                     <defs>
                                         <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
                                             <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
@@ -561,7 +584,7 @@
                     <!-- Card 2: 器械零接觸 -->
                     <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-355 flex flex-col justify-between">
                         <div>
-                            <!-- 高階動態 SVG 容器 - 已徹底移除左上角絕對定位小方塊 -->
+                            <!-- 高階動態 SVG 容器 -->
                             <div class="overflow-hidden rounded-2xl border border-slate-200/60 mb-6 bg-slate-950 aspect-[4/3] shadow-inner relative flex items-center justify-center p-4">
                                 <svg viewBox="0 0 240 180" class="w-full h-full max-h-44" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="100%" height="100%" fill="url(#grid)" />
@@ -606,7 +629,7 @@
                     <!-- Card 3: 術後不乾眼 -->
                     <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-355 flex flex-col justify-between">
                         <div>
-                            <!-- 高階動態 SVG 容器 - 已徹底移除左上角絕對定位小方塊 -->
+                            <!-- 高階動態 SVG 容器 -->
                             <div class="overflow-hidden rounded-2xl border border-slate-200/60 mb-6 bg-slate-950 aspect-[4/3] shadow-inner relative flex items-center justify-center p-4">
                                 <svg viewBox="0 0 240 180" class="w-full h-full max-h-44" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="100%" height="100%" fill="url(#grid)" />
@@ -654,12 +677,13 @@
             </div>
         </section>
 
+        <!-- ==================== 德國 AMARIS 頂頂規技術說明 (tech) ==================== -->
         <section id="tech" class="py-16 bg-slate-50 border-b border-slate-200/60 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-brand-600 font-extrabold text-xs sm:text-sm tracking-wider uppercase">Advanced Technology</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2">引引領全球屈光雷射<br>德國頂規 AMARIS 四大智能科技</h2>
+                    <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2">引領全球屈光雷射<br>德國頂規 AMARIS 四大智能科技</h2>
                     <p class="text-slate-650 text-base sm:text-lg mt-4 leading-relaxed font-semibold">
                         本院引進之 AMARIS 1050RS 曾榮獲「國際傑出醫學設計金獎」，用高科技解決眼球不自主微顫、雷射過熱酸痛等傳統手術痛點。
                     </p>
@@ -685,7 +709,7 @@
                         </div>
                         <div>
                             <h4 class="font-extrabold text-slate-900 text-lg sm:text-xl">Active 7D 零時差動態眼球追蹤系統</h4>
-                            <p class="text-slate-600 text-sm sm:text-base mt-2.5 leading-relaxed font-semibold">
+                            <p class="text-slate-650 text-sm sm:text-base mt-2.5 leading-relaxed font-semibold">
                                 治療時縱使個案努力盯著綠光，眼球仍會產生不自主的微細顫動。此系統具備每秒 1050 次超高捕捉速率，能夠精確偵測並預測眼球在「下一毫秒」即將產生的位移，確保雷射點精準鎖定中心，絕不打偏。
                             </p>
                         </div>
@@ -697,7 +721,7 @@
                         </div>
                         <div>
                             <h4 class="font-extrabold text-slate-900 text-lg sm:text-xl">ITEC 智能眼表溫度控制系統</h4>
-                            <p class="text-slate-600 text-sm sm:text-base mt-2.5 leading-relaxed font-semibold">
+                            <p class="text-slate-650 text-sm sm:text-base mt-2.5 leading-relaxed font-semibold">
                                 過去傳統雷射切削產生的熱能堆積，常造成患者術後嚴重的眼部熱灼痛。ITEC 系統能在過程中動態調控能量的落點散布與散熱時間，避免熱能過度累積，大幅減緩術後發炎與酸澀不適。
                             </p>
                         </div>
@@ -709,7 +733,7 @@
                         </div>
                         <div>
                             <h4 class="font-extrabold text-slate-900 text-lg sm:text-xl">AFLA 自動雙能量密度調整系統</h4>
-                            <p class="text-slate-600 text-sm sm:text-base mt-2.5 leading-relaxed font-semibold">
+                            <p class="text-slate-650 text-sm sm:text-base mt-2.5 leading-relaxed font-semibold">
                                 自動調配雷射的高低能量輸出。在大面積快速削切矯正度數時使用高能量（快速省時），而在細緻拋光與微調塑形時則自動切換為低能量，兼顧手術高效率與極致光滑的切削品質。
                             </p>
                         </div>
@@ -719,6 +743,7 @@
             </div>
         </section>
 
+        <!-- ==================== 診療實景直擊 (gallery) ==================== -->
         <section id="gallery" class="py-16 bg-white border-b border-slate-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -799,7 +824,7 @@
                     <div x-show="galleryTab === 'consult'" x-transition x-cloak class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-4">
                             <span class="text-sm font-extrabold text-brand-600 bg-brand-100/60 px-3 py-1.5 rounded-full uppercase tracking-wider">Step 02. Consultation & Briefing</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">醫師親自解解說角膜圖譜與手術行行前說明</h3>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">醫師親自解說角膜圖譜與手術行前說明</h3>
                             <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-semibold">
                                 精密數據量測後，由三總眼科專門主治醫師親自為您分析角膜地圖。不只詳細診斷您的角膜厚度是否合乎雷射切削標準，更會與您共同探討手術原理（醫病共享決策）。隨後，專業護理團隊將細心講解雷射同意書要點與術後照護守則，確保您在踏入手術房前全然安心。
                             </p>
@@ -887,14 +912,14 @@
                                 手術完成後，回診追蹤是保護卓越視覺品質的關鍵。您不需每次跑回內湖總院排隊，直接預約快速通道松山分院門診，由主治醫師透過高倍裂隙燈顯微鏡（Slit Lamp），細密檢查角膜上皮的新生癒合速度、乾澀狀況與眼部微發炎反應，一條龍關懷直到完全恢復。
                             </p>
                             <div class="bg-white p-5 border border-slate-200/60 rounded-xl space-y-3 text-sm sm:text-base text-slate-600 font-semibold">
-                                <p class="font-extrabold text-slate-850 flex items-center text-base"><i class="fa-solid fa-circle-info text-brand-500 mr-2"></i>術後照照護把關：</p>
+                                <p class="font-extrabold text-slate-850 flex items-center text-base"><i class="fa-solid fa-circle-info text-brand-500 mr-2"></i>術後照護把關：</p>
                                 <p>• <strong class="text-slate-900">高倍裂隙燈檢查</strong>：確認新生上皮平整度，並在第七天確認良好後移除保護型治療隱形眼鏡。</p>
                                 <p>• <strong class="text-slate-900">松山/內湖聯手照護</strong>：術前、術中與術後數據零落差同步，給您最完善的醫學中心照顧品質。</p>
                             </div>
                         </div>
                         <div class="lg:col-span-6 flex justify-center">
                             <div class="bg-white border border-slate-200/60 p-4 rounded-2xl shadow-sm text-center max-w-md w-full">
-                                <img src="IMG_20250514_113411.jpg" alt="裂隙燈顯微鏡術後詳細檢驗" class="w-full h-64 object-cover rounded-xl border border-slate-100 mb-3 hover:scale-[1.02] transition-transform duration-200" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579684213401-447e17926b47?w=600'">
+                                <img src="IMG_20250514_113411.jpg" alt="裂隙燈顯微鏡術後詳細檢驗" class="w-full h-64 object-cover rounded-xl border border-slate-100 mb-3 hover:scale-[1.02] transition-transform duration-200" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579684389782-64d84b5e901a?w=600'">
                                 <span class="text-sm font-extrabold text-slate-800">醫師親自進行術後裂隙燈高倍角膜上皮檢查</span>
                             </div>
                         </div>
@@ -904,6 +929,7 @@
             </div>
         </section>
 
+        <!-- ==================== 醫師團隊 (doctors) ==================== -->
         <section id="doctors" class="py-16 bg-navy-950 text-slate-300">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -1183,7 +1209,7 @@
                                         </div>
                                     </td>
                                     
-                                    <!-- 週四 -->
+                                    <!-- 週開 -->
                                     <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
                                     <!-- 週五 -->
@@ -1202,6 +1228,7 @@
             </div>
         </section>
 
+        <!-- ==================== 適合度自我測試 (quiz) ==================== -->
         <section id="quiz" class="py-16 bg-white border-b border-slate-200/60">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white border border-slate-200 rounded-3xl shadow-xl overflow-hidden" 
@@ -1269,7 +1296,7 @@
                         <!-- Step 4 -->
                         <div x-show="step === 4" x-transition x-cloak class="space-y-6 text-center">
                             <div class="text-5xl text-brand-500"><i class="fa-solid fa-person-running"></i></div>
-                            <h4 class="text-lg sm:text-xl font-bold text-slate-800">第四步：您的工作、高強度強度休閒運動（如碰撞運動、潛水、健身）常因眼鏡而感到極度不便？</h4>
+                            <h4 class="text-lg sm:text-xl font-bold text-slate-800">第四步：您的工作、高強度休閒運動（如碰撞運動、潛水、健身）常因眼鏡而感到極度不便？</h4>
                             <div class="flex justify-center space-x-4">
                                 <button @click="answers.q4 = 'yes'; step++" class="bg-slate-50 hover:bg-brand-50 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">是</button>
                                 <button @click="answers.q4 = 'no'; step++" class="bg-slate-50 hover:bg-brand-50 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">否</button>
@@ -1346,6 +1373,7 @@
             </div>
         </section>
 
+        <!-- ==================== 常見問題 (faq) ==================== -->
         <section id="faq" class="py-16 bg-slate-50 border-b border-slate-200/60" x-data="{ faqSelected: null }">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
@@ -1393,7 +1421,7 @@
                                 術後立即視力大約落在 0.3 到 0.4 之間，配合我們在手術完為您戴上的治療保護型隱形眼鏡，已足以應付日常生活起居所須。
                             </p>
                             <p>
-                                <strong>第 2 至第 3 天：</strong>為角膜上皮新生的黃金期，此時會有異物感、流淚、畏光或偶爾酸澀。請按時服用我們為您開立的舒緩藥物與口服止痛。
+                                <strong>第 2 至第 3 天：</strong>為角膜上皮新生的黃金期，此時會有異物感、流淚、畏光或偶爾酸澀。請按時編寫舒緩藥物與口服止痛。
                             </p>
                             <p>
                                 <strong>第七天：</strong>通常角膜上皮已初步新生，可安排回診松山分院 or 內湖總院，由醫師確認上皮修補良好後移除保護型隱形眼鏡。此後視力會逐漸走向清晰，術後 1 週到 1 個月隨角膜水腫、微發炎反應代謝，視覺品質會越來越紮實。
@@ -1419,6 +1447,7 @@
             </div>
         </section>
 
+        <!-- ==================== Line 預約區 ==================== -->
         <section id="quick-reserve" class="py-16 bg-gradient-to-br from-brand-50 via-emerald-50/20 to-blue-50/50 border-t border-slate-200/80 text-slate-800 relative">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(16,185,129,0.06),transparent)]"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1510,6 +1539,11 @@
                 <div class="lg:col-span-3 space-y-4 text-sm font-semibold">
                     <h5 class="text-white font-bold uppercase tracking-wider text-base">功能導覽</h5>
                     <ul class="space-y-3">
+                        <li>
+                            <a href="#why-us" class="hover:text-white flex items-center">
+                                <i class="fa-solid fa-shield-heart mr-2 text-brand-400"></i> 為何選擇我們
+                            </a>
+                        </li>
                         <li>
                             <a href="#tech" class="hover:text-white flex items-center">
                                 <i class="fa-solid fa-crosshairs mr-2 text-brand-400"></i> 先進核心技術
@@ -1608,7 +1642,7 @@
                         <h4 class="font-extrabold text-slate-900 text-base border-l-4 border-brand-500 pl-2.5">二、 個人資料的蒐集、處理及利用方式</h4>
                         <ul class="list-disc list-inside space-y-1.5 pl-1.5 text-slate-600 font-medium">
                             <li>當您蒞臨本網站或參與本網站活動時，我們將視活動性質請您提供必要的個人資料，並在該特定目的範圍內處理及利用您的個人資料。</li>
-                            <li>本網站蒐集足以識別使用者身分的個人資料、消費與交易資料，或日後經您同意而提供之其他個人資料，都僅供本網站於其內部、依照蒐集之目的進行處理和利用、或為完成提供服務或履行合約義務之必要、或依照相關法令規定或有權政府機關之命令或要求，否則本網站不會將足以識別使用者身分的個人資料提供給第三人（包括境內及境外）、或移作蒐集目的以外之使用。</li>
+                            <li>本網站蒐集足以識別使用者身分的個人資料、消費與交易資料，或日後經您同意而提供之其他個人資料，都僅供本網站於其內部、依照蒐集之目的進行處理和利用、或為完成提供服務或履行合約義務之必要、或依照相關法令規定或有權政府機關之命令 or 要求，否則本網站不會將足以識別使用者身分的個人資料提供給第三人（包括境內及境外）、或移作蒐集目的以外之使用。</li>
                         </ul>
                     </div>
 
@@ -1633,13 +1667,13 @@
                     <div class="space-y-2.5">
                         <h4 class="font-extrabold text-slate-900 text-base border-l-4 border-brand-500 pl-2.5">五、 與第三人共用個人資料之政策</h4>
                         <p class="pl-1.5 text-slate-600 font-bold">
-                            本網站絕不會提供、交換、出租或出售任何您的個人資料給其他個人、團體、私人企業或公務機關，但有法律依據或合約義務者，不在此限。
+                            本網站絕不會提供、交換、出租 or 出售任何您的個人資料給其他個人、團體、私人企業或公務機關，但有法律依據或合約義務者，不在此限。
                         </p>
                         <p class="font-bold text-slate-800 pl-1.5">前項但書之情形包括不限於：</p>
                         <ul class="list-decimal list-inside space-y-1.5 pl-3 text-slate-600 font-medium">
                             <li>經由您同意。</li>
                             <li>法律明文規定。</li>
-                            <li>為維護國家安全或增進公共利益。</li>
+                            <li>為維護國家安全 or 增進公共利益。</li>
                             <li>為免除您生命、身體、自由或財產上之危險。</li>
                             <li>當您在本網站的行為，違反本網站的服務條款或可能損害或妨礙本網站權益或導致任何人遭受損害時，經本網站揭露您的個人資料是為了辨識、聯絡或採取法律行動所必要者。</li>
                             <li>有利於您的權益。</li>
@@ -1777,7 +1811,7 @@
                         <h4 class="font-extrabold text-slate-900 text-base border-l-4 border-brand-500 pl-2.5">8. 其他</h4>
                         <ul class="list-disc list-inside space-y-1.5 pl-1.5 text-slate-600 font-medium">
                             <li>8.1 本條款的解釋、效力及糾紛解決均適用中華民國之法律。</li>
-                            <li>8.2 若本條款的任何條款被視為無效或不可執行，該條款應在必要的最低限度內被修改或刪除，且不影響其他條款的有效性和可執行性。</li>
+                            <li>8.2 若本條款的任何條款被視為無效或不可執行，該條款應在必要的最低限度內被修改 or 刪除，且不影響其他條款的有效性和可執行性。</li>
                         </ul>
                     </div>
                 </div>
