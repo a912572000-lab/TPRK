@@ -2,16 +2,29 @@
 <html lang="zh-TW" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>睛采視界 - 三總近視雷射快速通道 (松山分院/內湖總院)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
-    <!-- Fallback 靜態樣式表：防止 iOS/LINE 封鎖 Tailwind JIT 動態編譯時變成毛胚屋 -->
+    <!-- SEO 關鍵字與網頁描述 -->
+    <title>睛采視界 - 三總近視雷射快速通道 (黃克豪醫師松山分院/內湖總院)</title>
+    <meta name="description" content="由三軍總醫院眼科主任黃克豪醫師與翁子恆醫師攜手，引進德國頂規 AMARIS 1050RS 儀器，提供不掀瓣、零接觸的 SMART TransPRK 手術，享受免排隊的一條龍雙院區屈光服務。">
+    <meta name="keywords" content="黃克豪, 翁子恆, 近視雷射, 三總眼科, 松山分院眼科, SMART TransPRK, AMARIS 1050RS, 角膜零接觸, 飛行員近視雷射">
+    <meta name="author" content="睛采視界">
+    
+    <!-- Open Graph (OG) 社群分享協定，優化 LINE/Facebook 預覽圖卡 -->
+    <meta property="og:title" content="睛采視界 - 三總近視雷射快速通道 (松山分院/內湖總院)">
+    <meta property="og:description" content="徹底告別眼鏡束縛！三總眼科團隊官方綠色通道，提供「角膜零接觸、不掀瓣」的極致安全近視雷射，省去漫長排隊，由權威主治醫師全程把關。">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?w=1200&q=80">
+    <meta property="og:locale" content="zh_TW">
+
+    <!-- Fallback 靜態樣式表 -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     
-    <!-- Tailwind CSS 動態編譯器 (用於補足 v3 新增的 Class) -->
+    <!-- Tailwind CSS 動態編譯器 -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Alpine.js -->
+    <!-- 關鍵修正：Alpine.js 加上 defer，並確保外掛先於主程式加載，防止 iOS Safari 載入阻塞崩潰 -->
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- FontAwesome 圖示庫 -->
@@ -49,12 +62,14 @@
             display: none !important;
         }
         
-        /* 蘋果設備專用文字漸層剪裁修正 */
+        /* 蘋果設備專用文字漸層剪裁修正 (補上 -webkit-box-decoration-break 防止斷行透明失效) */
         .gradient-text {
             background: linear-gradient(135deg, #0d9488 0%, #2563eb 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
         }
         .light-gradient-bg {
             background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 50%, #eff6ff 100%);
@@ -68,11 +83,14 @@
         
         /* 蘋果設備 iOS Safari 專用毛玻璃模糊背景優化 */
         .sticky-blur {
-            -webkit-backdrop-filter: blur(16px) !important;
-            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            backdrop-filter: blur(20px) !important;
         }
 
-        /* 滾動條美化：確保在手機端有明顯的滑動軌跡，引導左右滑動 */
+        /* 滾動條美化及 iOS 絲滑滑動關鍵 */
+        .beautiful-scrollbar {
+            -webkit-overflow-scrolling: touch; /* 關鍵：強制 iOS 啟用硬體加速滑動，防止卡死 */
+        }
         .beautiful-scrollbar::-webkit-scrollbar {
             height: 6px;
         }
@@ -93,6 +111,14 @@
         .animate-scroll-pulse {
             animation: scrollPulse 1.6s infinite ease-in-out;
         }
+        
+        /* 針對 iOS 安全區域適配 */
+        .safe-padding-bottom {
+            padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+        }
+        .safe-margin-bottom {
+            margin-bottom: env(safe-area-inset-bottom);
+        }
     </style>
 </head>
 <body class="bg-slate-50/50 text-slate-800 font-sans leading-relaxed text-base md:text-lg" 
@@ -111,7 +137,7 @@
           }
       }">
 
-    <header class="sticky top-0 z-50 bg-white/95 sticky-blur border-b border-slate-200/80 text-slate-800 shadow-sm">
+    <header class="sticky top-0 z-50 bg-white/80 sticky-blur border-b border-slate-200/80 text-slate-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo 區 (雙院徽官方聯名版型) -->
@@ -128,7 +154,7 @@
 
                 <!-- 服務選單 - 桌面端 -->
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#why-us" class="text-slate-605 hover:text-brand-600 text-base font-extrabold transition-colors duration-200"><i class="fa-solid fa-shield-heart mr-1 text-brand-500"></i> 為何選擇我們</a>
+                    <a href="#why-us" class="text-slate-600 hover:text-brand-600 text-base font-extrabold transition-colors duration-200"><i class="fa-solid fa-shield-heart mr-1 text-brand-500"></i> 為何選擇我們</a>
                     <a href="#clinical-proof" class="text-slate-600 hover:text-brand-600 text-base font-bold transition-colors duration-200">實證數據</a>
                     <a href="#tech" class="text-slate-600 hover:text-brand-600 text-base font-bold transition-colors duration-200">雷射技術</a>
                     <a href="#gallery" class="text-slate-600 hover:text-brand-600 text-base font-bold transition-colors duration-200">診療實景</a>
@@ -203,7 +229,7 @@
                         </h1>
                         <p class="text-slate-750 text-lg sm:text-xl max-w-2xl font-bold leading-relaxed">
                             想做近視雷射，卻卡在醫學中心掛號排隊、檢查等半年？<br>
-                            我們推出專屬綠色通道：由三總眼科權威團隊親自看診，引進德國頂規 <strong class="text-slate-950 font-black">AMARIS 1050RS 儀器</strong>，提供「角膜零接觸、不掀瓣」的極致安全 SMART TransPRK 手術，帶您安全重回清晰視界！
+                            我們推出專屬綠色通道：由三總眼科權威團隊親自看診，引引德國頂規 <strong class="text-slate-950 font-black">AMARIS 1050RS 儀器</strong>，提供「角膜零接觸、不掀瓣」的極致安全 SMART TransPRK 手術，帶您安全重回清晰視界！
                         </p>
                         <!-- 快速統計卡片 -->
                         <div class="grid grid-cols-3 gap-4 py-5 border-y border-slate-200 max-w-lg">
@@ -362,7 +388,7 @@
                             </p>
                         </div>
 
-                        <!-- 新增實時動態提示：目前仍在持續進行飛行專案中 -->
+                        <!-- 新增實時動態提示 -->
                         <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-5 mt-6 text-sm sm:text-base text-emerald-300 font-bold flex items-start space-x-3.5 shadow-lg shadow-emerald-500/5">
                             <span class="flex h-3 w-3 relative mt-1.5 shrink-0">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -375,7 +401,7 @@
                     </div>
                 </div>
 
-                <!-- 國航專案提純：數位戰術數據儀表板 (原創原生圖表組，取代粗糙的 raw charts) -->
+                <!-- 國航專案提純：數位戰術數據儀表板 -->
                 <div class="mt-16 bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-md">
                     <div class="border-b border-white/10 pb-6 mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                         <div>
@@ -396,7 +422,6 @@
                                     <i class="fa-solid fa-chart-column text-brand-400 mr-2"></i> 106 - 115 年度累計執行專案趨勢
                                 </h4>
                                 
-                                <!-- 自製精緻 CSS 原生直條圖 -->
                                 <div class="space-y-4">
                                     <!-- 106-107年 -->
                                     <div>
@@ -506,7 +531,6 @@
                                     <i class="fa-solid fa-helicopter text-brand-400 mr-2"></i> 成功培育之三軍飛行官 (已掛飛鷹)
                                 </h4>
                                 
-                                <!-- 原生軍種分配進度條 -->
                                 <div class="space-y-6">
                                     <div class="bg-navy-950/80 p-4 rounded-xl border border-white/5">
                                         <div class="flex justify-between text-xs font-bold text-slate-300 mb-2">
@@ -563,7 +587,6 @@
                     </p>
                 </div>
 
-                <!-- 數據提純展示：原生極速載入數位圖表 (取代原本不好看、模糊的圓餅與 Excel 柱狀截圖) -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto items-stretch">
                     
                     <!-- 1. 術後 3個月 / 6個月 裸眼視力 (UCVA) 分佈原生對照表 -->
@@ -647,7 +670,7 @@
                         </div>
                     </div>
 
-                    <!-- 2. 安全性與療效分析指標 (CSS 環形與指標卡) -->
+                    <!-- 2. 安全性與療效分析指標 -->
                     <div class="lg:col-span-5 bg-slate-50 border border-slate-200/80 p-6 sm:p-8 rounded-3xl flex flex-col justify-between hover:border-brand-500/50 transition-all">
                         <div>
                             <div class="border-b border-slate-200 pb-4 mb-6">
@@ -661,7 +684,6 @@
                                 <!-- 療效指數 -->
                                 <div class="bg-white p-5 rounded-2xl border border-slate-100 text-center flex flex-col justify-center items-center">
                                     <span class="text-slate-500 text-xs font-bold block mb-2">療效指數 (Efficacy)</span>
-                                    <!-- 提純 SVG 原生計量環 -->
                                     <div class="relative w-20 h-20 mb-3 flex items-center justify-center">
                                         <svg class="absolute inset-0 w-full h-full transform -rotate-90">
                                             <circle cx="40" cy="40" r="34" stroke="#f1f5f9" stroke-width="6" fill="transparent" />
@@ -717,7 +739,7 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Card 1: 不翻瓣、不掀瓣 -->
-                    <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-355 flex flex-col justify-between">
+                    <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
                         <div>
                             <!-- 高階動態 SVG 容器 -->
                             <div class="overflow-hidden rounded-2xl border border-slate-200/60 mb-6 bg-slate-950 aspect-[4/3] shadow-inner relative flex items-center justify-center p-4">
@@ -765,7 +787,7 @@
                     </div>
                     
                     <!-- Card 2: 器械零接觸 -->
-                    <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-355 flex flex-col justify-between">
+                    <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
                         <div>
                             <!-- 高階動態 SVG 容器 -->
                             <div class="overflow-hidden rounded-2xl border border-slate-200/60 mb-6 bg-slate-950 aspect-[4/3] shadow-inner relative flex items-center justify-center p-4">
@@ -810,7 +832,7 @@
                     </div>
                     
                     <!-- Card 3: 術後不乾眼 -->
-                    <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-355 flex flex-col justify-between">
+                    <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
                         <div>
                             <!-- 高階動態 SVG 容器 -->
                             <div class="overflow-hidden rounded-2xl border border-slate-200/60 mb-6 bg-slate-950 aspect-[4/3] shadow-inner relative flex items-center justify-center p-4">
@@ -941,8 +963,8 @@
                     </span>
                 </div>
 
-                <!-- 診療流程橫滑頁籤 -->
-                <div class="flex overflow-x-auto md:justify-center border-b border-slate-200 pb-2 mb-12 space-x-3 md:space-x-4 beautiful-scrollbar">
+                <!-- 診療流程橫滑頁籤 (加上 beautiful-scrollbar 與 -webkit-overflow-scrolling 確保 iOS 橫滑流暢) -->
+                <div class="flex overflow-x-auto md:justify-center border-b border-slate-200 pb-2 mb-12 space-x-3 md:space-x-4 beautiful-scrollbar" style="-webkit-overflow-scrolling: touch;">
                     <button @click="galleryTab = 'exam'" 
                             :class="galleryTab === 'exam' ? 'border-brand-500 text-brand-600 border-b-4 font-black bg-brand-50/50' : 'border-transparent text-slate-650 hover:text-slate-900'"
                             class="px-6 py-4.5 text-base sm:text-lg font-bold transition-all whitespace-nowrap rounded-t-xl flex items-center shrink-0">
@@ -1002,7 +1024,7 @@
                     <div x-show="galleryTab === 'consult'" x-transition x-cloak class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-4">
                             <span class="text-sm font-extrabold text-brand-600 bg-brand-100/60 px-3 py-1.5 rounded-full uppercase tracking-wider">Step 02. Consultation & Briefing</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">醫師親自解說角膜圖譜與手術行前說明</h3>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">醫師親自解說角膜圖譜與手術行行說明</h3>
                             <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-semibold">
                                 精密數據量測後，由三總眼科專門主治醫師親自為您分析角膜地圖。不只詳細診斷您的角膜厚度是否合乎雷射切削標準，更會與您共同探討手術原理（醫病共享決策）。隨後，專業護理團隊將細心講解雷射同意書要點與術後照護守則，確保您在踏入手術房前全然安心。
                             </p>
@@ -1019,7 +1041,7 @@
                             </div>
                             <div class="bg-white border border-slate-200/60 p-3 rounded-2xl shadow-sm text-center">
                                 <img src="IMG_20250507_134924.jpg" alt="護理團隊手術行前詳盡說導" class="w-full h-48 object-cover rounded-xl border border-slate-100 mb-3 hover:scale-[1.02] transition-transform duration-200" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600'">
-                                <span class="text-sm font-extrabold text-slate-800">醫療團隊細緻解讀手術行前守則</span>
+                                <span class="text-sm font-extrabold text-slate-800">醫療團隊細緻解讀手術行行守則</span>
                             </div>
                         </div>
                     </div>
@@ -1052,7 +1074,7 @@
                     </div>
 
                     <!-- Step 4: Surgery -->
-                    <div x-show="galleryTab === 'surgery'" x-transition x-cloak class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div x-show="galleryTab === 'surgery'" x-transition class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-4">
                             <span class="text-sm font-extrabold text-brand-600 bg-brand-100/60 px-3 py-1.5 rounded-full uppercase tracking-wider">Step 04. Laser Ablation</span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">德國頂規 AMARIS 1050RS 雷射切削實景</h3>
@@ -1344,7 +1366,7 @@
                         </span>
                     </div>
 
-                    <div class="overflow-x-auto beautiful-scrollbar">
+                    <div class="overflow-x-auto beautiful-scrollbar" style="-webkit-overflow-scrolling: touch;">
                         <table class="w-full text-xs text-left text-slate-300 min-w-[780px]">
                             <thead>
                                 <tr class="bg-navy-950/50 text-slate-100 font-bold border-b border-slate-700/50">
@@ -1355,7 +1377,7 @@
                                     <th class="py-3 px-4 text-sm">週三 (Wed)</th>
                                     <th class="py-3 px-4 text-sm">週四 (Thu)</th>
                                     <th class="py-3 px-4 text-sm">週五 (Fri)</th>
-                                    <th class="py-3 px-4 rounded-r-xl w-28 text-sm text-center">通道指引</th>
+                                    <th class="py-3 px-4 rounded-r-xl w-36 text-sm text-center">通道指引</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-800 font-medium">
@@ -1408,8 +1430,8 @@
                                     </td>
                                     
                                     <td class="py-3 px-4 text-center">
-                                        <a href="https://reg.807.mnd.gov.tw/webreg/calendar_type/iy3piVcOPkpp-2MxeOL_uA%3D%3D" target="_blank" class="text-brand-400 hover:text-brand-300 hover:underline inline-flex items-center">
-                                            松院掛號頁面 <i class="fa-solid fa-chevron-right text-[9px] ml-1"></i>
+                                        <a href="https://reg.807.mnd.gov.tw/webreg/calendar_type/iy3piVcOPkpp-2MxeOL_uA%3D%3D" target="_blank" class="text-brand-400 hover:text-brand-300 hover:underline inline-flex items-center gap-1.5 transition-all">
+                                            松院掛號 <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -1466,8 +1488,8 @@
                                     <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
                                     <td class="py-3 px-4 text-center">
-                                        <a href="https://wwwv.tsgh.ndmutsgh.edu.tw/docdet/191/10046/25623/2870" target="_blank" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center">
-                                            內湖掛號頁面 <i class="fa-solid fa-chevron-right text-[9px] ml-1"></i>
+                                        <a href="https://wwwv.tsgh.ndmutsgh.edu.tw/docdet/191/10046/25623/2870" target="_blank" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center gap-1.5 transition-all">
+                                            內湖掛號 <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                                         </a>
                                     </td>
                                 </tr>
@@ -1558,8 +1580,8 @@
                             <div class="text-5xl text-brand-500"><i class="fa-solid text-brand-500 fa-expand"></i></div>
                             <h4 class="text-lg sm:text-xl font-bold text-slate-800">第五步：您對於任何器械直接接觸眼球（如真空吸引、壓力負壓）會感到不適 or 恐懼？</h4>
                             <div class="flex justify-center space-x-4">
-                                <button @click="answers.q5 = 'yes'; step++" class="bg-slate-50 hover:bg-brand-50 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">是</button>
-                                <button @click="answers.q5 = 'no'; step++" class="bg-slate-50 hover:bg-brand-50 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">否</button>
+                                <button @click="answers.q5 = 'yes'; step++" class="bg-slate-50 hover:bg-brand-500 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">是</button>
+                                <button @click="answers.q5 = 'no'; step++" class="bg-slate-50 hover:bg-brand-500 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">否</button>
                             </div>
                         </div>
 
@@ -1637,60 +1659,68 @@
                     <div class="border border-slate-200/70 rounded-2xl overflow-hidden transition-all duration-200 bg-white shadow-sm">
                         <button @click="faqSelected = faqSelected === 1 ? null : 1" class="w-full flex justify-between items-center p-6 text-left font-extrabold text-slate-900 hover:bg-slate-50 transition-colors text-base sm:text-lg">
                             <span>Q1. 我的近視度數高達 1000 度，也可以做 SMART TransPRK 嗎？</span>
-                            <i class="fa-solid text-slate-500" :class="faqSelected === 1 ? 'fa-chevron-up text-brand-500' : 'fa-chevron-down'"></i>
+                            <i class="fa-solid text-slate-500 transition-transform duration-200" :class="faqSelected === 1 ? 'fa-chevron-up text-brand-500 rotate-180' : 'fa-chevron-down'"></i>
                         </button>
-                        <div x-show="faqSelected === 1" x-transition x-cloak class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 space-y-3 font-semibold leading-relaxed">
-                            <p>
-                                近視度數越深，雷射消耗的角膜基質層厚度越多。為確保術後眼睛結構的長期穩定與安全，避開「圓錐角膜」後遺症，術後角膜必須保留足夠的安全厚度。
-                            </p>
-                            <p>
-                                <strong>本院引進的 SMART TransPRK 消耗的角膜厚度相對其他術式少。</strong>且因為術中完全不用任何真空負壓抽吸，有效避免高度近視者眼球脆弱造成的額外負擔與視網膜剝離風險。高度近視群友是否能手術，仍必須預約詳盡的實體高階術前檢查後由醫師親自判定。
-                            </p>
+                        <div x-show="faqSelected === 1" x-collapse x-cloak>
+                            <div class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 space-y-3 font-semibold leading-relaxed">
+                                <p>
+                                    近視度數越深，雷射消耗的角膜基質層厚度越多。為確保術後眼睛結構的長期穩定與安全，避開「圓錐角膜」後遺症，術後角膜必須保留足夠的安全厚度。
+                                </p>
+                                <p>
+                                    <strong>本院引進的 SMART TransPRK 消耗的角膜厚度相對其他術式少。</strong>且因為術中完全不用任何真空負壓抽吸，有效避免高度近視者眼球脆弱造成的額外負擔與視網膜剝離風險。高度近視群友是否能手術，仍必須預約詳盡的實體高階術前檢查後由醫師親自判定。
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <!-- Q2 -->
                     <div class="border border-slate-200/70 rounded-2xl overflow-hidden transition-all duration-200 bg-white shadow-sm">
                         <button @click="faqSelected = faqSelected === 2 ? null : 2" class="w-full flex justify-between items-center p-6 text-left font-extrabold text-slate-900 hover:bg-slate-50 transition-colors text-base sm:text-lg">
                             <span>Q2. 近視雷射會痛嗎？需要全身麻醉還是打針？</span>
-                            <i class="fa-solid text-slate-500" :class="faqSelected === 2 ? 'fa-chevron-up text-brand-500' : 'fa-chevron-down'"></i>
+                            <i class="fa-solid text-slate-500 transition-transform duration-200" :class="faqSelected === 2 ? 'fa-chevron-up text-brand-500 rotate-180' : 'fa-chevron-down'"></i>
                         </button>
-                        <div x-show="faqSelected === 2" x-transition x-cloak class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 font-semibold leading-relaxed">
-                            <p>
-                                手術完全無須全身麻醉，也不需要打麻醉針。<strong>手術前只需在眼球點上幾滴「表面局部麻醉眼藥水」即可。</strong> 手術過程中除了撐眼器外，全程不會有任何器械碰觸到您的眼角膜。雷射施打時會發出聲響及散發異味（此為雷射作用於角膜基質蛋白時之正常現象），群友僅需放鬆凝視逆時針閃爍光點，約數十秒即可快速完成。
-                            </p>
+                        <div x-show="faqSelected === 2" x-collapse x-cloak>
+                            <div class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 font-semibold leading-relaxed">
+                                <p>
+                                    手術完全無須全身麻醉，也不需要打麻醉針。<strong>手術前只需在眼球點上幾滴「表面局部麻醉眼藥水」即可。</strong> 手術過程中除了撐眼器外，全程不會有任何器械碰觸到您的眼角膜。雷射施打時會發出聲響及散發異味（此為雷射作用於角膜基質蛋白時之正常現象），群友僅需放鬆凝視逆時針閃爍光點，約數十秒即可快速完成。
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <!-- Q3 -->
                     <div class="border border-slate-200/70 rounded-2xl overflow-hidden transition-all duration-200 bg-white shadow-sm">
                         <button @click="faqSelected = faqSelected === 3 ? null : 3" class="w-full flex justify-between items-center p-6 text-left font-extrabold text-slate-900 hover:bg-slate-50 transition-colors text-base sm:text-lg">
                             <span>Q3. 手術恢復期是多久？視力會如何提升？</span>
-                            <i class="fa-solid text-slate-500" :class="faqSelected === 3 ? 'fa-chevron-up text-brand-500' : 'fa-chevron-down'"></i>
+                            <i class="fa-solid text-slate-500 transition-transform duration-200" :class="faqSelected === 3 ? 'fa-chevron-up text-brand-500 rotate-180' : 'fa-chevron-down'"></i>
                         </button>
-                        <div x-show="faqSelected === 3" x-transition x-cloak class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 space-y-3 font-semibold leading-relaxed">
-                            <p>
-                                術後立即視力大約落在 0.3 到 0.4 之間，配合我們在手術完為您戴上的治療保護型隱形眼鏡，已足以應付日常生活起居所須。
-                            </p>
-                            <p>
-                                <strong>第 2 至第 3 天：</strong>為角膜上皮新生的黃金期，此時會有異物感、流淚、畏光或偶爾酸澀。請按時編寫舒緩藥物與口服止痛。
-                            </p>
-                            <p>
-                                <strong>第七天：</strong>通常角膜上皮已初步新生，可安排回診松山分院 or 內湖總院，由醫師確認上皮修補良好後移除保護型隱形眼鏡。此後視力會逐漸走向清晰，術後 1 週到 1 個月隨角膜水腫、微發炎反應代謝，視覺品質會越來越紮實。
-                            </p>
+                        <div x-show="faqSelected === 3" x-collapse x-cloak>
+                            <div class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 space-y-3 font-semibold leading-relaxed">
+                                <p>
+                                    術後立即視力大約落在 0.3 到 0.4 之間，配合我們在手術完為您戴上的治療保護型隱形眼鏡，已足以應付日常生活起居所須。
+                                </p>
+                                <p>
+                                    <strong>第 2 至第 3 天：</strong>為角膜上皮新生的黃金期，此時會有異物感、流淚、畏光或偶爾酸澀。請按時編寫舒緩藥物與口服止痛。
+                                </p>
+                                <p>
+                                    <strong>第七天：</strong>通常角膜上皮已初步新生，可安排回診松山分院 or 內湖總院，由醫師確認上皮修補良好後移除保護型隱形眼鏡。此後視力會逐漸走向清晰，術後 1 週到 1 個月隨角膜水腫、微發炎反應代謝，視覺品質會越來越紮實。
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <!-- Q4 -->
                     <div class="border border-slate-200/70 rounded-2xl overflow-hidden transition-all duration-200 bg-white shadow-sm">
                         <button @click="faqSelected = faqSelected === 4 ? null : 4" class="w-full flex justify-between items-center p-6 text-left font-extrabold text-slate-900 hover:bg-slate-50 transition-colors text-base sm:text-lg">
                             <span>Q4. 雷射後度數會再次回退（再度近視）嗎？</span>
-                            <i class="fa-solid text-slate-500" :class="faqSelected === 4 ? 'fa-chevron-up text-brand-500' : 'fa-chevron-down'"></i>
+                            <i class="fa-solid text-slate-500 transition-transform duration-200" :class="faqSelected === 4 ? 'fa-chevron-up text-brand-500 rotate-180' : 'fa-chevron-down'"></i>
                         </button>
-                        <div x-show="faqSelected === 4" x-transition x-cloak class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 space-y-3 font-semibold leading-relaxed">
-                            <p>
-                                任何近視雷射在數年後，皆有些微度數回退的理論機率，回退程度因個人用眼習慣而異（通常術前度數越高、回退機率相對高一點）。
-                            </p>
-                            <p>
-                                <strong>SMART TransPRK 手術因保留較多的角膜厚度，且角膜結構較穩定</strong>，度數回退機率在眼科臨床文獻中顯著低於其他傳統手術。術後仍需維持 30 分鐘休息 10 分鐘的良好用眼習慣，以確保長青視力。
-                            </p>
+                        <div x-show="faqSelected === 4" x-collapse x-cloak>
+                            <div class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 space-y-3 font-semibold leading-relaxed">
+                                <p>
+                                    任何近視雷射在數年後，皆有些微度數回退的理論機率，回退程度因個人用眼習慣而異（通常術前度數越高、回退機率相對高一點）。
+                                </p>
+                                <p>
+                                    <strong>SMART TransPRK 手術因保留較多的角膜厚度，且角膜結構較穩定</strong>，度數回退機率在眼科臨床文獻中顯著低於其他傳統手術。術後仍需維持 30 分鐘休息 10 分鐘的良好用眼習慣，以確保長青視力。
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1776,11 +1806,11 @@
                     <!-- 聯名徽章整合區域 -->
                     <div class="flex flex-wrap gap-4 pt-3">
                         <div class="flex items-center space-x-2 bg-white/5 border border-white/10 px-3.5 py-2.5 rounded-xl">
-                            <img src="tsgh-logo.png" alt="三軍總醫院徽章" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" onerror="this.style.display='none'">
+                            <img src="tsgh-logo.png" alt="三軍總醫院徽章" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
                             <span class="text-slate-300 text-xs font-bold tracking-wider">三軍總醫院眼科部</span>
                         </div>
                         <div class="flex items-center space-x-2 bg-white/5 border border-white/10 px-3.5 py-2.5 rounded-xl">
-                            <img src="ss-logo.png" alt="松山分院徽章" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" onerror="this.style.display='none'">
+                            <img src="ss-logo.png" alt="松山分院徽章" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
                             <span class="text-slate-300 text-xs font-bold tracking-wider">三總松山分院眼科</span>
                         </div>
                     </div>
@@ -1899,7 +1929,8 @@
         <div class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm" @click="showPrivacyModal = false"></div>
 
         <div class="flex min-h-screen items-center justify-center p-4">
-            <div class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-hidden shadow-2xl flex flex-col transform transition-all"
+            <!-- safe-padding-bottom：預防彈窗按鈕被 iPhone 底部 Home Indicator 覆蓋 -->
+            <div class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-hidden shadow-2xl flex flex-col transform transition-all safe-padding-bottom"
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                  x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100">
@@ -2004,7 +2035,8 @@
         <div class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm" @click="showTermsModal = false"></div>
 
         <div class="flex min-h-screen items-center justify-center p-4">
-            <div class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-hidden shadow-2xl flex flex-col transform transition-all"
+            <!-- safe-padding-bottom：預防彈窗按鈕被 iPhone 底部 Home Indicator 覆蓋 -->
+            <div class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-hidden shadow-2xl flex flex-col transform transition-all safe-padding-bottom"
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                  x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100">
