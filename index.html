@@ -7,7 +7,7 @@
     <!-- SEO 關鍵字與網頁描述 -->
     <title>晴隼視界 - 三總近視雷射快速通道 (黃克豪醫師松山分院/內湖總院)</title>
     <meta name="description" content="由三軍總醫院眼科主任黃克豪醫師與翁子恆醫師攜手，引進德國頂規 AMARIS 1050RS 儀器，提供不掀瓣、零接觸的 SMART TransPRK 手術，享受免排隊的一條龍雙院區屈光服務。">
-    <meta name="keywords" content="黃克豪, 翁子恆, 近視雷射, 三總眼科, 松山分院眼科, SMART TransPRK, AMARIS 1050RS, 角膜零接觸, 飛行員近視雷射, 晴隼視界, 睛采視界">
+    <meta name="keywords" content="黃克豪, 翁子恆, 近視雷射, 三總眼科, 松山分院眼科, SMART TransPRK, AMARIS 1050RS, 角膜零接觸, 飛行員近視雷射, 晴隼視界">
     <meta name="author" content="晴隼視界">
     
     <!-- Open Graph (OG) 社群分享協定，優化 LINE/Facebook 預覽圖卡 -->
@@ -23,7 +23,7 @@
     <!-- Tailwind CSS 動態編譯器 -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Alpine.js (蘋果設備關鍵：必須使用 defer 屬性，且 Collapse 插件必須在 Alpine 主程式之前載入) -->
+    <!-- Alpine.js (蘋果設備相容性關鍵：必須使用 defer 屬性，且插件必須在主程式之前，異步安全載入) -->
     <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
@@ -90,10 +90,13 @@
             box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
         }
         
-        /* 蘋果設備 iOS Safari 專用毛玻璃模糊背景優化 */
-        .sticky-blur {
-            -webkit-backdrop-filter: blur(20px) !important;
-            backdrop-filter: blur(20px) !important;
+        /* 蘋果設備 3D GPU 硬體加速與圖層隔離優化，徹底免除滾動白屏與卡死 */
+        .safari-accelerate {
+            -webkit-transform: translate3d(0, 0, 0) !important;
+            transform: translate3d(0, 0, 0) !important;
+            -webkit-backface-visibility: hidden !important;
+            backface-visibility: hidden !important;
+            will-change: transform !important;
         }
 
         /* 滾動條美化及 iOS 絲滑滑動關鍵 */
@@ -146,16 +149,17 @@
           }
       }">
 
-    <header class="sticky top-0 z-50 bg-white/80 sticky-blur border-b border-slate-200/80 text-slate-800 shadow-sm w-full">
+    <!-- 蘋果安全導覽列：採用安全的高透明 bg-white/95 搭配獨立 GPU 複合圖層，防禦滑動白屏崩潰 -->
+    <header class="sticky top-0 z-50 bg-white/95 border-b border-slate-200/80 text-slate-800 shadow-sm w-full safari-accelerate">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo 區 (引進全新的晴隼視界 Falcon 標誌，並與雙院徽整合聯名 - 修正蘋果相容性屬性) -->
+                <!-- Logo 區 (引進全新的晴隼視界 Falcon 標誌，並與雙院徽整合聯名 - 100% 蘋果 WebKit 安全排版) -->
                 <div class="flex items-center space-x-3.5 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <div class="flex items-center space-x-2 shrink-0 relative">
-                        <!-- 晴隼視界官方主 Logo (修正為正確的 .jpg 格式，並加入物理寬高防止 Safari 壓縮) -->
+                        <!-- 晴隼視界官方主 Logo (修正為正確的 .jpg 格式，並加入物理與 Flex 寬高防禦屬性) -->
                         <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" width="56" height="56" class="h-14 w-14 object-contain rounded-full shadow-md bg-white p-0.5 border border-slate-200 shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/150x150/e0f2fe/0369a1?text=Falcon';">
                         
-                        <!-- 雙醫院聯名迷你徽章 -->
+                        <!-- 雙醫院聯名官方徽章 (預防 iOS Flex 壓扁 Bug) -->
                         <div class="flex flex-col -space-y-1 shrink-0">
                             <img src="tsgh-logo.png" alt="三軍總醫院" width="24" height="24" class="h-6 w-6 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100 shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=TSGH';">
                             <img src="ss-logo.png" alt="三軍總醫院松山分院" width="24" height="24" class="h-6 w-6 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100 shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=SS';">
@@ -169,7 +173,7 @@
                     </div>
                 </div>
 
-                <!-- 服務選單 - 桌面端 (改為 lg:flex，1024px 以下自動隱藏，保護 iPad 直向) -->
+                <!-- 服務選單 - 桌面端 -->
                 <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8">
                     <a href="#why-us" class="text-slate-600 hover:text-brand-600 text-base font-extrabold transition-colors duration-200"><i class="fa-solid fa-shield-heart mr-1 text-brand-500"></i> 為何選擇我們</a>
                     <a href="#clinical-proof" class="text-slate-600 hover:text-brand-600 text-base font-bold transition-colors duration-200">實證數據</a>
@@ -183,7 +187,7 @@
                     </a>
                 </nav>
 
-                <!-- 手機與平板直向端選單按鈕 (改為 lg:hidden) -->
+                <!-- 手機與平板直向端選單按鈕 -->
                 <div class="lg:hidden flex items-center">
                     <button @click="mobileMenu = !mobileMenu" class="text-slate-600 hover:text-slate-900 focus:outline-none" aria-label="Toggle Menu">
                         <i class="fa-solid text-2xl" :class="mobileMenu ? 'fa-xmark' : 'fa-bars'"></i>
@@ -192,7 +196,7 @@
             </div>
         </div>
 
-        <!-- 手機與平板直向端下拉選單 (改為 lg:hidden) -->
+        <!-- 手機與平板直向端下拉選單 -->
         <div x-show="mobileMenu" x-transition x-cloak class="lg:hidden bg-white border-b border-slate-200 px-5 pt-2 pb-6 space-y-4 shadow-inner">
             <a href="#why-us" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-shield-heart mr-2 text-brand-500"></i> 為何選擇我們</a>
             <a href="#clinical-proof" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-chart-column mr-2 text-brand-500"></i> 實證數據</a>
@@ -213,7 +217,7 @@
         
         <section class="relative bg-slate-50 border-b border-slate-200/80 overflow-hidden py-16 lg:py-24 w-full">
             
-            <!-- 雙院區實景拼接背景層 -->
+            <!-- 雙院區實景背景層 -->
             <div class="absolute inset-0 z-0 flex flex-col lg:flex-row pointer-events-none opacity-20 lg:opacity-25">
                 <div class="w-full lg:w-1/2 h-1/2 lg:h-full relative overflow-hidden">
                     <img src="backgroundss.jpg" alt="三軍總醫院松山分院外觀" class="w-full h-full object-cover object-center scale-105 filter blur-[1px]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200'">
@@ -1074,7 +1078,7 @@
                             <div class="bg-white p-5 border border-slate-200/60 rounded-xl space-y-3 text-sm sm:text-base text-slate-600 font-semibold">
                                 <p class="font-extrabold text-slate-850 flex items-center text-base"><i class="fa-solid fa-shield-virus text-brand-500 mr-2"></i>安全防禦黃金指標：</p>
                                 <p>• <strong class="text-slate-900">專屬屈光手術室</strong>：不與一般眼科 or 外科手術共用，從根本上避免了細菌與病毒交叉感染的可能。</p>
-                                <p>• <strong class="text-slate-900">符合國際標準潔淨度</strong>：溫濕度、氣壓與氣流皆受全天候正壓密閉監控，高效率空氣微粒過濾器（HEPA）確保落塵符合標準。</p>
+                                <p>• <strong class="text-slate-900">符合國際標準潔淨度</strong>：溫濕度、氣壓與氣流皆受全天候正壓密閉監控，高效率空氣微粒過塵器（HEPA）確保落塵符合標準。</p>
                                 <p>• <strong class="text-slate-900">100% 拋棄式無菌包</strong>：上台使用的眼部包、沖洗針劑、敷料均為全新耗材，用後即棄，杜絕感染可能。</p>
                             </div>
                         </div>
@@ -1413,7 +1417,7 @@
                                     </td>
                                     
                                     <!-- 週二 -->
-                                    <td class="py-3 px-4 text-slate-655 font-normal">—</td>
+                                    <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
                                     <!-- 週三 -->
                                     <td class="py-3 px-4">
@@ -1500,10 +1504,10 @@
                                     </td>
                                     
                                     <!-- 週四 -->
-                                    <td class="py-3 px-4 text-slate-655 font-normal">—</td>
+                                    <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
                                     <!-- 週五 -->
-                                    <td class="py-3 px-4 text-slate-655 font-normal">—</td>
+                                    <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
                                     <td class="py-3 px-4 text-center">
                                         <a href="https://wwwv.tsgh.ndmutsgh.edu.tw/docdet/191/10046/25623/2870" target="_blank" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center gap-1.5 transition-all">
@@ -1716,7 +1720,7 @@
                                     術後立即視力大約落在 0.3 到 0.4 之間，配合我們在手術完為您戴上的治療保護型隱形眼鏡，已足以應付日常生活起居所須。
                                 </p>
                                 <p>
-                                    <strong>第 2 至第 3 天：</strong>為角膜上皮新生的黃金期，此時會有異物感、流淚、畏光 or 偶爾酸澀。請按時編寫舒緩藥物與口服止痛。
+                                    <strong>第 2 至第 3 天：</strong>為角膜上皮新生的黃金期，此時會有異物感、流淚、畏光或偶爾酸澀。請按時編寫舒緩藥物與口服止痛。
                                 </p>
                                 <p>
                                     <strong>第七天：</strong>通常角膜上皮已初步新生，可安排回診松山分院 or 內湖總院，由醫師確認上皮修補良好後移除保護型隱形眼鏡。此後視力會逐漸走向清晰，術後 1 週到 1 個月隨角膜水腫、微發炎反應代謝，視覺品質會越來越紮實。
@@ -1812,22 +1816,22 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-slate-800 pb-12">
                 <div class="lg:col-span-6 space-y-4">
                     <div class="flex items-center space-x-3.5">
-                        <!-- 頁尾品牌與新標誌整合 (修正檔名與物理寬高屬性) -->
+                        <!-- 頁尾品牌與新標誌整合 (防禦 Safari Flex 寬高 Bug) -->
                         <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" width="48" height="48" class="h-12 w-12 object-contain rounded-full bg-white p-0.5 border border-slate-800 shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=Falcon';">
                         <span class="font-extrabold text-xl text-white">晴隼視界眼科衛教門戶</span>
                     </div>
                     <p class="text-sm text-slate-400 leading-relaxed max-w-md font-semibold">
-                        本平台由三軍總醫院眼科部與三總松山分院眼科專業醫療團隊共同編撰，旨在為廣大民眾與群友提供科學且可信賴的近視雷傷綠色快速通道諮詢與衛教服務。
+                        本平台由三軍總醫院眼科部與三總松山分院眼科專業醫療團隊共同編撰，旨在為廣大民眾與群友提供科學且可信賴的近視雷射綠色快速通道諮詢與衛教服務。
                     </p>
                     
                     <!-- 聯名徽章整合區域 -->
                     <div class="flex flex-wrap gap-4 pt-3">
                         <div class="flex items-center space-x-2 bg-white/5 border border-white/10 px-3.5 py-2.5 rounded-xl">
-                            <img src="tsgh-logo.png" alt="三軍總醫院徽章" width="28" height="28" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
+                            <img src="tsgh-logo.png" alt="三軍總醫院徽章" width="28" height="28" class="w-7 h-7 rounded-full object-contain bg-white p-0.5 shrink-0" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
                             <span class="text-slate-300 text-xs font-bold tracking-wider">三軍總醫院眼科部</span>
                         </div>
                         <div class="flex items-center space-x-2 bg-white/5 border border-white/10 px-3.5 py-2.5 rounded-xl">
-                            <img src="ss-logo.png" alt="松山分院徽章" width="28" height="28" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
+                            <img src="ss-logo.png" alt="松山分院徽章" width="28" height="28" class="w-7 h-7 rounded-full object-contain bg-white p-0.5 shrink-0" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
                             <span class="text-slate-300 text-xs font-bold tracking-wider">三總松山分院眼科</span>
                         </div>
                     </div>
@@ -2000,7 +2004,7 @@
                     <div class="space-y-2.5">
                         <h4 class="font-extrabold text-slate-900 text-base border-l-4 border-brand-500 pl-2.5">五、 與第三人共用個人資料之政策</h4>
                         <p class="pl-1.5 text-slate-600 font-bold">
-                            本網站絕不會提供、交換、出租 or 出售任何您的個人資料給其他個人、團體、私人企業 or 公務機關，但有法律依據或合約義務者，不在此限。
+                            本網站絕不會提供、交換、出租 or 出售任何您的個人資料給其他個人、團體、私人 enterprise or 公務機關，但有法律依據或合約義務者，不在此限。
                         </p>
                         <p class="font-bold text-slate-800 pl-1.5">前項但書之情形包括不限於：</p>
                         <ul class="list-decimal list-inside space-y-1.5 pl-3 text-slate-600 font-medium">
