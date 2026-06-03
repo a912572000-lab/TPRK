@@ -23,7 +23,7 @@
     <!-- Tailwind CSS 動態編譯器 -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Alpine.js (含用於滑動風琴式 FAQ 的 Collapse 插件) -->
+    <!-- Alpine.js (含用於滑動風琴式 FAQ 的 Collapse 插件) - 必須使用 defer 且載入順序正確，確保 iOS Webkit 載入不中斷 -->
     <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
@@ -57,13 +57,27 @@
     </script>
     
     <style>
-        /* 核心修正：鎖定 html 與 body 寬度，徹底禁止 iOS 水平溢出與不正常晃動 */
-        html, body {
+        /* 核心修正：僅鎖定 html 寬度與防止 iPad 字體自動放大，不濫用 overflow-x: hidden 防止 iOS Webkit 滾動白屏 */
+        html {
             max-width: 100% !important;
-            overflow-x: hidden !important;
-            /* 關鍵修正：防止 iPad 在直向/橫向切換時自動放大字體導致排版破裂 */
             -webkit-text-size-adjust: 100% !important;
             text-size-adjust: 100% !important;
+        }
+        
+        body {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            position: relative;
+            background-color: #f8fafc;
+            -webkit-overflow-scrolling: touch; /* 強制 iOS 啟用慣性滾動，防止滑動卡頓 */
+        }
+
+        /* 針對 iOS Webkit 進行 GPU 3D 渲染硬體加速，解決 iPad 滾動重繪遲緩與白屏 */
+        main, section, header, footer, dialog {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         /* 解決 iOS Alpine.js 載入前元件全部展開暴露（毛胚感）的關鍵 */
@@ -90,10 +104,11 @@
             box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
         }
         
-        /* 蘋果設備 iOS Safari 專用毛玻璃模糊背景優化 */
+        /* 蘋果設備 iOS Safari 專用毛玻璃模糊背景優化，追加 will-change 防止滾動閃爍 */
         .sticky-blur {
             -webkit-backdrop-filter: blur(20px) !important;
             backdrop-filter: blur(20px) !important;
+            will-change: transform;
         }
 
         /* 滾動條美化及 iOS 絲滑滑動關鍵 */
@@ -149,7 +164,7 @@
     <header class="sticky top-0 z-50 bg-white/80 sticky-blur border-b border-slate-200/80 text-slate-800 shadow-sm w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo 區 (完美修正：圓形容器 + 置中裁剪，100% 完整呈現隼鷹標誌與中英文名稱，絕對不被裁切) -->
+                <!-- Logo 區 (完美修正：正圓形 Logo，100% 完整呈現不被裁切，疊加官方合作雙徽章) -->
                 <div class="flex items-center space-x-4 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <div class="relative shrink-0 py-1">
                         <!-- 晴隼主 Logo 容器：h-16 w-16 正圓形，利用 object-cover 自動切除上下多餘白邊，完美呈現正圓形 Logo -->
@@ -168,8 +183,8 @@
                     </div>
                 </div>
 
-                <!-- 服務選單 - 桌面端 (改為 lg:flex，1024px 以下自動隱藏，保護 iPad 直向) -->
-                <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                <!-- 服務選單 - 桌面端 (關鍵 RWD 修正：改為 xl:flex，防止 iPad 橫向時 8 個選單擠壓重疊，全面流暢化) -->
+                <nav class="hidden xl:flex items-center space-x-6 xl:space-x-8">
                     <a href="#why-us" class="text-slate-600 hover:text-brand-600 text-base font-extrabold transition-colors duration-200"><i class="fa-solid fa-shield-heart mr-1 text-brand-500"></i> 為何選擇我們</a>
                     <a href="#clinical-proof" class="text-slate-600 hover:text-brand-600 text-base font-bold transition-colors duration-200">實證數據</a>
                     <a href="#tech" class="text-slate-600 hover:text-brand-600 text-base font-bold transition-colors duration-200">雷射技術</a>
@@ -182,17 +197,17 @@
                     </a>
                 </nav>
 
-                <!-- 手機與平板直向端選單按鈕 (改為 lg:hidden) -->
-                <div class="lg:hidden flex items-center">
-                    <button @click="mobileMenu = !mobileMenu" class="text-slate-600 hover:text-slate-900 focus:outline-none" aria-label="Toggle Menu">
+                <!-- 手機與平板直向/橫向選單按鈕 (關鍵 RWD 修正：改為 xl:hidden，防止 iPad 畫面擠壓) -->
+                <div class="xl:hidden flex items-center">
+                    <button @click="mobileMenu = !mobileMenu" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2" aria-label="Toggle Menu">
                         <i class="fa-solid text-2xl" :class="mobileMenu ? 'fa-xmark' : 'fa-bars'"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- 手機與平板直向端下拉選單 (改為 lg:hidden) -->
-        <div x-show="mobileMenu" x-transition x-cloak class="lg:hidden bg-white border-b border-slate-200 px-5 pt-2 pb-6 space-y-4 shadow-inner">
+        <!-- 手機與平板端下拉選單 (與 xl:hidden 同步修正) -->
+        <div x-show="mobileMenu" x-transition x-cloak class="xl:hidden bg-white border-b border-slate-200 px-5 pt-2 pb-6 space-y-4 shadow-inner">
             <a href="#why-us" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-shield-heart mr-2 text-brand-500"></i> 為何選擇我們</a>
             <a href="#clinical-proof" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-chart-column mr-2 text-brand-500"></i> 實證數據</a>
             <a href="#tech" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-crosshairs mr-2 text-brand-500"></i> 雷射技術</a>
@@ -234,7 +249,7 @@
                     <div class="lg:col-span-7 space-y-6">
                         <div class="inline-flex items-center space-x-3 bg-brand-500/10 border border-brand-500/20 px-4 py-2 rounded-full text-brand-700 text-sm sm:text-base font-bold shadow-sm backdrop-blur-sm">
                             <div class="w-8 h-8 rounded-full overflow-hidden border border-white shrink-0 flex items-center justify-center bg-white">
-                                <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" class="h-full w-full object-cover">
+                                <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" class="h-full w-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/150x150/e0f2fe/0369a1?text=Falcon'">
                             </div>
                             <span>晴隼視界 • 三軍總醫院眼科團隊 官方屈光綠色通道</span>
                         </div>
@@ -282,7 +297,7 @@
                             
                             <div class="space-y-6">
                                 <div class="flex items-start space-x-4">
-                                    <div class="bg-brand-50 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm mt-0.5 shadow-md shadow-brand-500/20">
+                                    <div class="bg-brand-500 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm mt-0.5 shadow-md shadow-brand-500/20">
                                         1
                                     </div>
                                     <div>
@@ -390,7 +405,7 @@
                             給您最誠實、最安心的醫療承諾！
                         </h2>
                         
-                        <div class="text-slate-305 text-base sm:text-lg space-y-4 font-semibold leading-relaxed">
+                        <div class="text-slate-300 text-base sm:text-lg space-y-4 font-semibold leading-relaxed">
                             <p>
                                 在天際翱翔的飛行員，對於視覺品質（包括夜視力、炫光敏感度、對比敏感度以及抗高速 G 力的角膜結構穩定性）有著全台灣最極致嚴苛、容不下萬分之一誤差的航空醫學標準。
                             </p>
@@ -1072,7 +1087,7 @@
                             <div class="bg-white p-5 border border-slate-200/60 rounded-xl space-y-3 text-sm sm:text-base text-slate-600 font-semibold">
                                 <p class="font-extrabold text-slate-850 flex items-center text-base"><i class="fa-solid fa-shield-virus text-brand-500 mr-2"></i>安全防禦黃金指標：</p>
                                 <p>• <strong class="text-slate-900">專屬屈光手術室</strong>：不與一般眼科 or 外科手術共用，從根本上避免了細菌與病毒交叉感染的可能。</p>
-                                <p>• <strong class="text-slate-900">符合國際標準潔淨度</strong>：溫濕度、氣壓與氣流皆受全天候正壓密閉監控，高效率空氣微粒過塵器（HEPA）確保落塵符合標準。</p>
+                                <p>• <strong class="text-slate-900">符合國際標準潔淨度</strong>：溫濕度、氣壓與氣流皆受全天候正壓密閉監控，高效率空氣微粒過濾器（HEPA）確保落塵符合標準。</p>
                                 <p>• <strong class="text-slate-900">100% 拋棄式無菌包</strong>：上台使用的眼部包、沖洗針劑、敷料均為全新耗材，用後即棄，杜絕感染可能。</p>
                             </div>
                         </div>
@@ -1734,7 +1749,7 @@
                                     任何近視雷射在數年後，皆有些微度數回退的理論機率，回退程度因個人用眼習慣而異（通常術前度數越高、回退機率相對高一點）。
                                 </p>
                                 <p>
-                                    <strong>SMART TransPRK 手術因保留較多的角膜厚度，且角膜結構較穩定</strong>，度數回退機率在眼科臨床文獻中顯著低於其他傳統手術。術後仍需維持 30 分鐘休息 10 分鐘的良好用眼習慣，以確保長青視力。
+                                    <strong>SMART TransPRK 手術因保留較多的角膜厚度，且角膜結構較穩定</strong>，度數回退機率在眼科臨床文庫中顯著低於其他傳統手術。術後仍需維持 30 分鐘休息 10 分鐘的良好用眼習慣，以確保長青視力。
                                 </p>
                             </div>
                         </div>
@@ -2000,7 +2015,7 @@
                     <div class="space-y-2.5">
                         <h4 class="font-extrabold text-slate-900 text-base border-l-4 border-brand-500 pl-2.5">五、 與第三人共用個人資料之政策</h4>
                         <p class="pl-1.5 text-slate-600 font-bold">
-                            本網站絕不會提供、交換、出租 or 出售任何您的個人資料給其他個人、團體、私人企業 or 公務機關，但有法律依據或合約義務者，不在此限。
+                            本網站絕不會提供、交換、出租 or 出售任何您的個人資料給其他個人、團體、私人 enterprise or 公務機關，但有法律依據或合約義務者，不在此限。
                         </p>
                         <p class="font-bold text-slate-800 pl-1.5">前項但書之情形包括不限於：</p>
                         <ul class="list-decimal list-inside space-y-1.5 pl-3 text-slate-600 font-medium">
