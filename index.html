@@ -4,24 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
+    <!-- SEO 關鍵字與網頁描述 -->
     <title>晴隼視界 - 三總近視雷射快速通道 (黃克豪醫師松山分院/內湖總院)</title>
     <meta name="description" content="由三軍總醫院眼科主任黃克豪醫師與翁子恆醫師攜手，引進德國頂規 AMARIS 1050RS 儀器，提供不掀瓣、零接觸的 SMART TransPRK 手術，享受免排隊的一條龍雙院區屈光服務。">
     <meta name="keywords" content="黃克豪, 翁子恆, 近視雷射, 三總眼科, 松山分院眼科, SMART TransPRK, AMARIS 1050RS, 角膜零接觸, 飛行員近視雷射">
     <meta name="author" content="晴隼視界">
     
+    <!-- Open Graph (OG) 社群分享協定，優化 LINE/Facebook 預覽圖卡 -->
     <meta property="og:title" content="晴隼視界 - 三總近視雷射快速通道 (松山分院/內湖總院)">
-    <meta property="og:description" content="徹底告別眼鏡束縛！三總眼科團隊官方屈光綠色通道，提供「角膜零接觸、不掀瓣」的極致安全近視雷射，省去漫長排隊，由權威主治醫師全程把關。">
+    <meta property="og:description" content="徹底告別眼鏡束縛！三總眼科團隊官方綠色通道，提供「角膜零接觸、不掀瓣」的極致安全近視雷射，省去漫長排隊，由權威主治醫師全程把關。">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?w=1200&q=80">
     <meta property="og:locale" content="zh_TW">
 
+    <!-- Fallback 靜態樣式表 -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     
+    <!-- Tailwind CSS 動態編譯器 -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Alpine.js (含用於滑動風琴式 FAQ 的 Collapse 插件) -->
     <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
+    <!-- FontAwesome 圖示庫 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <script>
@@ -51,18 +57,16 @@
     </script>
     
     <style>
-        /* 核心防護：極致鎖定 html 與 body 寬度，徹底根除 iOS/iPadOS 的水平溢出與晃動 */
+        /* 核心修正：鎖定 html 與 body 寬度，徹底禁止 iOS 水平溢出與不正常晃動 */
         html, body {
             max-width: 100% !important;
             overflow-x: hidden !important;
-            width: 100% !important;
-            /* 關鍵修正：徹底防禦 iPad 轉向時自動放大字體導致的視覺破裂，完美補上所有主流前綴 */
+            /* 關鍵修正：防止 iPad 在直向/橫向切換時自動放大字體導致排版破裂 */
             -webkit-text-size-adjust: 100% !important;
-            -moz-text-size-adjust: 100% !important;
             text-size-adjust: 100% !important;
         }
 
-        /* 核心修正：iPad 畫面不破裂、不閃爍的鋼鐵護盾！全面鎖定載入前的毛胚外流 */
+        /* 解決 iOS Alpine.js 載入前元件全部展開暴露（毛胚感）的關鍵 */
         [x-cloak] {
             display: none !important;
         }
@@ -108,7 +112,7 @@
             border-radius: 999px;
         }
 
-        /* 手機與平板滑動導引箭頭動畫 */
+        /* 手機滑動導引箭頭動畫 */
         @keyframes scrollPulse {
             0%, 100% { transform: translateX(0); opacity: 0.6; }
             50% { transform: translateX(6px); opacity: 1; }
@@ -145,11 +149,14 @@
     <header class="sticky top-0 z-50 bg-white/80 sticky-blur border-b border-slate-200/80 text-slate-800 shadow-sm w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
+                <!-- Logo 區 (完美修正：圓形容器 + 置中裁剪，100% 完整呈現隼鷹標誌與中英文名稱，絕對不被裁切) -->
                 <div class="flex items-center space-x-4 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <div class="relative shrink-0 py-1">
+                        <!-- 晴隼主 Logo 容器：h-16 w-16 正圓形，利用 object-cover 自動切除上下多餘白邊，完美呈現正圓形 Logo -->
                         <div class="h-16 w-16 rounded-full overflow-hidden shadow-md bg-white border border-slate-100 flex items-center justify-center">
                             <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" class="h-full w-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/150x150/e0f2fe/0369a1?text=Falcon'">
                         </div>
+                        <!-- 迷你雙院徽浮貼在 Logo 右下方，完美融合 -->
                         <div class="absolute -bottom-1 -right-1 flex -space-x-1.5 bg-white/95 backdrop-blur rounded-full p-0.5 shadow-md border border-slate-100 z-10">
                             <img src="tsgh-logo.png" alt="三軍總醫院" class="w-5 h-5 rounded-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=T'">
                             <img src="ss-logo.png" alt="松山分院" class="w-5 h-5 rounded-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=S'">
@@ -161,6 +168,7 @@
                     </div>
                 </div>
 
+                <!-- 服務選單 - 桌面端 (改為 lg:flex，1024px 以下自動隱藏，保護 iPad 直向) -->
                 <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8">
                     <a href="#why-us" class="text-slate-600 hover:text-brand-600 text-base font-extrabold transition-colors duration-200"><i class="fa-solid fa-shield-heart mr-1 text-brand-500"></i> 為何選擇我們</a>
                     <a href="#clinical-proof" class="text-slate-600 hover:text-brand-600 text-base font-bold transition-colors duration-200">實證數據</a>
@@ -174,6 +182,7 @@
                     </a>
                 </nav>
 
+                <!-- 手機與平板直向端選單按鈕 (改為 lg:hidden) -->
                 <div class="lg:hidden flex items-center">
                     <button @click="mobileMenu = !mobileMenu" class="text-slate-600 hover:text-slate-900 focus:outline-none" aria-label="Toggle Menu">
                         <i class="fa-solid text-2xl" :class="mobileMenu ? 'fa-xmark' : 'fa-bars'"></i>
@@ -182,6 +191,7 @@
             </div>
         </div>
 
+        <!-- 手機與平板直向端下拉選單 (改為 lg:hidden) -->
         <div x-show="mobileMenu" x-transition x-cloak class="lg:hidden bg-white border-b border-slate-200 px-5 pt-2 pb-6 space-y-4 shadow-inner">
             <a href="#why-us" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-shield-heart mr-2 text-brand-500"></i> 為何選擇我們</a>
             <a href="#clinical-proof" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-chart-column mr-2 text-brand-500"></i> 實證數據</a>
@@ -197,10 +207,12 @@
         </div>
     </header>
 
+    <!-- 主要內容 -->
     <main class="w-full overflow-x-hidden">
         
         <section class="relative bg-slate-50 border-b border-slate-200/80 overflow-hidden py-16 lg:py-24 w-full">
             
+            <!-- 雙院區實景拼接背景層 -->
             <div class="absolute inset-0 z-0 flex flex-col lg:flex-row pointer-events-none opacity-20 lg:opacity-25">
                 <div class="w-full lg:w-1/2 h-1/2 lg:h-full relative overflow-hidden">
                     <img src="backgroundss.jpg" alt="三軍總醫院松山分院外觀" class="w-full h-full object-cover object-center scale-105 filter blur-[1px]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200'">
@@ -218,6 +230,7 @@
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <!-- 左側：白話大標題與強烈轉化 -->
                     <div class="lg:col-span-7 space-y-6">
                         <div class="inline-flex items-center space-x-3 bg-brand-500/10 border border-brand-500/20 px-4 py-2 rounded-full text-brand-700 text-sm sm:text-base font-bold shadow-sm backdrop-blur-sm">
                             <div class="w-8 h-8 rounded-full overflow-hidden border border-white shrink-0 flex items-center justify-center bg-white">
@@ -233,6 +246,7 @@
                             想做近視雷射，卻卡在醫學中心掛號排隊、檢查等半年？<br>
                             我們推出專屬綠色通道：由三總眼科權威團隊親自看診，引進德國頂規 <strong class="text-slate-950 font-black">AMARIS 1050RS 儀器</strong>，提供「角膜零接觸、不掀瓣」的極致安全 SMART TransPRK 手術，帶您安全重回清晰視界！
                         </p>
+                        <!-- 快速統計卡片 -->
                         <div class="grid grid-cols-3 gap-4 py-5 border-y border-slate-200 max-w-lg">
                             <div>
                                 <span class="block text-2xl sm:text-3xl font-black text-brand-600">0%</span>
@@ -247,6 +261,7 @@
                                 <span class="text-slate-600 text-sm sm:text-base font-bold block mt-0.5">跨院區專人免排隊</span>
                             </div>
                         </div>
+                        <!-- CTA 按鈕組 -->
                         <div class="flex flex-col sm:flex-row gap-4 pt-2">
                             <a href="#quick-reserve" class="bg-brand-500 hover:bg-brand-600 text-white text-center px-8 py-4 rounded-xl font-bold transition-all transform hover:-translate-y-0.5 shadow-lg shadow-brand-500/20 text-base sm:text-lg">
                                 <i class="fa-brands fa-line mr-2 text-xl"></i> 立即線上預約近視雷射術前檢查
@@ -257,6 +272,7 @@
                         </div>
                     </div>
                     
+                    <!-- 右側：雙院區快速通道卡片與流程簡覽 -->
                     <div class="lg:col-span-5">
                         <div class="bg-white/95 backdrop-blur border border-slate-200/60 p-6 sm:p-8 rounded-2xl shadow-xl shadow-slate-200/40 space-y-6">
                             <div class="border-b border-slate-100 pb-4">
@@ -280,7 +296,7 @@
                                     </div>
                                     <div>
                                         <h4 class="font-bold text-slate-900 text-base sm:text-lg">三總松山分院：進行20多項完整術檢</h4>
-                                        <p class="text-slate-655 text-sm sm:text-base mt-1.5 font-semibold">在市中心、環境優雅的松山分院進行詳盡術前前高階數據篩檢，由專科醫師把關條件。</p>
+                                        <p class="text-slate-655 text-sm sm:text-base mt-1.5 font-semibold">在市中心、環境優雅的松山分院進行詳盡術前高階數據篩檢，由專科醫師把關條件。</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start space-x-4">
@@ -308,6 +324,7 @@
             </div>
         </section>
 
+        <!-- ==================== 為何選擇我們 (why-us) 首位黃金看板 ==================== -->
         <section id="why-us" class="relative bg-gradient-to-br from-navy-950 via-slate-900 to-navy-900 text-white py-20 overflow-hidden border-b border-slate-800 w-full">
             <div class="absolute inset-0 opacity-10 pointer-events-none">
                 <div class="absolute top-1/4 left-10 w-96 h-96 bg-brand-400 rounded-full blur-3xl"></div>
@@ -317,6 +334,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     
+                    <!-- 左側：航太級精確度統計數據大卡片 -->
                     <div class="lg:col-span-5 space-y-6">
                         <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-3xl premium-shadow relative overflow-hidden">
                             <div class="absolute -right-6 -bottom-6 text-white/5 text-9xl">
@@ -360,6 +378,7 @@
                         </div>
                     </div>
                     
+                    <!-- 右側：強而有力的論述與崇高使命 -->
                     <div class="lg:col-span-7 space-y-6">
                         <div class="inline-flex items-center space-x-2 bg-brand-500/10 border border-brand-500/30 px-4 py-2 rounded-full text-brand-400 text-sm font-bold shadow-sm backdrop-blur-sm">
                             <i class="fa-solid fa-shield-halved animate-pulse"></i>
@@ -371,7 +390,7 @@
                             給您最誠實、最安心的醫療承諾！
                         </h2>
                         
-                        <div class="text-slate-300 text-base sm:text-lg space-y-4 font-semibold leading-relaxed">
+                        <div class="text-slate-305 text-base sm:text-lg space-y-4 font-semibold leading-relaxed">
                             <p>
                                 在天際翱翔的飛行員，對於視覺品質（包括夜視力、炫光敏感度、對比敏感度以及抗高速 G 力的角膜結構穩定性）有著全台灣最極致嚴苛、容不下萬分之一誤差的航空醫學標準。
                             </p>
@@ -384,6 +403,7 @@
                             </p>
                         </div>
 
+                        <!-- 實時動態提示 -->
                         <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-5 mt-6 text-sm sm:text-base text-emerald-300 font-bold flex items-start space-x-3.5 shadow-lg shadow-emerald-500/5">
                             <span class="flex h-3 w-3 relative mt-1.5 shrink-0">
                                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -396,6 +416,7 @@
                     </div>
                 </div>
 
+                <!-- 國航專案提純：數位戰術數據儀表板 -->
                 <div class="mt-16 bg-white/5 border border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-md">
                     <div class="border-b border-white/10 pb-6 mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                         <div>
@@ -409,6 +430,7 @@
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                         
+                        <!-- 1. 歷年執行飛行專案趨勢圖 (CSS 原生柱狀圖表) -->
                         <div class="lg:col-span-7 bg-navy-900/60 p-6 rounded-2xl border border-white/5 hover:border-brand-500/30 transition-all flex flex-col justify-between">
                             <div>
                                 <h4 class="text-sm font-bold text-slate-200 flex items-center mb-6">
@@ -416,6 +438,7 @@
                                 </h4>
                                 
                                 <div class="space-y-4">
+                                    <!-- 106-107年 -->
                                     <div>
                                         <div class="flex justify-between text-xs font-bold mb-1 text-slate-350">
                                             <span>106-107 年度 (試辦與建立期)</span>
@@ -425,6 +448,7 @@
                                             <div class="bg-brand-500 h-full rounded-full" style="width: 37%"></div>
                                         </div>
                                     </div>
+                                    <!-- 108年 -->
                                     <div>
                                         <div class="flex justify-between text-xs font-bold mb-1 text-slate-350">
                                             <span>108 年度</span>
@@ -434,6 +458,7 @@
                                             <div class="bg-brand-500 h-full rounded-full" style="width: 51%"></div>
                                         </div>
                                     </div>
+                                    <!-- 109年 -->
                                     <div>
                                         <div class="flex justify-between text-xs font-bold mb-1 text-slate-350">
                                             <span>109 年度</span>
@@ -443,6 +468,7 @@
                                             <div class="bg-brand-500 h-full rounded-full" style="width: 71%"></div>
                                         </div>
                                     </div>
+                                    <!-- 110年 -->
                                     <div>
                                         <div class="flex justify-between text-xs font-bold mb-1 text-slate-350">
                                             <span>110 年度</span>
@@ -452,6 +478,7 @@
                                             <div class="bg-brand-500 h-full rounded-full" style="width: 90%"></div>
                                         </div>
                                     </div>
+                                    <!-- 111年 -->
                                     <div>
                                         <div class="flex justify-between text-xs font-bold mb-1 text-slate-350">
                                             <span>111 年度</span>
@@ -461,6 +488,7 @@
                                             <div class="bg-brand-500 h-full rounded-full" style="width: 82%"></div>
                                         </div>
                                     </div>
+                                    <!-- 112年 -->
                                     <div>
                                         <div class="flex justify-between text-xs font-bold mb-1 text-slate-350">
                                             <span>112 年度</span>
@@ -470,6 +498,7 @@
                                             <div class="bg-brand-500 h-full rounded-full" style="width: 48%"></div>
                                         </div>
                                     </div>
+                                    <!-- 113年 -->
                                     <div>
                                         <div class="flex justify-between text-xs font-bold mb-1 text-slate-350">
                                             <span>113 年度</span>
@@ -479,6 +508,7 @@
                                             <div class="bg-brand-500 h-full rounded-full" style="width: 89%"></div>
                                         </div>
                                     </div>
+                                    <!-- 114年 -->
                                     <div>
                                         <div class="flex justify-between text-xs font-bold mb-1 text-slate-350">
                                             <span>114 年度</span>
@@ -488,6 +518,7 @@
                                             <div class="bg-brand-500 h-full rounded-full" style="width: 90%"></div>
                                         </div>
                                     </div>
+                                    <!-- 115年 (持續進行中) -->
                                     <div class="bg-brand-500/5 p-2 rounded-lg border border-brand-500/10">
                                         <div class="flex justify-between text-xs font-bold mb-1 text-emerald-300">
                                             <span class="flex items-center">
@@ -508,6 +539,7 @@
                             </div>
                         </div>
 
+                        <!-- 2. 松山分院 專案航醫鑑定成果 (CSS 指標卡與軍種圓環) -->
                         <div class="lg:col-span-5 bg-navy-900/60 p-6 rounded-2xl border border-white/5 hover:border-brand-500/30 transition-all flex flex-col justify-between">
                             <div>
                                 <h4 class="text-sm font-bold text-slate-200 flex items-center mb-6">
@@ -547,6 +579,7 @@
                                 </div>
                             </div>
                             
+                            <!-- 指標總結 -->
                             <div class="bg-brand-500/10 border border-brand-500/20 rounded-xl p-4 mt-6 text-xs text-brand-300 leading-relaxed font-semibold">
                                 <i class="fa-solid fa-star mr-1"></i> <strong class="text-white">專案核心指標總計</strong>：截至 114 年度已成功培育新進 <strong class="text-white text-sm font-black">31 位三軍飛官</strong> 取得飛鷹勳章、踏入守衛國土第一線。此外，當前培訓中的飛行生班隊中，約有 <strong class="text-white">20%</strong> 為本近視雷射計畫人員。
                             </div>
@@ -558,6 +591,7 @@
             </div>
         </section>
 
+        <!-- ==================== 國家級臨床研究與安全數據實證 (clinical-proof) ==================== -->
         <section id="clinical-proof" class="py-16 bg-white border-b border-slate-200/60 relative w-full overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -570,7 +604,8 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto items-stretch">
                     
-                    <div class="lg:col-span-7 bg-slate-50 border border-slate-200/80 p-6 sm:p-8 rounded-3xl flex flex-col justify-between hover:border-brand-50/50 transition-all">
+                    <!-- 1. 術後 3個月 / 6個月 裸眼視力 (UCVA) 分佈原生對照表 -->
+                    <div class="lg:col-span-7 bg-slate-50 border border-slate-200/80 p-6 sm:p-8 rounded-3xl flex flex-col justify-between hover:border-brand-500/50 transition-all">
                         <div>
                             <div class="border-b border-slate-200 pb-4 mb-6">
                                 <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center">
@@ -580,6 +615,7 @@
                             </div>
 
                             <div class="space-y-6">
+                                <!-- 視力 1.0 -->
                                 <div class="bg-white p-4 rounded-xl border border-slate-100">
                                     <div class="flex justify-between text-sm font-bold text-slate-800 mb-2">
                                         <span class="flex items-center"><i class="fa-solid fa-eye text-brand-500 mr-2"></i> 裸眼視力達 1.0 以上</span>
@@ -589,15 +625,18 @@
                                         </div>
                                     </div>
                                     <div class="space-y-1.5">
+                                        <!-- 3m -->
                                         <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                                             <div class="bg-slate-400 h-full rounded-full" style="width: 96.67%"></div>
                                         </div>
+                                        <!-- 6m -->
                                         <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                                             <div class="bg-gradient-to-r from-brand-500 to-brand-600 h-full rounded-full" style="width: 98.58%"></div>
                                         </div>
                                     </div>
                                 </div>
 
+                                <!-- 視力 0.9 -->
                                 <div class="bg-white p-4 rounded-xl border border-slate-100">
                                     <div class="flex justify-between text-sm font-bold text-slate-800 mb-2">
                                         <span class="flex items-center"><i class="fa-solid fa-eye text-brand-500 mr-2"></i> 裸眼視力達 0.9 以上</span>
@@ -607,15 +646,18 @@
                                         </div>
                                     </div>
                                     <div class="space-y-1.5">
+                                        <!-- 3m -->
                                         <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                                             <div class="bg-slate-400 h-full rounded-full" style="width: 98.33%"></div>
                                         </div>
+                                        <!-- 6m -->
                                         <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                                             <div class="bg-gradient-to-r from-brand-500 to-brand-600 h-full rounded-full" style="width: 99.05%"></div>
                                         </div>
                                     </div>
                                 </div>
 
+                                <!-- 視力 0.8 -->
                                 <div class="bg-white p-4 rounded-xl border border-slate-100">
                                     <div class="flex justify-between text-sm font-bold text-slate-800 mb-2">
                                         <span class="flex items-center"><i class="fa-solid fa-eye text-brand-500 mr-2"></i> 裸眼視力達 0.8 以上</span>
@@ -625,9 +667,11 @@
                                         </div>
                                     </div>
                                     <div class="space-y-1.5">
+                                        <!-- 3m -->
                                         <div class="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
                                             <div class="bg-slate-400 h-full rounded-full" style="width: 99.58%"></div>
                                         </div>
+                                        <!-- 6m -->
                                         <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
                                             <div class="bg-gradient-to-r from-brand-500 to-brand-600 h-full rounded-full" style="width: 99.53%"></div>
                                         </div>
@@ -641,7 +685,8 @@
                         </div>
                     </div>
 
-                    <div class="lg:col-span-5 bg-slate-50 border border-slate-200/80 p-6 sm:p-8 rounded-3xl flex flex-col justify-between hover:border-brand-50/50 transition-all">
+                    <!-- 2. 安全性與療效分析指標 -->
+                    <div class="lg:col-span-5 bg-slate-50 border border-slate-200/80 p-6 sm:p-8 rounded-3xl flex flex-col justify-between hover:border-brand-500/50 transition-all">
                         <div>
                             <div class="border-b border-slate-200 pb-4 mb-6">
                                 <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center">
@@ -651,6 +696,7 @@
                             </div>
 
                             <div class="grid grid-cols-2 gap-4">
+                                <!-- 療效指數 -->
                                 <div class="bg-white p-5 rounded-2xl border border-slate-100 text-center flex flex-col justify-center items-center">
                                     <span class="text-slate-500 text-xs font-bold block mb-2">療效指數 (Efficacy)</span>
                                     <div class="relative w-20 h-20 mb-3 flex items-center justify-center">
@@ -663,6 +709,7 @@
                                     <span class="text-[11px] text-brand-600 font-bold"><i class="fa-solid fa-circle-check"></i> 大於標準值 1.0</span>
                                 </div>
 
+                                <!-- 安全指數 -->
                                 <div class="bg-white p-5 rounded-2xl border border-slate-100 text-center flex flex-col justify-center items-center">
                                     <span class="text-slate-500 text-xs font-bold block mb-2">安全指數 (Safety)</span>
                                     <div class="relative w-20 h-20 mb-3 flex items-center justify-center">
@@ -696,6 +743,7 @@
             </div>
         </section>
 
+        <!-- ==================== 為什麼選擇表層零接觸全雷射手術 ==================== -->
         <section class="py-16 bg-white border-b border-slate-100 w-full overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
@@ -705,8 +753,10 @@
                 </div>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Card 1: 不翻瓣、不掀瓣 -->
                     <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
                         <div>
+                            <!-- 高階動態 SVG 容器 -->
                             <div class="overflow-hidden rounded-2xl border border-slate-200/60 mb-6 bg-slate-950 aspect-[4/3] shadow-inner relative flex items-center justify-center p-4">
                                 <svg viewBox="0 0 240 180" class="w-full h-full max-h-44" xmlns="http://www.w3.org/2000/svg">
                                     <defs>
@@ -720,15 +770,21 @@
                                     </defs>
                                     <rect width="100%" height="100%" fill="url(#grid1)" />
                                     
+                                    <!-- 眼球主體輪廓 -->
                                     <circle cx="120" cy="180" r="100" fill="#0f172a" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
+                                    <!-- 角膜厚度外層 -->
                                     <path d="M40,130 Q120,40 200,130" fill="none" stroke="#64748b" stroke-width="14" stroke-linecap="round"/>
+                                    <!-- 角膜基質層 -->
                                     <path d="M43,130 Q120,46 197,130" fill="none" stroke="#0d9488" stroke-width="8" stroke-linecap="round" class="transition-colors duration-300 group-hover:stroke-brand-500"/>
                                     
+                                    <!-- 警告對比：LASIK掀瓣虛線 -->
                                     <path d="M60,105 Q120,55 180,105" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4" class="opacity-60 transition-opacity duration-300 group-hover:opacity-100"/>
                                     <path d="M57,112 L45,95" stroke="#ef4444" stroke-width="2" class="opacity-0 transition-all duration-500 transform translate-x-1 -translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0"/>
                                     <text x="35" y="85" fill="#ef4444" font-size="10" font-weight="bold" class="opacity-0 transition-opacity duration-300 group-hover:opacity-80">❌ 傳統掀瓣切口</text>
 
+                                    <!-- SMART TransPRK 表層無瓣安全盾 -->
                                     <path d="M85,90 Q120,70 155,90" fill="none" stroke="#2dd4bf" stroke-width="3" stroke-linecap="round" class="animate-pulse"/>
+                                    <!-- 安全護盾圖示 -->
                                     <g class="transition-transform duration-500 transform translate-y-2 group-hover:translate-y-0">
                                         <path d="M112,65 L120,61 L128,65 L128,73 Q120,81 112,73 Z" fill="#10b981" stroke="#2dd4bf" stroke-width="1"/>
                                         <path d="M116,71 L119,74 L124,68" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -745,30 +801,37 @@
                         </div>
                     </div>
                     
+                    <!-- Card 2: 器械零接觸 -->
                     <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
                         <div>
+                            <!-- 高階動態 SVG 容器 -->
                             <div class="overflow-hidden rounded-2xl border border-slate-200/60 mb-6 bg-slate-950 aspect-[4/3] shadow-inner relative flex items-center justify-center p-4">
                                 <svg viewBox="0 0 240 180" class="w-full h-full max-h-44" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="100%" height="100%" fill="url(#grid1)" />
                                     
+                                    <!-- 雷射探頭本體 -->
                                     <g class="transition-transform duration-300 transform group-hover:-translate-y-1">
                                         <rect x="95" y="10" width="50" height="25" rx="4" fill="#1e293b" stroke="#475569" stroke-width="2"/>
                                         <rect x="105" y="35" width="30" height="15" fill="#334155"/>
                                         <circle cx="120" cy="50" r="8" fill="#0f172a" stroke="#14b8a6" stroke-width="2"/>
                                     </g>
 
+                                    <!-- 噴射的冷激光束 -->
                                     <path d="M112,50 L95,115 L145,115 L128,50 Z" fill="url(#laserGrad1)" class="opacity-0 transition-opacity duration-300 group-hover:opacity-100"/>
                                     <line x1="120" y1="50" x2="120" y2="114" stroke="#2dd4bf" stroke-width="3" class="opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:stroke-white"/>
                                     
+                                    <!-- 零接觸標示線 -->
                                     <g class="opacity-100 transition-opacity duration-300 group-hover:opacity-80">
                                         <line x1="60" y1="85" x2="180" y2="85" stroke="#f43f5e" stroke-width="1.5" stroke-dasharray="3,3"/>
                                         <text x="120" y="80" fill="#f43f5e" font-size="9" font-weight="bold" text-anchor="middle">⚡ 空間完全淨空 • 0% 接觸</text>
                                     </g>
 
+                                    <!-- 眼球與角膜弧度 -->
                                     <circle cx="120" cy="210" r="100" fill="#0f172a" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
                                     <path d="M50,130 Q120,65 190,130" fill="none" stroke="#64748b" stroke-width="8" stroke-linecap="round"/>
                                     <path d="M50,130 Q120,65 190,130" fill="none" stroke="#14b8a6" stroke-width="4" stroke-linecap="round" class="opacity-0 transition-opacity duration-300 group-hover:opacity-100 animate-pulse"/>
                                     
+                                    <!-- 雷射雕琢點閃爍特效 -->
                                     <circle cx="120" cy="98" r="6" fill="#2dd4bf" class="opacity-0 group-hover:opacity-100 animate-ping"/>
                                     <circle cx="120" cy="98" r="3" fill="#ffffff" class="opacity-0 group-hover:opacity-100"/>
 
@@ -783,15 +846,19 @@
                         </div>
                     </div>
                     
+                    <!-- Card 3: 術後不乾眼 -->
                     <div class="group bg-gradient-to-b from-slate-50 to-white hover:from-brand-50/30 border border-slate-150 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
                         <div>
+                            <!-- 高階動態 SVG 容器 -->
                             <div class="overflow-hidden rounded-2xl border border-slate-200/60 mb-6 bg-slate-950 aspect-[4/3] shadow-inner relative flex items-center justify-center p-4">
                                 <svg viewBox="0 0 240 180" class="w-full h-full max-h-44" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="100%" height="100%" fill="url(#grid1)" />
                                     
+                                    <!-- 眼球與健康厚度角膜 -->
                                     <circle cx="120" cy="190" r="100" fill="#0f172a" stroke="rgba(255,255,255,0.15)" stroke-width="2"/>
                                     <path d="M45,120 Q120,40 195,120" fill="none" stroke="#1e293b" stroke-width="12" stroke-linecap="round"/>
                                     
+                                    <!-- 健康角膜神經網 -->
                                     <g stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="opacity-60 transition-all duration-300 group-hover:opacity-100">
                                         <path d="M60,110 Q85,95 105,98 T115,80" fill="none"/>
                                         <path d="M180,110 Q155,95 135,98 T125,80" fill="none"/>
@@ -801,9 +868,11 @@
                                         <circle cx="122" cy="72" r="1.5" fill="#38bdf8" class="animate-ping"/>
                                     </g>
                                     
+                                    <!-- 健康天然淚液層 -->
                                     <path d="M41,116 Q120,32 199,116" fill="none" stroke="#0ea5e9" stroke-width="3" stroke-linecap="round" class="transition-all duration-300 group-hover:stroke-blue-400 group-hover:stroke-[4px]"/>
                                     <path d="M41,116 Q120,32 199,116" fill="none" stroke="#38bdf8" stroke-width="1" stroke-linecap="round" class="animate-pulse"/>
                                     
+                                    <!-- 淚滴分泌滋潤粒子 -->
                                     <g class="opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                                         <path d="M110,50 C110,47 112,45 112,45 C112,45 114,47 114,50 C114,52 112,53 112,53 C112,53 110,52 110,50 Z" fill="#38bdf8"/>
                                         <path d="M130,52 C130,49 132,47 132,47 C132,47 134,49 134,52 C134,54 132,55 132,55 C132,55 130,54 130,52 Z" fill="#38bdf8"/>
@@ -823,6 +892,7 @@
             </div>
         </section>
 
+        <!-- ==================== 德國 AMARIS 頂頂規技術說明 (tech) ==================== -->
         <section id="tech" class="py-16 bg-slate-50 border-b border-slate-200/60 relative w-full overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -888,6 +958,7 @@
             </div>
         </section>
 
+        <!-- ==================== 診療實景直擊 (gallery) ==================== -->
         <section id="gallery" class="py-16 bg-white border-b border-slate-100 w-full overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
@@ -899,6 +970,7 @@
                     </p>
                 </div>
 
+                <!-- 手機滑動引導提示 -->
                 <div class="md:hidden flex items-center justify-center space-x-2 bg-brand-50/85 border border-brand-100 py-3 px-4 rounded-xl mb-6 shadow-sm">
                     <span class="text-brand-700 text-[15px] font-extrabold flex items-center">
                         <i class="fa-solid fa-hand-pointer mr-2 animate-bounce"></i> 👆 下方選單可左右滑動看步驟
@@ -906,6 +978,7 @@
                     </span>
                 </div>
 
+                <!-- 診療流程橫滑頁籤 -->
                 <div class="flex overflow-x-auto md:justify-center border-b border-slate-200 pb-2 mb-12 space-x-3 md:space-x-4 beautiful-scrollbar" style="-webkit-overflow-scrolling: touch;">
                     <button @click="galleryTab = 'exam'" 
                             :class="galleryTab === 'exam' ? 'border-brand-500 text-brand-600 border-b-4 font-black bg-brand-50/50' : 'border-transparent text-slate-650 hover:text-slate-900'"
@@ -936,6 +1009,7 @@
 
                 <div class="bg-slate-50/50 border border-slate-200/60 p-6 sm:p-10 rounded-3xl soft-shadow">
 
+                    <!-- Step 1: Exam -->
                     <div x-show="galleryTab === 'exam'" x-transition class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-4">
                             <span class="text-sm font-extrabold text-brand-600 bg-brand-100/60 px-3 py-1.5 rounded-full uppercase tracking-wider">Step 01. Precise Examination</span>
@@ -961,6 +1035,7 @@
                         </div>
                     </div>
 
+                    <!-- Step 2: Consult -->
                     <div x-show="galleryTab === 'consult'" x-transition x-cloak class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-4">
                             <span class="text-sm font-extrabold text-brand-600 bg-brand-100/60 px-3 py-1.5 rounded-full uppercase tracking-wider">Step 02. Consultation & Briefing</span>
@@ -986,6 +1061,7 @@
                         </div>
                     </div>
 
+                    <!-- Step 3: Prep -->
                     <div x-show="galleryTab === 'prep'" x-transition x-cloak class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-4">
                             <span class="text-sm font-extrabold text-brand-600 bg-brand-100/60 px-3 py-1.5 rounded-full uppercase tracking-wider">Step 03. Sterile Operating Room & Prep</span>
@@ -996,7 +1072,7 @@
                             <div class="bg-white p-5 border border-slate-200/60 rounded-xl space-y-3 text-sm sm:text-base text-slate-600 font-semibold">
                                 <p class="font-extrabold text-slate-850 flex items-center text-base"><i class="fa-solid fa-shield-virus text-brand-500 mr-2"></i>安全防禦黃金指標：</p>
                                 <p>• <strong class="text-slate-900">專屬屈光手術室</strong>：不與一般眼科 or 外科手術共用，從根本上避免了細菌與病毒交叉感染的可能。</p>
-                                <p>• <strong class="text-slate-900">符合國際標準潔淨度</strong>：溫濕度、氣壓與氣流皆受全天候正壓密閉監控，高效率空氣微粒過濾器（HEPA）確保落塵符合標準。</p>
+                                <p>• <strong class="text-slate-900">符合國際標準潔淨度</strong>：溫濕度、氣壓與氣流皆受全天候正壓密閉監控，高效率空氣微粒過塵器（HEPA）確保落塵符合標準。</p>
                                 <p>• <strong class="text-slate-900">100% 拋棄式無菌包</strong>：上台使用的眼部包、沖洗針劑、敷料均為全新耗材，用後即棄，杜絕感染可能。</p>
                             </div>
                         </div>
@@ -1012,6 +1088,7 @@
                         </div>
                     </div>
 
+                    <!-- Step 4: Surgery -->
                     <div x-show="galleryTab === 'surgery'" x-transition class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-4">
                             <span class="text-sm font-extrabold text-brand-600 bg-brand-100/60 px-3 py-1.5 rounded-full uppercase tracking-wider">Step 04. Laser Ablation</span>
@@ -1041,6 +1118,7 @@
                         </div>
                     </div>
 
+                    <!-- Step 5: Followup -->
                     <div x-show="galleryTab === 'followup'" x-transition x-cloak class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-4">
                             <span class="text-sm font-extrabold text-brand-600 bg-brand-100/60 px-3 py-1.5 rounded-full uppercase tracking-wider">Step 05. Post-Op Slit Lamp Follow Up</span>
@@ -1066,6 +1144,7 @@
             </div>
         </section>
 
+        <!-- ==================== SNQ 國家品質標章 肯定特區 ==================== -->
         <section id="snq-honors" class="py-16 bg-slate-50 border-b border-slate-200/60 relative w-full overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -1076,8 +1155,10 @@
                     </p>
                 </div>
 
+                <!-- 精密實物照片卡片排版 (iPad 直向改為單列，iPad 橫向與桌面端維持三列) -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
                     
+                    <!-- 卡片 1: 113SNQaward.jpg (官方海報) -->
                     <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                         <div>
                             <div class="overflow-hidden rounded-2xl bg-slate-100 aspect-[3/4] flex items-center justify-center cursor-pointer mb-4 relative"
@@ -1095,6 +1176,7 @@
                         <button @click="openLightbox('113SNQaward.jpg', 'SNQ 國家品質標章全台傑出醫護團隊海報')" class="mt-4 w-full bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-700 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center"><i class="fa-solid fa-expand mr-2"></i>放大海報圖檔</button>
                     </div>
 
+                    <!-- 卡片 2: 113SNQawardword.jpg (官方證書紙) -->
                     <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                         <div>
                             <div class="overflow-hidden rounded-2xl bg-slate-100 aspect-[3/4] flex items-center justify-center cursor-pointer mb-4 relative"
@@ -1112,6 +1194,7 @@
                         <button @click="openLightbox('113SNQawardword.jpg', 'SNQ 國家品質標章官方認證證書')" class="mt-4 w-full bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-700 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center"><i class="fa-solid fa-expand mr-2"></i>放大證書圖檔</button>
                     </div>
 
+                    <!-- 卡片 3: 113年SNQDrWeng.jpg (翁醫師現場英姿) -->
                     <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                         <div>
                             <div class="overflow-hidden rounded-2xl bg-slate-100 aspect-[3/4] flex items-center justify-center cursor-pointer mb-4 relative"
@@ -1133,9 +1216,11 @@
             </div>
         </section>
 
+        <!-- ==================== 醫師團隊 (doctors) ==================== -->
         <section id="doctors" class="py-16 bg-navy-950 text-slate-300 w-full overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
+                <!-- 大標題 -->
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <span class="text-brand-400 font-extrabold text-xs sm:text-sm uppercase tracking-widest">Medical Specialists</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-white mt-2">快速通道強棒醫師陣容</h2>
@@ -1144,20 +1229,27 @@
                     </p>
                 </div>
 
+                <!-- 醫師卡片佈局 -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 mb-16 items-stretch">
                     
+                    <!-- 醫師 1：黃克豪 醫師 -->
                     <div class="bg-navy-900 border border-slate-700/50 rounded-3xl overflow-hidden shadow-xl shadow-navy-950/30 flex flex-col items-stretch">
                         
+                        <!-- 醫師大圖容器 -->
                         <div class="relative overflow-hidden w-full h-[400px] md:h-[480px] shrink-0">
+                            <!-- 1. 松山分院官方 Logo Badge -->
                             <div class="absolute top-4 right-4 z-30 bg-white/95 backdrop-blur px-3.5 py-2 rounded-full flex items-center space-x-1.5 shadow-md border border-slate-200/10">
                                 <img src="ss-logo.png" alt="松山分院徽章" class="w-6 h-6 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=SS'">
                                 <span class="text-xs font-black text-slate-900">三總松山分院</span>
                             </div>
 
+                            <!-- 2. 合併場景照片底層 -->
                             <img src="IMG_20250507_141134.jpg" alt="雷射定位場景" class="absolute inset-0 w-full h-full object-cover opacity-10 blur-[1px]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579684389782-64d84b5e901a?w=600'">
 
+                            <!-- 3. 黃醫師去背照片上層 -->
                             <img src="hkhpic.png" alt="三總松山眼科主任 黃克豪 醫師" class="relative z-10 w-full h-full object-contain object-bottom transition-transform duration-300 hover:scale-105" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600'">
 
+                            <!-- 4. 底部斜切遮罩與文字疊加 -->
                             <div class="absolute bottom-0 left-0 w-full z-20 px-8 pb-6 flex flex-col justify-end h-3/5 bg-gradient-to-t from-navy-950 via-navy-900/80 to-transparent">
                                 <span class="text-sm font-black text-brand-400 bg-brand-400/10 px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-block">松山分院眼科主任</span>
                                 <h3 class="relative text-4xl font-black text-white mt-3 inline-block">
@@ -1168,7 +1260,9 @@
                             </div>
                         </div>
                         
+                        <!-- 文字內容容器 -->
                         <div class="flex-1 p-8 space-y-6 pt-6 text-sm sm:text-base">
+                            <!-- 學經歷列表 -->
                             <div class="space-y-3.5 text-slate-350 font-semibold">
                                 <h4 class="font-extrabold text-white text-lg flex items-center"><i class="fa-solid fa-graduation-cap text-brand-400 mr-2"></i>專業學經歷：</h4>
                                 <ul class="list-disc list-inside space-y-2.5 text-slate-350 pl-1 leading-relaxed">
@@ -1183,6 +1277,7 @@
 
                             <hr class="border-slate-700/50">
 
+                            <!-- 專業專長列表 -->
                             <div class="space-y-3.5 text-slate-350 font-semibold">
                                 <h4 class="font-extrabold text-white text-lg flex items-center"><i class="fa-solid fa-crosshairs text-brand-400 mr-2"></i>核心專長指標：</h4>
                                 <ul class="list-disc list-inside space-y-2.5 text-slate-350 pl-1 leading-relaxed">
@@ -1199,18 +1294,24 @@
                         </div>
                     </div>
 
+                    <!-- 醫師 2：翁子恆 醫師 -->
                     <div class="bg-navy-900 border border-slate-700/50 rounded-3xl overflow-hidden shadow-xl shadow-navy-950/30 flex flex-col items-stretch">
                         
+                        <!-- 醫師大圖容器 -->
                         <div class="relative overflow-hidden w-full h-[400px] md:h-[480px] shrink-0">
+                            <!-- 1. 內湖總院官方 Logo Badge -->
                             <div class="absolute top-4 right-4 z-30 bg-white/95 backdrop-blur px-3.5 py-2 rounded-full flex items-center space-x-1.5 shadow-md border border-slate-200/10">
                                 <img src="tsgh-logo.png" alt="內湖總院徽章" class="w-6 h-6 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=TSGH'">
                                 <span class="text-xs font-black text-slate-900">三總內湖總院</span>
                             </div>
 
+                            <!-- 2. 合併診察場景照片底層 -->
                             <img src="IMG_20250514_113411.jpg" alt="診察場景" class="absolute inset-0 w-full h-full object-cover opacity-10 blur-[1px]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579684389782-64d84b5e901a?w=600'">
 
+                            <!-- 3. 翁醫師專業照片上層 -->
                             <img src="wthpic.png" alt="三總內湖總院角膜科主治醫師 翁子恆 醫師" class="relative z-10 w-full h-full object-contain object-bottom transition-transform duration-300 hover:scale-105" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1537368910025-700350fe46c7?w=600'">
 
+                            <!-- 4. 底部斜切遮罩與文字疊加 -->
                             <div class="absolute bottom-0 left-0 w-full z-20 px-8 pb-6 flex flex-col justify-end h-3/5 bg-gradient-to-t from-navy-950 via-navy-900/80 to-transparent">
                                 <span class="text-sm font-black text-blue-400 bg-blue-400/10 px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-block">內湖總院角膜科主治醫師</span>
                                 <h3 class="relative text-4xl font-black text-white mt-3 inline-block">
@@ -1221,7 +1322,9 @@
                             </div>
                         </div>
                         
+                        <!-- 文字內容容器 -->
                         <div class="flex-1 p-8 space-y-6 pt-6 text-sm sm:text-base">
+                            <!-- 學經歷列表 -->
                             <div class="space-y-3.5 text-slate-350 font-semibold">
                                 <h4 class="font-extrabold text-white text-lg flex items-center"><i class="fa-solid fa-graduation-cap text-blue-400 mr-2"></i>專業學經歷：</h4>
                                 <ul class="list-disc list-inside space-y-2.5 text-slate-350 pl-1 leading-relaxed">
@@ -1237,6 +1340,7 @@
 
                             <hr class="border-slate-700/50">
 
+                            <!-- 專業專長列表 -->
                             <div class="space-y-3.5 text-slate-350 font-semibold">
                                 <h4 class="font-extrabold text-white text-lg flex items-center"><i class="fa-solid fa-crosshairs text-blue-400 mr-2"></i>核心專長指標：</h4>
                                 <ul class="list-disc list-inside space-y-2.5 text-slate-350 pl-1 leading-relaxed">
@@ -1252,6 +1356,7 @@
 
                 </div>
 
+                <!-- 看診時間表 -->
                 <div class="bg-navy-900 border border-slate-700/50 p-5 sm:p-6 rounded-3xl shadow-sm max-w-5xl mx-auto">
                     <div class="border-b border-slate-700/50 pb-4 mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                         <div class="flex items-center space-x-3">
@@ -1268,6 +1373,7 @@
                         </div>
                     </div>
 
+                    <!-- 手機端滑動提示 -->
                     <div class="lg:hidden flex items-center justify-center space-x-2 bg-amber-500/10 border border-amber-500/20 py-2 px-3 rounded-xl mb-3">
                         <span class="text-amber-300 text-xs font-bold flex items-center">
                             <i class="fa-solid fa-angles-left mr-1 animate-pulse"></i> 左右滑動查看完整日程 
@@ -1275,6 +1381,7 @@
                         </span>
                     </div>
 
+                    <!-- 關鍵修正：限制表格容器最大寬度並啟動水平滑動防護 -->
                     <div class="w-full max-w-full overflow-x-auto beautiful-scrollbar" style="-webkit-overflow-scrolling: touch;">
                         <table class="w-full text-xs text-left text-slate-300 min-w-[780px]">
                             <thead>
@@ -1290,10 +1397,12 @@
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-800 font-medium">
+                                <!-- 黃醫師門診 -->
                                 <tr class="hover:bg-slate-800/10 transition-colors">
                                     <td class="py-3 px-4 font-bold text-white"><span class="inline-block w-2 h-2 bg-brand-400 rounded-full mr-1.5"></span>黃克豪</td>
                                     <td class="py-3 px-4 text-slate-200 font-semibold">松山分院 (29診)</td>
                                     
+                                    <!-- 週一 -->
                                     <td class="py-3 px-4">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
                                             <i class="fa-solid fa-cloud-sun mr-1 text-[10px]"></i>下午診
@@ -1301,8 +1410,10 @@
                                         <span class="text-[10px] text-slate-400 block mt-0.5">13:30 ~ 16:30</span>
                                     </td>
                                     
+                                    <!-- 週二 -->
                                     <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
+                                    <!-- 週三 -->
                                     <td class="py-3 px-4">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
                                             <i class="fa-solid fa-user-doctor mr-1 text-[10px]"></i>術後特約
@@ -1310,6 +1421,7 @@
                                         <span class="text-[10px] text-slate-400 block mt-0.5">08:00 ~ 09:00</span>
                                     </td>
                                     
+                                    <!-- 週四 -->
                                     <td class="py-3 px-4 space-y-1.5">
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
@@ -1325,6 +1437,7 @@
                                         </div>
                                     </td>
                                     
+                                    <!-- 週五 -->
                                     <td class="py-3 px-4">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-sky-500/15 text-sky-300 border border-sky-500/20">
                                             <i class="fa-solid fa-sun mr-1 text-[10px]"></i>上午診
@@ -1339,10 +1452,12 @@
                                     </td>
                                 </tr>
 
+                                <!-- 翁醫師門診 -->
                                 <tr class="hover:bg-slate-800/10 transition-colors">
                                     <td class="py-3 px-4 font-bold text-white"><span class="inline-block w-2 h-2 bg-blue-400 rounded-full mr-1.5"></span>翁子恆</td>
                                     <td class="py-3 px-4 text-slate-200 font-semibold">內湖總院眼科</td>
                                     
+                                    <!-- 週一 -->
                                     <td class="py-3 px-4">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
                                             <i class="fa-solid fa-cloud-sun mr-1 text-[10px]"></i>下午診
@@ -1350,6 +1465,7 @@
                                         <span class="text-[10px] text-slate-400 block mt-0.5">14:00 ~ 17:00</span>
                                     </td>
                                     
+                                    <!-- 週二 -->
                                     <td class="py-3 px-4 space-y-1.5">
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
@@ -1365,6 +1481,7 @@
                                         </div>
                                     </td>
                                     
+                                    <!-- 週三 -->
                                     <td class="py-3 px-4 space-y-1.5">
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-sky-500/15 text-sky-300 border border-sky-500/20">
@@ -1380,8 +1497,10 @@
                                         </div>
                                     </td>
                                     
+                                    <!-- 週四 -->
                                     <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
+                                    <!-- 週五 -->
                                     <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
                                     <td class="py-3 px-4 text-center">
@@ -1397,6 +1516,7 @@
             </div>
         </section>
 
+        <!-- ==================== 適合度自我測試 (quiz) ==================== -->
         <section id="quiz" class="py-16 bg-white border-b border-slate-200/60 w-full overflow-hidden">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="bg-white border border-slate-200 rounded-3xl shadow-xl overflow-hidden" 
@@ -1428,9 +1548,10 @@
                         <div class="text-center mb-8" x-show="step < 8">
                             <span class="text-xs sm:text-sm font-extrabold text-brand-600 bg-brand-50 px-3 py-1.5 rounded-full">醫病共享決策自檢工具</span>
                             <h3 class="text-2xl sm:text-3xl font-black text-slate-900 mt-3">我適合 SMART TransPRK 雷射嗎？</h3>
-                            <p class="text-slate-605 text-sm sm:text-base mt-2 font-semibold">透過簡單問答，快速篩選出最契合您的近視微創解決方案。</p>
+                            <p class="text-slate-600 text-sm sm:text-base mt-2 font-semibold">透過簡單問答，快速篩選出最契合您的近視微創解決方案。</p>
                         </div>
 
+                        <!-- Step 1 -->
                         <div x-show="step === 1" x-transition class="space-y-6 text-center">
                             <div class="text-5xl text-brand-500"><i class="fa-solid fa-cake-candles"></i></div>
                             <h4 class="text-lg sm:text-xl font-bold text-slate-800">第一步：您的年齡是否已經超過 20 歲了？</h4>
@@ -1440,6 +1561,7 @@
                             </div>
                         </div>
 
+                        <!-- Step 2 -->
                         <div x-show="step === 2" x-transition x-cloak class="space-y-6 text-center">
                             <div class="text-5xl text-brand-500"><i class="fa-solid fa-glasses"></i></div>
                             <h4 class="text-lg sm:text-xl font-bold text-slate-800">第二步：您覺得每天清潔、配戴眼鏡 or 隱形眼鏡很麻煩且耗時嗎？</h4>
@@ -1449,6 +1571,7 @@
                             </div>
                         </div>
 
+                        <!-- Step 3 -->
                         <div x-show="step === 3" x-transition x-cloak class="space-y-6 text-center">
                             <div class="text-5xl text-brand-500"><i class="fa-solid fa-sun-haze"></i></div>
                             <h4 class="text-lg sm:text-xl font-bold text-slate-800">第三步：您未曾被診斷有嚴重的眼科疾病（如青光眼、黃斑部病變）？</h4>
@@ -1458,6 +1581,7 @@
                             </div>
                         </div>
 
+                        <!-- Step 4 -->
                         <div x-show="step === 4" x-transition x-cloak class="space-y-6 text-center">
                             <div class="text-5xl text-brand-500"><i class="fa-solid fa-person-running"></i></div>
                             <h4 class="text-lg sm:text-xl font-bold text-slate-800">第四步：您的工作、高強度休閒運動（如碰撞運動、潛水、健身）常因眼鏡而感到極度不便？</h4>
@@ -1467,6 +1591,7 @@
                             </div>
                         </div>
 
+                        <!-- Step 5 -->
                         <div x-show="step === 5" x-transition x-cloak class="space-y-6 text-center">
                             <div class="text-5xl text-brand-500"><i class="fa-solid text-brand-500 fa-expand"></i></div>
                             <h4 class="text-lg sm:text-xl font-bold text-slate-800">第五步：您對於任何器械直接接觸眼球（如真空吸引、壓力負壓）會感到不適 or 恐懼？</h4>
@@ -1476,6 +1601,7 @@
                             </div>
                         </div>
 
+                        <!-- Step 6 -->
                         <div x-show="step === 6" x-transition x-cloak class="space-y-6 text-center">
                             <div class="text-5xl text-brand-500"><i class="fa-solid fa-water-tear"></i></div>
                             <h4 class="text-lg sm:text-xl font-bold text-slate-800">第六步：您平日有眼睛乾澀傾向，並擔心手術後造成嚴重且不可逆的乾眼症？</h4>
@@ -1485,15 +1611,17 @@
                             </div>
                         </div>
 
+                        <!-- Step 7 -->
                         <div x-show="step === 7" x-transition x-cloak class="space-y-6 text-center">
                             <div class="text-5xl text-brand-500"><i class="fa-solid fa-eye-dropper"></i></div>
                             <h4 class="text-lg sm:text-xl font-bold text-slate-800">第七步：您是否希望能最大程度保留角膜厚度，拒絕任何角膜瓣位移相關併發症？</h4>
                             <div class="flex justify-center space-x-4">
                                 <button @click="answers.q7 = 'yes'; step++" class="bg-slate-50 hover:bg-brand-500 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">是</button>
-                                @click="answers.q7 = 'no'; step++" class="bg-slate-50 hover:bg-brand-500 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">否</button>
+                                <button @click="answers.q7 = 'no'; step++" class="bg-slate-50 hover:bg-brand-500 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">否</button>
                             </div>
                         </div>
 
+                        <!-- Step 8: Result -->
                         <div x-show="step === 8" x-transition x-cloak class="space-y-6 text-center">
                             <div class="w-24 h-24 bg-brand-500/10 text-brand-500 rounded-full flex items-center justify-center mx-auto text-4xl">
                                 <i class="fa-solid fa-heart-pulse"></i>
@@ -1533,6 +1661,7 @@
             </div>
         </section>
 
+        <!-- ==================== 常見問題 (faq) ==================== -->
         <section id="faq" class="py-16 bg-slate-50 border-b border-slate-200/60 w-full overflow-hidden" x-data="{ faqSelected: null }">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
@@ -1542,12 +1671,13 @@
                 </div>
 
                 <div class="space-y-5">
+                    <!-- Q1 -->
                     <div class="border border-slate-200/70 rounded-2xl overflow-hidden transition-all duration-200 bg-white shadow-sm">
                         <button @click="faqSelected = faqSelected === 1 ? null : 1" class="w-full flex justify-between items-center p-6 text-left font-extrabold text-slate-900 hover:bg-slate-50 transition-colors text-base sm:text-lg">
                             <span>Q1. 我的近視度數高達 1000 度，也可以做 SMART TransPRK 嗎？</span>
                             <i class="fa-solid text-slate-500 transition-transform duration-200" :class="faqSelected === 1 ? 'fa-chevron-up text-brand-500 rotate-180' : 'fa-chevron-down'"></i>
                         </button>
-                        <div x-show="faqSelected === 1" x-collapse>
+                        <div x-show="faqSelected === 1" x-collapse x-cloak>
                             <div class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 space-y-3 font-semibold leading-relaxed">
                                 <p>
                                     近視度數越深，雷射消耗的角膜基質層厚度越多。為確保術後眼睛結構的長期穩定與安全，避開「圓錐角膜」後遺症，術後角膜必須保留足夠的安全厚度。
@@ -1558,12 +1688,13 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Q2 -->
                     <div class="border border-slate-200/70 rounded-2xl overflow-hidden transition-all duration-200 bg-white shadow-sm">
                         <button @click="faqSelected = faqSelected === 2 ? null : 2" class="w-full flex justify-between items-center p-6 text-left font-extrabold text-slate-900 hover:bg-slate-50 transition-colors text-base sm:text-lg">
                             <span>Q2. 近視雷射會痛嗎？需要全身麻醉還是打針？</span>
                             <i class="fa-solid text-slate-500 transition-transform duration-200" :class="faqSelected === 2 ? 'fa-chevron-up text-brand-500 rotate-180' : 'fa-chevron-down'"></i>
                         </button>
-                        <div x-show="faqSelected === 2" x-collapse>
+                        <div x-show="faqSelected === 2" x-collapse x-cloak>
                             <div class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 font-semibold leading-relaxed">
                                 <p>
                                     手術完全無須全身麻醉，也不需要打麻醉針。<strong>手術前只需在眼球點上幾滴「表面局部麻醉眼藥水」即可。</strong> 手術過程中除了撐眼器外，全程不會有任何器械碰觸到您的眼角膜。雷射施打時會發出聲響及散發異味（此為雷射作用於角膜基質蛋白時之正常現象），群友僅需放鬆凝視逆時針閃爍光點，約數十秒即可快速完成。
@@ -1571,12 +1702,13 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Q3 -->
                     <div class="border border-slate-200/70 rounded-2xl overflow-hidden transition-all duration-200 bg-white shadow-sm">
                         <button @click="faqSelected = faqSelected === 3 ? null : 3" class="w-full flex justify-between items-center p-6 text-left font-extrabold text-slate-900 hover:bg-slate-50 transition-colors text-base sm:text-lg">
                             <span>Q3. 手術恢復期是多久？視力會如何提升？</span>
                             <i class="fa-solid text-slate-500 transition-transform duration-200" :class="faqSelected === 3 ? 'fa-chevron-up text-brand-500 rotate-180' : 'fa-chevron-down'"></i>
                         </button>
-                        <div x-show="faqSelected === 3" x-collapse>
+                        <div x-show="faqSelected === 3" x-collapse x-cloak>
                             <div class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 space-y-3 font-semibold leading-relaxed">
                                 <p>
                                     術後立即視力大約落在 0.3 到 0.4 之間，配合我們在手術完為您戴上的治療保護型隱形眼鏡，已足以應付日常生活起居所須。
@@ -1590,15 +1722,16 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Q4 -->
                     <div class="border border-slate-200/70 rounded-2xl overflow-hidden transition-all duration-200 bg-white shadow-sm">
                         <button @click="faqSelected = faqSelected === 4 ? null : 4" class="w-full flex justify-between items-center p-6 text-left font-extrabold text-slate-900 hover:bg-slate-50 transition-colors text-base sm:text-lg">
                             <span>Q4. 雷射後度數會再次回退（再度近視）嗎？</span>
                             <i class="fa-solid text-slate-500 transition-transform duration-200" :class="faqSelected === 4 ? 'fa-chevron-up text-brand-500 rotate-180' : 'fa-chevron-down'"></i>
                         </button>
-                        <div x-show="faqSelected === 4" x-collapse>
+                        <div x-show="faqSelected === 4" x-collapse x-cloak>
                             <div class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 space-y-3 font-semibold leading-relaxed">
                                 <p>
-                                    any 近視雷射在數年後，皆有些微度數回退的理論機率，回退程度因個人用眼習慣而異（通常術前度數越高、回退機率相對高一點）。
+                                    任何近視雷射在數年後，皆有些微度數回退的理論機率，回退程度因個人用眼習慣而異（通常術前度數越高、回退機率相對高一點）。
                                 </p>
                                 <p>
                                     <strong>SMART TransPRK 手術因保留較多的角膜厚度，且角膜結構較穩定</strong>，度數回退機率在眼科臨床文獻中顯著低於其他傳統手術。術後仍需維持 30 分鐘休息 10 分鐘的良好用眼習慣，以確保長青視力。
@@ -1610,6 +1743,7 @@
             </div>
         </section>
 
+        <!-- ==================== Line 預約區 ==================== -->
         <section id="quick-reserve" class="py-16 bg-gradient-to-br from-brand-50 via-emerald-50/20 to-blue-50/50 border-t border-slate-200/80 text-slate-800 relative w-full overflow-hidden">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(16,185,129,0.06),transparent)]"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -1676,6 +1810,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-slate-800 pb-12">
                 <div class="lg:col-span-6 space-y-4">
                     <div class="flex items-center space-x-3">
+                        <!-- Footer 完美修正：正圓形 Logo，展現流線醫療高質感，100% 不裁切 -->
                         <div class="h-12 w-12 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center border border-white/10 shrink-0">
                             <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" class="h-full w-full object-cover" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
                         </div>
@@ -1685,6 +1820,7 @@
                         本平台由三軍總醫院眼科部與三總松山分院眼科專業醫療團隊共同編撰，旨在為廣大民眾與群友提供科學且可信賴的近視雷射綠色快速通道諮詢與衛教服務。
                     </p>
                     
+                    <!-- 聯名徽章整合區域 -->
                     <div class="flex flex-wrap gap-4 pt-3">
                         <div class="flex items-center space-x-2 bg-white/5 border border-white/10 px-3.5 py-2.5 rounded-xl">
                             <img src="tsgh-logo.png" alt="三軍總醫院徽章" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
@@ -1755,6 +1891,7 @@
         </div>
     </footer>
 
+    <!-- ==================== Alpine.js 實作高階燈箱 (Lightbox Modal) ==================== -->
     <div x-show="showLightbox" 
          class="fixed inset-0 z-[120] overflow-y-auto flex items-center justify-center p-4" 
          x-transition:enter="transition ease-out duration-300"
@@ -1765,8 +1902,10 @@
          x-transition:leave-end="opacity-0"
          x-cloak>
          
+        <!-- 磨砂背景 -->
         <div class="fixed inset-0 bg-slate-950/85 backdrop-blur-md" @click="showLightbox = false"></div>
 
+        <!-- 燈箱內容盒 -->
         <div class="relative bg-white/95 border border-slate-200 rounded-3xl max-w-4xl w-full p-4 sm:p-6 shadow-2xl flex flex-col transform transition-all z-10"
              x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0 scale-95"
@@ -1782,6 +1921,7 @@
                 </button>
             </div>
 
+            <!-- 圖檔展演區 -->
             <div class="flex justify-center items-center overflow-hidden rounded-xl bg-slate-900 aspect-[4/3] max-h-[70vh] p-2 border border-slate-700/20">
                 <img :src="lightboxImg" :alt="lightboxTitle" class="max-w-full max-h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/1000x800/0f172a/94a3b8?text=Image+Loading+Error'">
             </div>
@@ -1792,6 +1932,7 @@
         </div>
     </div>
 
+    <!-- ==================== 隱私權保護政策互動彈窗 ==================== -->
     <div x-show="showPrivacyModal" 
          class="fixed inset-0 z-[100] overflow-y-auto" 
          x-transition:enter="transition ease-out duration-300"
@@ -1805,6 +1946,7 @@
         <div class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm" @click="showPrivacyModal = false"></div>
 
         <div class="flex min-h-screen items-center justify-center p-4">
+            <!-- safe-padding-bottom：預防彈窗按鈕被 iPhone 底部 Home Indicator 覆蓋 -->
             <div class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-hidden shadow-2xl flex flex-col transform transition-all safe-padding-bottom"
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -1896,6 +2038,7 @@
         </div>
     </div>
 
+    <!-- ==================== 使用者條款互動彈窗 ==================== -->
     <div x-show="showTermsModal" 
          class="fixed inset-0 z-[100] overflow-y-auto" 
          x-transition:enter="transition ease-out duration-300"
@@ -1909,6 +2052,7 @@
         <div class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm" @click="showTermsModal = false"></div>
 
         <div class="flex min-h-screen items-center justify-center p-4">
+            <!-- safe-padding-bottom：預防彈窗按鈕被 iPhone 底部 Home Indicator 覆蓋 -->
             <div class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-hidden shadow-2xl flex flex-col transform transition-all safe-padding-bottom"
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
