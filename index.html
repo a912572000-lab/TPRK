@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
     <!-- SEO 關鍵字與網頁描述 -->
-    <title>晴隼視界 - 三總近視雷射快速通道 (黃克豪醫師松山分院/內湖總院)</title>
+    <title>睛采視界 - 三總近視雷射快速通道 (黃克豪醫師松山分院/內湖總院)</title>
     <meta name="description" content="由三軍總醫院眼科主任黃克豪醫師與翁子恆醫師攜手，引進德國頂規 AMARIS 1050RS 儀器，提供不掀瓣、零接觸的 SMART TransPRK 手術，享受免排隊的一條龍雙院區屈光服務。">
     <meta name="keywords" content="黃克豪, 翁子恆, 近視雷射, 三總眼科, 松山分院眼科, SMART TransPRK, AMARIS 1050RS, 角膜零接觸, 飛行員近視雷射">
-    <meta name="author" content="晴隼視界">
+    <meta name="author" content="睛采視界">
     
     <!-- Open Graph (OG) 社群分享協定，優化 LINE/Facebook 預覽圖卡 -->
-    <meta property="og:title" content="晴隼視界 - 三總近視雷射快速通道 (松山分院/內湖總院)">
+    <meta property="og:title" content="睛采視界 - 三總近視雷射快速通道 (松山分院/內湖總院)">
     <meta property="og:description" content="徹底告別眼鏡束縛！三總眼科團隊官方綠色通道，提供「角膜零接觸、不掀瓣」的極致安全近視雷射，省去漫長排隊，由權威主治醫師全程把關。">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?w=1200&q=80">
@@ -24,8 +24,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Alpine.js (含用於滑動風琴式 FAQ 的 Collapse 插件) -->
-    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- FontAwesome 圖示庫 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -149,21 +149,14 @@
     <header class="sticky top-0 z-50 bg-white/80 sticky-blur border-b border-slate-200/80 text-slate-800 shadow-sm w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo 區 (完美修正：圓形容器 + 置中裁剪，100% 完整呈現隼鷹標誌與中英文名稱，絕對不被裁切) -->
+                <!-- Logo 區 (雙院徽官方聯名版型) -->
                 <div class="flex items-center space-x-4 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                    <div class="relative shrink-0 py-1">
-                        <!-- 晴隼主 Logo 容器：h-16 w-16 正圓形，利用 object-cover 自動切除上下多餘白邊，完美呈現正圓形 Logo -->
-                        <div class="h-16 w-16 rounded-full overflow-hidden shadow-md bg-white border border-slate-100 flex items-center justify-center">
-                            <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" class="h-full w-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/150x150/e0f2fe/0369a1?text=Falcon'">
-                        </div>
-                        <!-- 迷你雙院徽浮貼在 Logo 右下方，完美融合 -->
-                        <div class="absolute -bottom-1 -right-1 flex -space-x-1.5 bg-white/95 backdrop-blur rounded-full p-0.5 shadow-md border border-slate-100 z-10">
-                            <img src="tsgh-logo.png" alt="三軍總醫院" class="w-5 h-5 rounded-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=T'">
-                            <img src="ss-logo.png" alt="松山分院" class="w-5 h-5 rounded-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=S'">
-                        </div>
+                    <div class="flex items-center space-x-1.5 shrink-0">
+                        <img src="tsgh-logo.png" alt="三軍總醫院 Logo" class="h-11 w-11 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=TSGH'">
+                        <img src="ss-logo.png" alt="三軍總醫院松山分院 Logo" class="h-11 w-11 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=SS'">
                     </div>
                     <div class="border-l border-slate-200 pl-3 flex flex-col justify-center">
-                        <span class="font-black text-xl sm:text-2xl tracking-wider block text-slate-900 leading-none">晴隼視界</span>
+                        <span class="font-black text-xl sm:text-2xl tracking-wider block text-slate-900 leading-none">睛采視界</span>
                         <span class="text-[11px] sm:text-xs text-brand-600 block font-bold mt-1.5 leading-none">三總眼科跨院區聯合近視雷射預約平台</span>
                     </div>
                 </div>
@@ -233,10 +226,11 @@
                     <!-- 左側：白話大標題與強烈轉化 -->
                     <div class="lg:col-span-7 space-y-6">
                         <div class="inline-flex items-center space-x-3 bg-brand-500/10 border border-brand-500/20 px-4 py-2 rounded-full text-brand-700 text-sm sm:text-base font-bold shadow-sm backdrop-blur-sm">
-                            <div class="w-8 h-8 rounded-full overflow-hidden border border-white shrink-0 flex items-center justify-center bg-white">
-                                <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" class="h-full w-full object-cover">
+                            <div class="flex -space-x-1.5 shrink-0">
+                                <img src="tsgh-logo.png" alt="內湖總院徽章" class="w-6 h-6 rounded-full ring-2 ring-white object-contain">
+                                <img src="ss-logo.png" alt="松山分院徽章" class="w-6 h-6 rounded-full ring-2 ring-white object-contain">
                             </div>
-                            <span>晴隼視界 • 三軍總醫院眼科團隊 官方屈光綠色通道</span>
+                            <span>三軍總醫院眼科團隊 官方屈光手術綠色通道</span>
                         </div>
                         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-slate-950">
                             徹底告別眼鏡束縛！<br>
@@ -244,7 +238,7 @@
                         </h1>
                         <p class="text-slate-750 text-lg sm:text-xl max-w-2xl font-bold leading-relaxed">
                             想做近視雷射，卻卡在醫學中心掛號排隊、檢查等半年？<br>
-                            我們推出專屬綠色通道：由三總眼科權威團隊親自看診，引進德國頂規 <strong class="text-slate-950 font-black">AMARIS 1050RS 儀器</strong>，提供「角膜零接觸、不掀瓣」的極致安全 SMART TransPRK 手術，帶您安全重回清晰視界！
+                            我們推出專屬綠色通道：由三總眼科權威團隊親自看診，引引德國頂規 <strong class="text-slate-950 font-black">AMARIS 1050RS 儀器</strong>，提供「角膜零接觸、不掀瓣」的極致安全 SMART TransPRK 手術，帶您安全重回清晰視界！
                         </p>
                         <!-- 快速統計卡片 -->
                         <div class="grid grid-cols-3 gap-4 py-5 border-y border-slate-200 max-w-lg">
@@ -282,7 +276,7 @@
                             
                             <div class="space-y-6">
                                 <div class="flex items-start space-x-4">
-                                    <div class="bg-brand-50 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm mt-0.5 shadow-md shadow-brand-500/20">
+                                    <div class="bg-brand-500 text-white w-8 h-8 rounded-full flex items-center justify-center shrink-0 font-bold text-sm mt-0.5 shadow-md shadow-brand-500/20">
                                         1
                                     </div>
                                     <div>
@@ -390,7 +384,7 @@
                             給您最誠實、最安心的醫療承諾！
                         </h2>
                         
-                        <div class="text-slate-305 text-base sm:text-lg space-y-4 font-semibold leading-relaxed">
+                        <div class="text-slate-300 text-base sm:text-lg space-y-4 font-semibold leading-relaxed">
                             <p>
                                 在天際翱翔的飛行員，對於視覺品質（包括夜視力、炫光敏感度、對比敏感度以及抗高速 G 力的角膜結構穩定性）有著全台灣最極致嚴苛、容不下萬分之一誤差的航空醫學標準。
                             </p>
@@ -611,7 +605,7 @@
                                 <h3 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center">
                                     <i class="fa-solid fa-chart-simple text-brand-500 mr-2.5"></i> 裸眼視力表現：術後 3 個月與 6 個月對照圖
                                 </h3>
-                                <p class="text-xs text-slate-500 mt-1 font-semibold">追蹤角膜上皮及水腫吸收後之卓越進程</p>
+                                <p class="text-xs text-slate-500 mt-1 font-semibold">追蹤角膜上皮及水腫 absorption 後之卓越進程</p>
                             </div>
 
                             <div class="space-y-6">
@@ -749,7 +743,7 @@
                 <div class="text-center max-w-3xl mx-auto mb-12">
                     <span class="text-brand-600 font-extrabold text-xs sm:text-sm uppercase tracking-widest">Why Choose Us</span>
                     <h2 class="text-3xl font-black text-slate-900 mt-2">為什麼選擇「表層零接觸」全雷射手術？</h2>
-                    <p class="text-slate-605 mt-3 text-base sm:text-lg font-bold">把安全擺在第一位，消除您對近視雷射器械碰觸眼球、揉眼睛移位的恐懼。</p>
+                    <p class="text-slate-600 mt-3 text-base sm:text-lg font-bold">把安全擺在第一位，消除您對近視雷射器械碰觸眼球、揉眼睛移位的恐懼。</p>
                 </div>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -900,7 +894,7 @@
                     <span class="text-brand-600 font-extrabold text-xs sm:text-sm tracking-wider uppercase">Advanced Technology</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2">引領全球屈光雷射<br>德國頂規 AMARIS 四大智能科技</h2>
                     <p class="text-slate-655 text-base sm:text-lg mt-4 leading-relaxed font-semibold">
-                        本院引進之 AMARIS 1050RS 曾榮獲「國際傑出醫學設計金獎」，用高科技解決眼球不自主微顫、雷射過熱酸痛等傳統手術痛點。
+                        本院引引之 AMARIS 1050RS 曾榮獲「國際傑出醫學設計金獎」，用高科技解決眼球不自主微顫、雷射過熱酸痛等傳統手術痛點。
                     </p>
                 </div>
                 
@@ -1039,7 +1033,7 @@
                     <div x-show="galleryTab === 'consult'" x-transition x-cloak class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-4">
                             <span class="text-sm font-extrabold text-brand-600 bg-brand-100/60 px-3 py-1.5 rounded-full uppercase tracking-wider">Step 02. Consultation & Briefing</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">醫師親自解說角膜圖譜與手術行前說明</h3>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">醫師親自解說角膜圖譜與手術行行說明</h3>
                             <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-semibold">
                                 精密數據量測後，由三總眼科專門主治醫師親自為您分析角膜地圖。不只詳細診斷您的角膜厚度是否合乎雷射切削標準，更會與您共同探討手術原理（醫病共享決策）。隨後，專業護理團隊將細心講解雷射同意書要點與術後照護守則，確保您在踏入手術房前全然安心。
                             </p>
@@ -1056,7 +1050,7 @@
                             </div>
                             <div class="bg-white border border-slate-200/60 p-3 rounded-2xl shadow-sm text-center">
                                 <img src="IMG_20250507_134924.jpg" alt="護理團隊手術行前詳盡說導" class="w-full h-48 object-cover rounded-xl border border-slate-100 mb-3 hover:scale-[1.02] transition-transform duration-200" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600'">
-                                <span class="text-sm font-extrabold text-slate-800">醫療團隊細緻解讀手術行前守則</span>
+                                <span class="text-sm font-extrabold text-slate-800">醫療團隊細緻解讀手術行行守則</span>
                             </div>
                         </div>
                     </div>
@@ -1072,7 +1066,7 @@
                             <div class="bg-white p-5 border border-slate-200/60 rounded-xl space-y-3 text-sm sm:text-base text-slate-600 font-semibold">
                                 <p class="font-extrabold text-slate-850 flex items-center text-base"><i class="fa-solid fa-shield-virus text-brand-500 mr-2"></i>安全防禦黃金指標：</p>
                                 <p>• <strong class="text-slate-900">專屬屈光手術室</strong>：不與一般眼科 or 外科手術共用，從根本上避免了細菌與病毒交叉感染的可能。</p>
-                                <p>• <strong class="text-slate-900">符合國際標準潔淨度</strong>：溫濕度、氣壓與氣流皆受全天候正壓密閉監控，高效率空氣微粒過塵器（HEPA）確保落塵符合標準。</p>
+                                <p>• <strong class="text-slate-900">符合國際標準潔淨度</strong>：溫濕度、氣壓與氣流皆受全天候正壓密閉監控，高效率空氣微粒過濾器（HEPA）確保落塵符合標準。</p>
                                 <p>• <strong class="text-slate-900">100% 拋棄式無菌包</strong>：上台使用的眼部包、沖洗針劑、敷料均為全新耗材，用後即棄，杜絕感染可能。</p>
                             </div>
                         </div>
@@ -1144,7 +1138,7 @@
             </div>
         </section>
 
-        <!-- ==================== SNQ 國家品質標章 肯定特區 ==================== -->
+        <!-- ==================== SNQ 國家品質標章 肯定特特區 ==================== -->
         <section id="snq-honors" class="py-16 bg-slate-50 border-b border-slate-200/60 relative w-full overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -1199,7 +1193,7 @@
                         <div>
                             <div class="overflow-hidden rounded-2xl bg-slate-100 aspect-[3/4] flex items-center justify-center cursor-pointer mb-4 relative"
                                  @click="openLightbox('113年SNQDrWeng.jpg', '計畫負責人 翁子恆醫師代表團隊出席 SNQ 品質標章授證典禮')">
-                                <img src="113年SNQDrWeng.jpg" alt="翁子恆醫師出席SNQ授證典禮" class="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579684389782-64d84b5e901a?w=600'">
+                                <img src="113年SNQDrWeng.jpg" alt="翁子恆醫師出席SNQ授證典禮" class="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-300" onerror="this.onerror=null; this.src='https://placehold.co/450x600/f8fafc/94a3b8?text=Dr+Weng+SNQ+Award'">
                                 <div class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                                     <span class="bg-white/95 text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-md"><i class="fa-solid fa-expand mr-1.5"></i> 點擊放大活動合影</span>
                                 </div>
@@ -1346,7 +1340,7 @@
                                 <ul class="list-disc list-inside space-y-2.5 text-slate-350 pl-1 leading-relaxed">
                                     <li><strong>SMART TransPRK 全雷射零接觸手術設計</strong></li>
                                     <li>SMILE / SMILE Pro 微創飛秒雷射視力矯正</li>
-                                    <li>客製化高階角膜波前像差引導與精準切削程式量身打造</li>
+                                    <li>客製化高階角膜波前像差引引與精準切削程式量身打造</li>
                                     <li>圓錐角膜早期動態篩檢、角膜交聯術(CXL)交聯治療</li>
                                     <li>多元乾眼症脈衝光與眼表淚膜屏障健康修復療程</li>
                                 </ul>
@@ -1790,7 +1784,7 @@
                         <div class="bg-white border border-slate-200 p-6 rounded-3xl shadow-xl shadow-slate-100/60 max-w-xs w-full text-center space-y-4">
                             <span class="bg-emerald-50 text-emerald-800 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">桌機用戶可直接掃描</span>
                             <div class="bg-slate-50 border border-slate-100 p-4 rounded-2xl flex items-center justify-center shadow-inner">
-                                <img src="L_gainfriends_2dbarcodes_BW.png" alt="晴隼視界 Line 快速預約 QR Code" class="w-48 h-48 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/300x300/e8fdfa/0d9488?text=LINE+QR'">
+                                <img src="L_gainfriends_2dbarcodes_BW.png" alt="睛采視界 Line 快速預約 QR Code" class="w-48 h-48 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/300x300/e8fdfa/0d9488?text=LINE+QR'">
                             </div>
                             <div>
                                 <h4 class="font-extrabold text-slate-900 text-base">手機掃碼 立即預約</h4>
@@ -1810,11 +1804,10 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-slate-800 pb-12">
                 <div class="lg:col-span-6 space-y-4">
                     <div class="flex items-center space-x-3">
-                        <!-- Footer 完美修正：正圓形 Logo，展現流線醫療高質感，100% 不裁切 -->
-                        <div class="h-12 w-12 rounded-full overflow-hidden bg-white shadow-md flex items-center justify-center border border-white/10 shrink-0">
-                            <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" class="h-full w-full object-cover" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
+                        <div class="bg-brand-500 text-white p-2 rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-eye-low-vision text-lg"></i>
                         </div>
-                        <span class="font-extrabold text-xl text-white">晴隼視界眼科衛教門戶</span>
+                        <span class="font-extrabold text-xl text-white">睛采視界眼科衛教門戶</span>
                     </div>
                     <p class="text-sm text-slate-400 leading-relaxed max-w-md font-semibold">
                         本平台由三軍總醫院眼科部與三總松山分院眼科專業醫療團隊共同編撰，旨在為廣大民眾與群友提供科學且可信賴的近視雷射綠色快速通道諮詢與衛教服務。
@@ -1881,7 +1874,7 @@
             </div>
 
             <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-slate-500 gap-4 font-semibold">
-                <p>© 2026 晴隼視界 - 三總松山/內湖眼科聯合綠色通道. All rights reserved.</p>
+                <p>© 2026 睛采視界 - 三總松山/內湖眼科聯合綠色通道. All rights reserved.</p>
                 <div class="flex space-x-4">
                     <a href="#" @click.prevent="showPrivacyModal = true" class="hover:text-slate-300 transition-colors">隱私權保護政策</a>
                     <a href="#" @click.prevent="showTermsModal = true" class="hover:text-slate-300 transition-colors">使用者條款</a>
