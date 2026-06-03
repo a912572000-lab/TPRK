@@ -23,7 +23,7 @@
     <!-- Tailwind CSS 動態編譯器 -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Alpine.js (含用於滑動風琴式 FAQ 的 Collapse 插件) -->
+    <!-- Alpine.js (蘋果設備關鍵：必須使用 defer 屬性，且 Collapse 插件必須在 Alpine 主程式之前載入) -->
     <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
@@ -149,16 +149,16 @@
     <header class="sticky top-0 z-50 bg-white/80 sticky-blur border-b border-slate-200/80 text-slate-800 shadow-sm w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Logo 區 (引進全新的晴隼視界 Falcon 標誌，並與雙院徽整合聯名) -->
+                <!-- Logo 區 (引進全新的晴隼視界 Falcon 標誌，並與雙院徽整合聯名 - 修正蘋果相容性屬性) -->
                 <div class="flex items-center space-x-3.5 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <div class="flex items-center space-x-2 shrink-0 relative">
-                        <!-- 晴隼視界官方主 Logo -->
-                        <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" class="h-14 w-14 object-contain rounded-full shadow-md bg-white p-0.5 border border-slate-200" onerror="this.onerror=null; this.src='https://placehold.co/150x150/e0f2fe/0369a1?text=Falcon'">
+                        <!-- 晴隼視界官方主 Logo (修正為正確的 .jpg 格式，並加入物理寬高防止 Safari 壓縮) -->
+                        <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" width="56" height="56" class="h-14 w-14 object-contain rounded-full shadow-md bg-white p-0.5 border border-slate-200 shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/150x150/e0f2fe/0369a1?text=Falcon';">
                         
                         <!-- 雙醫院聯名迷你徽章 -->
-                        <div class="flex flex-col -space-y-1">
-                            <img src="tsgh-logo.png" alt="三軍總醫院" class="h-6 w-6 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=TSGH'">
-                            <img src="ss-logo.png" alt="三軍總醫院松山分院" class="h-6 w-6 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=SS'">
+                        <div class="flex flex-col -space-y-1 shrink-0">
+                            <img src="tsgh-logo.png" alt="三軍總醫院" width="24" height="24" class="h-6 w-6 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100 shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=TSGH';">
+                            <img src="ss-logo.png" alt="三軍總醫院松山分院" width="24" height="24" class="h-6 w-6 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100 shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=SS';">
                         </div>
                     </div>
                     <div class="border-l border-slate-200 pl-3 flex flex-col justify-center">
@@ -235,14 +235,14 @@
                     <div class="lg:col-span-7 space-y-6">
                         <div class="inline-flex items-center space-x-3 bg-brand-500/10 border border-brand-500/20 px-4 py-2 rounded-full text-brand-700 text-sm sm:text-base font-bold shadow-sm backdrop-blur-sm">
                             <div class="flex -space-x-1.5 shrink-0">
-                                <img src="tsgh-logo.png" alt="內湖總院徽章" class="w-6 h-6 rounded-full ring-2 ring-white object-contain">
-                                <img src="ss-logo.png" alt="松山分院徽章" class="w-6 h-6 rounded-full ring-2 ring-white object-contain">
+                                <img src="tsgh-logo.png" alt="內湖總院徽章" width="24" height="24" class="w-6 h-6 rounded-full ring-2 ring-white object-contain">
+                                <img src="ss-logo.png" alt="松山分院徽章" width="24" height="24" class="w-6 h-6 rounded-full ring-2 ring-white object-contain">
                             </div>
                             <span>三軍總醫院眼科團隊 官方屈光手術綠色通道</span>
                         </div>
                         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-slate-950">
                             徹底告別眼鏡束縛！<br>
-                            <span class="gradient-text">晴隼-三總近視雷射快速預約通道</span>
+                            <span class="gradient-text">松山-三總近視雷射快速預約通道</span>
                         </h1>
                         <p class="text-slate-750 text-lg sm:text-xl max-w-2xl font-bold leading-relaxed">
                             想做近視雷射，卻卡在醫學中心掛號排隊、檢查等半年？<br>
@@ -1241,7 +1241,7 @@
                         <div class="relative overflow-hidden w-full h-[400px] md:h-[480px] shrink-0">
                             <!-- 1. 松山分院官方 Logo Badge -->
                             <div class="absolute top-4 right-4 z-30 bg-white/95 backdrop-blur px-3.5 py-2 rounded-full flex items-center space-x-1.5 shadow-md border border-slate-200/10">
-                                <img src="ss-logo.png" alt="松山分院徽章" class="w-6 h-6 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=SS'">
+                                <img src="ss-logo.png" alt="松山分院徽章" width="24" height="24" class="w-6 h-6 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=SS'">
                                 <span class="text-xs font-black text-slate-900">三總松山分院</span>
                             </div>
 
@@ -1303,7 +1303,7 @@
                         <div class="relative overflow-hidden w-full h-[400px] md:h-[480px] shrink-0">
                             <!-- 1. 內湖總院官方 Logo Badge -->
                             <div class="absolute top-4 right-4 z-30 bg-white/95 backdrop-blur px-3.5 py-2 rounded-full flex items-center space-x-1.5 shadow-md border border-slate-200/10">
-                                <img src="tsgh-logo.png" alt="內湖總院徽章" class="w-6 h-6 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=TSGH'">
+                                <img src="tsgh-logo.png" alt="內湖總院徽章" width="24" height="24" class="w-6 h-6 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=TSGH'">
                                 <span class="text-xs font-black text-slate-900">三總內湖總院</span>
                             </div>
 
@@ -1792,7 +1792,7 @@
                         <div class="bg-white border border-slate-200 p-6 rounded-3xl shadow-xl shadow-slate-100/60 max-w-xs w-full text-center space-y-4">
                             <span class="bg-emerald-50 text-emerald-800 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">桌機用戶可直接掃描</span>
                             <div class="bg-slate-50 border border-slate-100 p-4 rounded-2xl flex items-center justify-center shadow-inner">
-                                <img src="L_gainfriends_2dbarcodes_BW.png" alt="晴隼視界 Line 快速預約 QR Code" class="w-48 h-48 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/300x300/e8fdfa/0d9488?text=LINE+QR'">
+                                <img src="L_gainfriends_2dbarcodes_BW.png" alt="晴隼視界 Line 快速預約 QR Code" width="192" height="192" class="w-48 h-48 object-contain shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/300x300/e8fdfa/0d9488?text=LINE+QR';">
                             </div>
                             <div>
                                 <h4 class="font-extrabold text-slate-900 text-base">手機掃碼 立即預約</h4>
@@ -1812,22 +1812,22 @@
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-slate-800 pb-12">
                 <div class="lg:col-span-6 space-y-4">
                     <div class="flex items-center space-x-3.5">
-                        <!-- 頁尾品牌與新標誌整合 -->
-                        <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" class="h-12 w-12 object-contain rounded-full bg-white p-0.5 border border-slate-800" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=Falcon'">
+                        <!-- 頁尾品牌與新標誌整合 (修正檔名與物理寬高屬性) -->
+                        <img src="Aerial Falcon Vision logo.png" alt="晴隼視界 Logo" width="48" height="48" class="h-12 w-12 object-contain rounded-full bg-white p-0.5 border border-slate-800 shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=Falcon';">
                         <span class="font-extrabold text-xl text-white">晴隼視界眼科衛教門戶</span>
                     </div>
                     <p class="text-sm text-slate-400 leading-relaxed max-w-md font-semibold">
-                        本平台由三軍總醫院眼科部與三總松山分院眼科專業醫療團隊共同編撰，旨在為廣大民眾與群友提供科學且可信賴的近視雷射綠色快速通道諮詢與衛教服務。
+                        本平台由三軍總醫院眼科部與三總松山分院眼科專業醫療團隊共同編撰，旨在為廣大民眾與群友提供科學且可信賴的近視雷傷綠色快速通道諮詢與衛教服務。
                     </p>
                     
                     <!-- 聯名徽章整合區域 -->
                     <div class="flex flex-wrap gap-4 pt-3">
                         <div class="flex items-center space-x-2 bg-white/5 border border-white/10 px-3.5 py-2.5 rounded-xl">
-                            <img src="tsgh-logo.png" alt="三軍總醫院徽章" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
+                            <img src="tsgh-logo.png" alt="三軍總醫院徽章" width="28" height="28" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
                             <span class="text-slate-300 text-xs font-bold tracking-wider">三軍總醫院眼科部</span>
                         </div>
                         <div class="flex items-center space-x-2 bg-white/5 border border-white/10 px-3.5 py-2.5 rounded-xl">
-                            <img src="ss-logo.png" alt="松山分院徽章" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
+                            <img src="ss-logo.png" alt="松山分院徽章" width="28" height="28" class="w-7 h-7 rounded-full object-contain bg-white p-0.5" onerror="this.onerror=null; this.removeAttribute('onerror'); this.style.display='none'">
                             <span class="text-slate-300 text-xs font-bold tracking-wider">三總松山分院眼科</span>
                         </div>
                     </div>
