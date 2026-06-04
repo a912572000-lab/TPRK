@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
     <!-- SEO 關鍵字與網頁描述 -->
-    <title>睛隼視界 - 松山-三總近視雷射快速通道 (黃克豪醫師松山分院/內湖總院)</title>
+    <title>睛隼視界 - 松院-三總眼科Express雷射預約平台 (黃克豪醫師松山分院/內湖總院)</title>
     <meta name="description" content="由三軍總醫院眼科主任黃克豪醫師與翁子恆醫師攜手，引進德國頂規 AMARIS 1050RS 儀器，提供不掀瓣、零接觸的 SMART TransPRK 手術，享受免排隊的一條龍雙院區屈光服務。">
-    <meta name="keywords" content="黃克豪, 翁子恆, 近視雷射, 三總眼科, 松山分院眼科, SMART TransPRK, AMARIS 1050RS, 角膜零接觸, 飛行員近視雷射, express">
+    <meta name="keywords" content="黃克豪, 翁子恆, 近視雷射, 三總眼科, 松山分院眼科, SMART TransPRK, AMARIS 1050RS, 角膜零接觸, 飛行員近視雷射, Express">
     <meta name="author" content="睛隼視界">
     
     <!-- Open Graph (OG) 社群分享協定，優化 LINE/Facebook 預覽圖卡 -->
-    <meta property="og:title" content="睛隼視界 - 三總近視雷射快速通道 (松山分院/內湖總院)">
+    <meta property="og:title" content="睛隼視界 - 松院-三總眼科Express雷射預約平台 (松山分院/內湖總院)">
     <meta property="og:description" content="徹底告別眼鏡束縛！三總眼科團隊官方綠色通道，提供「角膜零接觸、不掀瓣」的極致安全近視雷射，省去漫長排隊，由權威主治醫師全程把關。">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://images.unsplash.com/photo-1579684389782-64d84b5e901a?w=1200&q=80">
@@ -24,8 +24,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Alpine.js (含用於滑動風琴式 FAQ 的 Collapse 插件) -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- FontAwesome 圖示庫 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -146,7 +146,8 @@
           }
       }">
 
-    <header class="sticky top-0 z-50 bg-white/80 sticky-blur border-b border-slate-200/80 text-slate-800 shadow-sm w-full">
+    <!-- 修改重點 1：將原本的 sticky 改為 fixed，並設置 top-0 left-0 right-0 鎖定頂部 -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 sticky-blur border-b border-slate-200/80 text-slate-800 shadow-sm w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo 區 (睛隼視界商標圖) -->
@@ -200,7 +201,8 @@
     </header>
 
     <!-- 主要內容 -->
-    <main class="w-full overflow-x-hidden">
+    <!-- 修改重點 2：因為導航欄改為 fixed 浮動，我們在此補上 pt-20（對應導航欄 h-20），防止 Hero Section 最上方的內容被導航欄覆蓋 -->
+    <main class="w-full overflow-x-hidden pt-20">
         
         <section class="relative bg-slate-50 border-b border-slate-200/80 overflow-hidden py-16 lg:py-24 w-full">
             
@@ -235,7 +237,7 @@
                             徹底告別眼鏡束縛！<br>
                             <span class="gradient-text">松院-三總近視雷射快速預約通道</span>
                         </h1>
-                        <p class="text-slate-750 text-lg sm:text-xl max-w-2xl font-bold leading-relaxed">
+                        <p class="text-slate-755 text-lg sm:text-xl max-w-2xl font-bold leading-relaxed">
                             想做近視雷射，卻卡在醫學中心掛號排隊、檢查等半年？<br>
                             我們推出專屬綠色通道：由三總眼科權威團隊親自看診，引進德國頂規 <strong class="text-slate-950 font-black">AMARIS 1050RS 儀器</strong>，提供「角膜零接觸、不掀瓣」的極致安全 SMART TransPRK 手術，帶您安全重回清晰視界！
                         </p>
@@ -573,7 +575,7 @@
                             </div>
                             
                             <!-- 指標總結 -->
-                            <div class="bg-brand-500/10 border border-brand-500/20 rounded-xl p-4 mt-6 text-xs text-brand-300 leading-relaxed font-semibold">
+                            <div class="bg-brand-50/10 border border-brand-50/20 rounded-xl p-4 mt-6 text-xs text-brand-300 leading-relaxed font-semibold">
                                 <i class="fa-solid fa-star mr-1"></i> <strong class="text-white">專案核心指標總計</strong>：截至 114 年度已成功培育新進 <strong class="text-white text-sm font-black">31 位三軍飛官</strong> 取得飛鷹勳章、踏入守衛國土第一線。此外，當前培訓中的飛行生班隊中，約有 <strong class="text-white">20%</strong> 為本近視雷射計畫人員。
                             </div>
                         </div>
@@ -1033,7 +1035,7 @@
                         <div class="lg:col-span-6 space-y-4">
                             <span class="text-sm font-extrabold text-brand-600 bg-brand-100/60 px-3 py-1.5 rounded-full uppercase tracking-wider">Step 02. Consultation & Briefing</span>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">醫師親自解說角膜圖譜與手術行行說明</h3>
-                            <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-semibold">
+                            <p class="text-slate-605 text-base sm:text-lg leading-relaxed font-semibold">
                                 精密數據量測後，由三總眼科專門主治醫師親自為您分析角膜地圖。不只詳細診斷您的角膜厚度是否合乎雷射切削標準，更會與您共同探討手術原理（醫病共享決策）。隨後，專業護理團隊將細心講解雷射同意書要點與術後照護守則，確保您在踏入手術房前全然安心。
                             </p>
                             <div class="bg-white p-5 border border-slate-200/60 rounded-xl space-y-3 text-sm sm:text-base text-slate-600 font-semibold">
@@ -1048,7 +1050,7 @@
                                 <span class="text-sm font-extrabold text-slate-800">醫師親自分析角膜地形圖數據</span>
                             </div>
                             <div class="bg-white border border-slate-200/60 p-3 rounded-2xl shadow-sm text-center">
-                                <img src="IMG_20250507_134924.jpg" alt="護理團隊手術行前詳盡說導" class="w-full h-48 object-cover rounded-xl border border-slate-100 mb-3 hover:scale-[1.02] transition-transform duration-200" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600'">
+                                <img src="IMG_20250507_134924.jpg" alt="護理團隊手術行行說導" class="w-full h-48 object-cover rounded-xl border border-slate-100 mb-3 hover:scale-[1.02] transition-transform duration-200" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600'">
                                 <span class="text-sm font-extrabold text-slate-800">醫療團隊細緻解讀手術行行守則</span>
                             </div>
                         </div>
@@ -1702,7 +1704,7 @@
                             <i class="fa-solid text-slate-500 transition-transform duration-200" :class="faqSelected === 3 ? 'fa-chevron-up text-brand-500 rotate-180' : 'fa-chevron-down'"></i>
                         </button>
                         <div x-show="faqSelected === 3" x-collapse x-cloak>
-                            <div class="p-6 text-sm sm:text-base text-slate-600 bg-white border-t border-slate-100 space-y-3 font-semibold leading-relaxed">
+                            <div class="p-6 text-sm sm:text-base text-slate-605 bg-white border-t border-slate-100 space-y-3 font-semibold leading-relaxed">
                                 <p>
                                     術後立即視力大約落在 0.3 到 0.4 之間，配合我們在手術完為您戴上的治療保護型隱形眼鏡，已足以應付日常生活起居所須。
                                 </p>
@@ -1747,7 +1749,7 @@
                         <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight text-slate-950">
                             加入三總松山/內湖 近視雷射快速通道
                         </h2>
-                        <p class="text-slate-750 text-base sm:text-lg leading-relaxed font-bold">
+                        <p class="text-slate-755 text-base sm:text-lg leading-relaxed font-bold">
                             您不需再耗費時間前往醫院現場大排長龍預約。加入專屬 Line 諮詢群組，我們有專人為您對接預約時段，享有松山分院「快速多合一詳盡術前檢查服務」！
                         </p>
                         
@@ -1873,7 +1875,7 @@
             </div>
 
             <div class="pt-8 flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-slate-500 gap-4 font-semibold">
-                <p>© 2026 睛隼視界 - 三總松山/內湖眼科聯合綠色通道. All rights reserved.</p>
+                <p>© 2026 睛隼視界 - 松院-三總眼科Express雷射預約平台. All rights reserved.</p>
                 <div class="flex space-x-4">
                     <a href="#" @click.prevent="showPrivacyModal = true" class="hover:text-slate-300 transition-colors">隱私權保護政策</a>
                     <a href="#" @click.prevent="showTermsModal = true" class="hover:text-slate-300 transition-colors">使用者條款</a>
@@ -1919,7 +1921,7 @@
             </div>
 
             <div class="mt-4 text-center text-xs text-slate-500 font-bold">
-                * 點擊任何空白處或右上角關閉按鈕，即可返回首頁
+                * 點擊 any 處 or 右上角關閉按鈕，即可返回首頁
             </div>
         </div>
     </div>
@@ -1955,7 +1957,7 @@
 
                 <div class="p-6 sm:p-8 overflow-y-auto text-sm sm:text-base text-slate-600 space-y-6 leading-relaxed scrollbar-thin font-semibold">
                     <p class="font-bold text-slate-800 bg-brand-50/50 p-4 rounded-xl border border-brand-100/30">
-                        非常歡迎您光臨「三總松山分院-內湖總院近視雷射Express網站」 （以下簡稱本網站），為了讓您能夠安心的使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：
+                        非常歡迎您光臨「睛隼視界 - 松院-三總眼科Express雷射預約平台」 （以下簡稱本網站），為了讓您能夠安心的使用本網站的各項服務與資訊，特此向您說明本網站的隱私權保護政策，以保障您的權益，請您詳閱下列內容：
                     </p>
                     
                     <div class="space-y-2.5">
@@ -1992,7 +1994,7 @@
                     <div class="space-y-2.5">
                         <h4 class="font-extrabold text-slate-900 text-base border-l-4 border-brand-500 pl-2.5">五、 與第三人共用個人資料之政策</h4>
                         <p class="pl-1.5 text-slate-600 font-bold">
-                            本網站絕不會提供、交換、出租 or 出售任何您的個人資料給其他個人、團體、私人企業 or 公務機關，但有法律依據或合約義務者，不在此限。
+                            本網站絕不會提供、交換、出租 or 出售任何您的個人資料給其他個人、團體、私人 enterprise or 公務機關，但有法律依據或合約義務者，不在此限。
                         </p>
                         <p class="font-bold text-slate-800 pl-1.5">前項但書之情形包括不限於：</p>
                         <ul class="list-decimal list-inside space-y-1.5 pl-3 text-slate-600 font-medium">
@@ -2061,7 +2063,7 @@
 
                 <div class="p-6 sm:p-8 overflow-y-auto text-sm sm:text-base text-slate-600 space-y-6 leading-relaxed scrollbar-thin font-semibold">
                     <p class="font-bold text-slate-800 bg-brand-50/50 p-4 rounded-xl border border-brand-100/30">
-                        歡迎您使用本網站，本網站是由「三總松山分院-內湖總院近視雷射Express網站」營運。（以下簡稱“本網站”）提供的服務。請仔細閱讀以下服務條款（以下簡稱“本條款”），一旦您使用本網站，即表示您同意遵守本條款。
+                        歡迎您使用本網站，本網站是由「睛隼視界 - 松院-三總眼科Express雷射預約平台」營運。（以下簡稱“本網站”）提供的服務。請仔細閱讀以下服務條款（以下簡稱“本條款”），一旦您使用本網站，即表示您同意遵守本條款。
                     </p>
                     
                     <div class="space-y-2.5">
@@ -2096,7 +2098,7 @@
                     <div class="space-y-2.5">
                         <h4 class="font-extrabold text-slate-900 text-base border-l-4 border-brand-500 pl-2.5">5. 知識產權</h4>
                         <p class="pl-1.5 text-slate-600 font-medium">
-                            5.1 本網站及其所使用的所有內容（包括但不限於文字、圖像、音頻、視頻等）均受著作權、商標權及其他相關法律的保護。
+                            5.1 本網站及其所使用的所有內容（編括但不限於文字、圖像、音頻、視頻等）均受著作權、商標權及其他相關法律的保護。
                         </p>
                     </div>
 
