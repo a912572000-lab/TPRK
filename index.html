@@ -24,8 +24,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Alpine.js (含用於滑動風琴式 FAQ 的 Collapse 插件) -->
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- FontAwesome 圖示庫 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -151,8 +151,9 @@
             <div class="flex items-center justify-between h-20">
                 <!-- Logo 區 (睛隼視界商標圖) -->
                 <div class="flex items-center space-x-4 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <!-- 已將頁首 Logo 的尺寸放大調整為 h-14 w-14 md:h-16 md:w-16，使品牌圖標更顯精緻醒目 -->
                     <div class="flex items-center space-x-1.5 shrink-0">
-                        <img src="Aerial Falcon Vision logo highlight.png" alt="AFV logo" class="h-12 w-12 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=TSGH'">                        
+                        <img src="Aerial Falcon Vision logo highlight.png" alt="AFV logo" class="h-14 w-14 md:h-16 md:w-16 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=TSGH'">                        
                     </div>
                     <div class="border-l border-slate-200 pl-3 flex flex-col justify-center">
                         <span class="font-black text-xl sm:text-2xl tracking-wider block text-slate-900 leading-none">睛隼視界</span>
@@ -742,7 +743,7 @@
                 <div class="text-center max-w-3xl mx-auto mb-12">
                     <span class="text-brand-600 font-extrabold text-xs sm:text-sm uppercase tracking-widest">Why Choose Us</span>
                     <h2 class="text-3xl font-black text-slate-900 mt-2">為什麼選擇「表層零接觸」全雷射手術？</h2>
-                    <p class="text-slate-600 mt-3 text-base sm:text-lg font-bold">把安全擺在第一位，消除您對近視雷射器械碰觸眼球、揉眼睛移位的恐懼。</p>
+                    <p class="text-slate-605 mt-3 text-base sm:text-lg font-bold">把安全擺在第一位，消除您對近視雷射器械碰觸眼球、揉眼睛移位的恐懼。</p>
                 </div>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -1048,7 +1049,7 @@
                                 <span class="text-sm font-extrabold text-slate-800">醫師親自分析角膜地形圖數據</span>
                             </div>
                             <div class="bg-white border border-slate-200/60 p-3 rounded-2xl shadow-sm text-center">
-                                <img src="IMG_20250507_134924.jpg" alt="護理團隊手術行前詳盡說導" class="w-full h-48 object-cover rounded-xl border border-slate-100 mb-3 hover:scale-[1.02] transition-transform duration-200" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600'">
+                                <img src="IMG_20250507_134924.jpg" alt="護理團隊手術行行詳盡說導" class="w-full h-48 object-cover rounded-xl border border-slate-100 mb-3 hover:scale-[1.02] transition-transform duration-200" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600'">
                                 <span class="text-sm font-extrabold text-slate-800">醫療團隊細緻解讀手術行行守則</span>
                             </div>
                         </div>
@@ -1600,7 +1601,7 @@
                             <h4 class="text-lg sm:text-xl font-bold text-slate-800">第六步：您平日有眼睛乾澀傾向，並擔心手術後造成嚴重且不可逆的乾眼症？</h4>
                             <div class="flex justify-center space-x-4">
                                 <button @click="answers.q6 = 'yes'; step++" class="bg-slate-50 hover:bg-brand-500 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">是</button>
-                                <button @click="answers.q6 = 'no'; step++" class="bg-slate-50 hover:bg-brand-500 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">否</button>
+                                @click="answers.q6 = 'no'; step++" class="bg-slate-50 hover:bg-brand-500 hover:text-white border border-slate-200 hover:border-brand-500 px-8 py-4 rounded-xl font-bold transition-all text-base w-32 shadow-sm">否</button>
                             </div>
                         </div>
 
@@ -1707,7 +1708,7 @@
                                     術後立即視力大約落在 0.3 到 0.4 之間，配合我們在手術完為您戴上的治療保護型隱形眼鏡，已足以應付日常生活起居所須。
                                 </p>
                                 <p>
-                                    <strong>第 2 至第 3 天：</strong>為角膜上皮新生的黃金期，此時會有異物感、流淚、畏光或偶爾酸澀。請按時編寫舒緩藥物與口服止痛。
+                                    <strong>第 2 至第 3 天：</strong>為角膜上皮新生的黃金期，此時會有異物感、流淚、畏光 or 偶爾酸澀。請按時編寫舒緩藥物與口服止痛。
                                 </p>
                                 <p>
                                     <strong>第七天：</strong>通常角膜上皮已初步新生，可安排回診松山分院 or 內湖總院，由醫師確認上皮修補良好後移除保護型隱形眼鏡。此後視力會逐漸走向清晰，術後 1 週到 1 個月隨角膜水腫、微發炎反應代謝，視覺品質會越來越紮實。
@@ -1747,7 +1748,7 @@
                         <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight text-slate-950">
                             加入三總松山/內湖 近視雷射快速通道
                         </h2>
-                        <p class="text-slate-750 text-base sm:text-lg leading-relaxed font-bold">
+                        <p class="text-slate-755 text-base sm:text-lg leading-relaxed font-bold">
                             您不需再耗費時間前往醫院現場大排長龍預約。加入專屬 Line 諮詢群組，我們有專人為您對接預約時段，享有松山分院「快速多合一詳盡術前檢查服務」！
                         </p>
                         
@@ -1802,13 +1803,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 border-b border-slate-800 pb-12">
                 <div class="lg:col-span-6 space-y-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="flex items-center space-x-1.5 shrink-0">
-                            <img src="Aerial Falcon Vision logo.png" alt="AFV logo" class="h-12 w-12 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=TSGH'">  
+                    <!-- 已將頁尾 Logo 大小改為 h-20 w-20 md:h-24 md:w-24（最大 96px 寬高），並優化文字大小與邊距，使其看起來非常尊榮和大氣 -->
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center shrink-0">
+                            <img src="Aerial Falcon Vision logo.png" alt="AFV logo" class="h-20 w-20 md:h-24 md:w-24 object-contain rounded-full shadow-md bg-white p-1 border border-slate-100/10" onerror="this.onerror=null; this.src='https://placehold.co/150x150/e0f2fe/0369a1?text=TSGH'">  
                         </div>
-                        <span class="font-extrabold text-xl text-white">睛隼視界眼科衛教門戶</span>
+                        <span class="font-extrabold text-xl md:text-2xl text-white tracking-wide">睛隼視界眼科衛教門戶</span>
                     </div>
-                    <p class="text-sm text-slate-400 leading-relaxed max-w-md font-semibold">
+                    <p class="text-sm text-slate-400 leading-relaxed max-w-md font-semibold pt-2">
                         本平台由三軍總醫院眼科部與三總松山分院眼科專業醫療團隊共同編撰，旨在為廣大民眾與群友提供科學且可信賴的近視雷射綠色快速通道諮詢與衛教服務。
                     </p>
                     
@@ -1999,7 +2001,7 @@
                             <li>經由您同意。</li>
                             <li>法律明文規定。</li>
                             <li>為維護國家安全 or 增進公共利益。</li>
-                            <li>為免除您生命、身體、自由 or 財產上之危險。</li>
+                            <li>為免除您生命、身體、自由 or 財產上之微險。</li>
                             <li>當您在本網站的行為，違反本網站的服務條款或可能損害 or 妨礙本網站權益或導致任何人遭受損害時，經本網站揭露您的個人資料是為了辨識、聯絡 or 採取法律行動所必要者。</li>
                             <li>有利於您的權益。</li>
                             <li>本網站委託廠商協助蒐集、處理 or 利用您的個人資料時，將對委外廠商或個人善盡監督管理之責。</li>
