@@ -24,8 +24,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Alpine.js (含用於滑動風琴式 FAQ 的 Collapse 插件) -->
-    <script src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
     <!-- FontAwesome 圖示庫 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -1072,7 +1072,7 @@
                             <div class="bg-white p-5 border border-slate-200/60 rounded-xl space-y-3 text-sm sm:text-base text-slate-600 font-semibold">
                                 <p class="font-extrabold text-slate-850 flex items-center text-base"><i class="fa-solid fa-shield-virus text-brand-500 mr-2"></i>安全防禦黃金指標：</p>
                                 <p>• <strong class="text-slate-900">專屬屈光手術室</strong>：不與一般眼科 or 外科手術共用，從根本上避免了細菌與病毒交叉感染的可能。</p>
-                                <p>• <strong class="text-slate-900">符合國際標準潔淨度</strong>：溫濕度、氣壓與氣流皆受全天候正壓密閉監控，高效率空氣微粒過塵器（HEPA）確保落塵符合標準。</p>
+                                <p>• <strong class="text-slate-900">符合國際標準潔淨度</strong>：溫濕度、氣壓與氣流皆受全天候正壓密閉監控，高效率空氣微粒過濾器（HEPA）確保落塵符合標準。</p>
                                 <p>• <strong class="text-slate-900">100% 拋棄式無菌包</strong>：上台使用的眼部包、沖洗針劑、敷料均為全新耗材，用後即棄，杜絕感染可能。</p>
                             </div>
                         </div>
@@ -1381,72 +1381,72 @@
                         </span>
                     </div>
 
-                    <!-- 關鍵修正：限制表格容器最大寬度並啟動水平滑動防護 (緊湊版 850px 佈局) -->
+                    <!-- 關鍵修正：限制表格容器最大寬度並啟動水平滑動防護 -->
                     <div class="w-full max-w-full overflow-x-auto beautiful-scrollbar" style="-webkit-overflow-scrolling: touch;">
-                        <table class="w-full text-xs text-left text-slate-300 min-w-[850px] table-fixed">
+                        <table class="w-full text-xs text-left text-slate-300 min-w-[1100px] table-fixed">
                             <thead>
                                 <tr class="bg-navy-950/50 text-slate-100 font-bold border-b border-slate-700/50">
-                                    <th class="py-3 px-2 rounded-l-xl w-[90px] text-sm">看診醫師</th>
-                                    <th class="py-3 px-2 w-[140px] text-sm text-center">診療院區</th>
-                                    <th class="py-3 px-2 w-[110px] text-sm text-center">週一 (Mon)</th>
-                                    <th class="py-3 px-2 w-[110px] text-sm text-center">週二 (Tue)</th>
-                                    <th class="py-3 px-2 w-[110px] text-sm text-center">週三 (Wed)</th>
-                                    <th class="py-3 px-2 w-[110px] text-sm text-center">週四 (Thu)</th>
-                                    <th class="py-3 px-2 w-[110px] text-sm text-center">週五 (Fri)</th>
-                                    <th class="py-3 px-2 rounded-r-xl w-[90px] text-sm text-center">通道指引</th>
+                                    <th class="py-3 px-4 rounded-l-xl w-[110px] text-sm">看診醫師</th>
+                                    <th class="py-3 px-4 w-[170px] text-sm">診療院區與診間</th>
+                                    <th class="py-3 px-4 w-[140px] text-sm text-center">週一 (Mon)</th>
+                                    <th class="py-3 px-4 w-[140px] text-sm text-center">週二 (Tue)</th>
+                                    <th class="py-3 px-4 w-[140px] text-sm text-center">週三 (Wed)</th>
+                                    <th class="py-3 px-4 w-[140px] text-sm text-center">週四 (Thu)</th>
+                                    <th class="py-3 px-4 w-[140px] text-sm text-center">週五 (Fri)</th>
+                                    <th class="py-3 px-4 rounded-r-xl w-[120px] text-sm text-center">通道指引</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-800 font-medium">
                                 <!-- 黃醫師門診 -->
                                 <tr class="hover:bg-slate-800/10 transition-colors">
-                                    <td class="py-3 px-2 font-bold text-white"><span class="inline-block w-2 h-2 bg-brand-400 rounded-full mr-1"></span>黃克豪</td>
-                                    <td class="py-3 px-2 text-slate-200 font-semibold text-center">松院 (29診)</td>
+                                    <td class="py-3 px-4 font-bold text-white"><span class="inline-block w-2 h-2 bg-brand-400 rounded-full mr-1.5"></span>黃克豪</td>
+                                    <td class="py-3 px-4 text-slate-200 font-semibold">松山分院 (29診)</td>
                                     
                                     <!-- 週一 -->
-                                    <td class="py-3 px-2 text-center">
+                                    <td class="py-3 px-4 text-center">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
                                             <i class="fa-solid fa-cloud-sun mr-1 text-[10px]"></i>下午診
                                         </span>
-                                        <span class="text-[10px] text-slate-400 block mt-0.5">13:30~16:30</span>
+                                        <span class="text-[10px] text-slate-400 block mt-0.5">13:30 ~ 16:30</span>
                                     </td>
                                     
                                     <!-- 週二 -->
-                                    <td class="py-3 px-2 text-center text-slate-650 font-normal">—</td>
+                                    <td class="py-3 px-4 text-center text-slate-650 font-normal">—</td>
                                     
                                     <!-- 週三 -->
-                                    <td class="py-3 px-2 text-center">
+                                    <td class="py-3 px-4 text-center">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
                                             <i class="fa-solid fa-user-doctor mr-1 text-[10px]"></i>術後特約
                                         </span>
-                                        <span class="text-[10px] text-slate-400 block mt-0.5">08:00~09:00</span>
+                                        <span class="text-[10px] text-slate-400 block mt-0.5">08:00 ~ 09:00</span>
                                     </td>
                                     
                                     <!-- 週四 -->
-                                    <td class="py-3 px-2 text-center space-y-1.5">
+                                    <td class="py-3 px-4 text-center space-y-1.5">
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
                                                 <i class="fa-solid fa-cloud-sun mr-1 text-[10px]"></i>下午診
                                             </span>
-                                            <span class="text-[10px] text-slate-400 block">13:30~16:30</span>
+                                            <span class="text-[10px] text-slate-400 block">13:30 ~ 16:30</span>
                                         </div>
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
                                                 <i class="fa-solid fa-moon mr-1 text-[10px]"></i>夜診特約
                                             </span>
-                                            <span class="text-[10px] text-slate-400 block">18:00~20:00</span>
+                                            <span class="text-[10px] text-slate-400 block">18:00 ~ 20:00</span>
                                         </div>
                                     </td>
                                     
                                     <!-- 週五 -->
-                                    <td class="py-3 px-2 text-center">
+                                    <td class="py-3 px-4 text-center">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-sky-500/15 text-sky-300 border border-sky-500/20">
                                             <i class="fa-solid fa-sun mr-1 text-[10px]"></i>上午診
                                         </span>
-                                        <span class="text-[10px] text-slate-400 block mt-0.5">09:00~11:30</span>
+                                        <span class="text-[10px] text-slate-400 block mt-0.5">09:00 ~ 11:30</span>
                                     </td>
                                     
-                                    <td class="py-3 px-2 text-center">
-                                        <a href="https://reg.807.mnd.gov.tw/webreg/calendar_type/iy3piVcOPkpp-2MxeOL_uA%3D%3D" target="_blank" class="text-brand-400 hover:text-brand-300 hover:underline inline-flex items-center gap-1 transition-all">
+                                    <td class="py-3 px-4 text-center">
+                                        <a href="https://reg.807.mnd.gov.tw/webreg/calendar_type/iy3piVcOPkpp-2MxeOL_uA%3D%3D" target="_blank" class="text-brand-400 hover:text-brand-300 hover:underline inline-flex items-center gap-1.5 transition-all">
                                             松院掛號 <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                                         </a>
                                     </td>
@@ -1454,19 +1454,19 @@
 
                                 <!-- 翁醫師門診 -->
                                 <tr class="hover:bg-slate-800/10 transition-colors">
-                                    <td class="py-3 px-2 font-bold text-white"><span class="inline-block w-2 h-2 bg-blue-400 rounded-full mr-1"></span>翁子恆</td>
-                                    <td class="py-3 px-2 text-slate-200 font-semibold text-center">內湖總院眼科</td>
+                                    <td class="py-3 px-4 font-bold text-white"><span class="inline-block w-2 h-2 bg-blue-400 rounded-full mr-1.5"></span>翁子恆</td>
+                                    <td class="py-3 px-4 text-slate-200 font-semibold">內湖總院眼科</td>
                                     
                                     <!-- 週一 -->
-                                    <td class="py-3 px-2 text-center">
+                                    <td class="py-3 px-4 text-center">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
                                             <i class="fa-solid fa-cloud-sun mr-1 text-[10px]"></i>下午診
                                         </span>
-                                        <span class="text-[10px] text-slate-400 block mt-0.5">14:00~17:00</span>
+                                        <span class="text-[10px] text-slate-400 block mt-0.5">14:00 ~ 17:00</span>
                                     </td>
                                     
                                     <!-- 週二 -->
-                                    <td class="py-3 px-2 text-center space-y-1.5">
+                                    <td class="py-3 px-4 text-center space-y-1.5">
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
                                                 <i class="fa-solid fa-eye mr-1 text-[10px]"></i>屈光特約
@@ -1477,34 +1477,34 @@
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
                                                 <i class="fa-solid fa-hospital mr-1 text-[10px]"></i>汀洲下午
                                             </span>
-                                            <span class="text-[10px] text-slate-400 block">14:00~17:00</span>
+                                            <span class="text-[10px] text-slate-400 block">14:00~17:00 (隔週)</span>
                                         </div>
                                     </td>
                                     
                                     <!-- 週三 -->
-                                    <td class="py-3 px-2 text-center space-y-1.5">
+                                    <td class="py-3 px-4 text-center space-y-1.5">
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-sky-500/15 text-sky-300 border border-sky-500/20">
                                                 <i class="fa-solid fa-sun mr-1 text-[10px]"></i>上午診
                                             </span>
-                                            <span class="text-[10px] text-slate-400 block">08:30~12:00</span>
+                                            <span class="text-[10px] text-slate-400 block">08:30 ~ 12:00</span>
                                         </div>
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 animate-pulse">
-                                                <i class="fa-solid fa-crosshairs mr-1 text-[10px]"></i>雷射手術
+                                                <i class="fa-solid fa-crosshairs mr-1 text-[10px]"></i>近視雷射手術
                                             </span>
                                             <span class="text-[10px] text-slate-400 block">14:00~17:00</span>
                                         </div>
                                     </td>
                                     
                                     <!-- 週四 -->
-                                    <td class="py-3 px-2 text-center text-slate-650 font-normal">—</td>
+                                    <td class="py-3 px-4 text-center text-slate-650 font-normal">—</td>
                                     
                                     <!-- 週五 -->
-                                    <td class="py-3 px-2 text-center text-slate-650 font-normal">—</td>
+                                    <td class="py-3 px-4 text-center text-slate-650 font-normal">—</td>
                                     
-                                    <td class="py-3 px-2 text-center">
-                                        <a href="https://wwwv.tsgh.ndmutsgh.edu.tw/docdet/191/10046/25623/2870" target="_blank" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center gap-1 transition-all">
+                                    <td class="py-3 px-4 text-center">
+                                        <a href="https://wwwv.tsgh.ndmutsgh.edu.tw/docdet/191/10046/25623/2870" target="_blank" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center gap-1.5 transition-all">
                                             內湖掛號 <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
                                         </a>
                                     </td>
@@ -1734,7 +1734,7 @@
                                     任何近視雷射在數年後，皆有些微度數回退的理論機率，回退程度因個人用眼習慣而異（通常術前度數越高、回退機率相對高一點）。
                                 </p>
                                 <p>
-                                    <strong>SMART TransPRK 手術因保留較多的角膜厚度，且角膜結構較穩定</strong>，度數回退機率在眼科臨床文獻中顯著低於其他傳統手術。術後仍需維持 30 分鐘休息 10 分鐘 of 良好用眼習慣，以確保清晰視力。
+                                    <strong>SMART TransPRK 手術因保留較多的角膜厚度，且角膜結構較穩定</strong>，度數回退機率在眼科臨床文獻中顯著低於其他傳統手術。術後仍需維持 30 分鐘休息 10 分鐘的良好用眼習慣，以確保清晰視力。
                                 </p>
                             </div>
                         </div>
@@ -1781,7 +1781,7 @@
                                 <i class="fa-brands fa-line mr-3 text-3xl animate-bounce"></i> 立即點我，通往 Line 預約快速通道
                             </a>
                             <span class="block text-slate-605 text-xs sm:text-sm mt-4 font-bold leading-relaxed max-w-2xl bg-white/70 border border-slate-200 p-4 rounded-xl">
-                                *溫馨提示：術前檢查(含檢查、手術行程安排、線上諮詢、術後回診)需要另外付費(約三千元上下)。檢查前請留意自己是否有"懷孕"可能或任何"身體疾病"(風濕免疫、感染性疾病等), 並請記得"停止佩戴隱形眼鏡"至少二到三周。本服務不接受電話預約/諮詢。
+                                *溫馨提示：術前檢查(含檢查、手術行程安排、線上諮詢、術後回診)需要另外付費(約三千元上下)。檢查前請留意自己是否有"懷孕"可能或任何"身體疾病"(風濕免疫、感染性疾病等)，並請記得"停止佩戴隱形眼鏡"至少二到三周。本服務不接受電話預約/諮詢。
                             </span>
                         </div>
                     </div>
