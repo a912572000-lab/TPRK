@@ -84,7 +84,7 @@
             background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 50%, #eff6ff 100%);
         }
         .soft-shadow {
-            box-shadow: 0 10px 30px -10 rgba(13, 148, 136, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(13, 148, 136, 0.08);
         }
         .premium-shadow {
             box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
@@ -152,8 +152,7 @@
                 <!-- Logo 區 (睛隼視界商標圖) -->
                 <div class="flex items-center space-x-4 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <div class="flex items-center space-x-1.5 shrink-0">
-                        <!-- 帶有 Fallback 機制的 Logo 圖片 -->
-                        <img src="Aerial Falcon Vision logo highlight.png" alt="AFV logo" class="h-12 w-12 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/14b8a6/ffffff?text=睛隼'">                        
+                        <img src="Aerial Falcon Vision logo highlight.png" alt="AFV logo" class="h-12 w-12 object-contain rounded-full shadow-sm bg-white p-0.5 border border-slate-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=TSGH'">                        
                     </div>
                     <div class="border-l border-slate-200 pl-3 flex flex-col justify-center">
                         <span class="font-black text-xl sm:text-2xl tracking-wider block text-slate-900 leading-none">睛隼視界</span>
@@ -161,7 +160,7 @@
                     </div>
                 </div>
 
-                <!-- 服務選單 - 桌面端 (1024px 以上自動顯示) -->
+                <!-- 服務選單 - 桌面端 (改為 lg:flex，1024px 以下自動隱藏，保護 iPad 直向) -->
                 <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8">
                     <a href="#why-us" class="text-slate-600 hover:text-brand-600 text-base font-extrabold transition-colors duration-200"><i class="fa-solid fa-shield-heart mr-1 text-brand-500"></i> 為何選擇我們</a>
                     <a href="#clinical-proof" class="text-slate-600 hover:text-brand-600 text-base font-bold transition-colors duration-200">實證數據</a>
@@ -175,7 +174,7 @@
                     </a>
                 </nav>
 
-                <!-- 手機與平板直向端選單按鈕 -->
+                <!-- 手機與平板直向端選單按鈕 (改為 lg:hidden) -->
                 <div class="lg:hidden flex items-center">
                     <button @click="mobileMenu = !mobileMenu" class="text-slate-600 hover:text-slate-900 focus:outline-none" aria-label="Toggle Menu">
                         <i class="fa-solid text-2xl" :class="mobileMenu ? 'fa-xmark' : 'fa-bars'"></i>
@@ -184,7 +183,7 @@
             </div>
         </div>
 
-        <!-- 手機與平板直向端下拉選單 -->
+        <!-- 手機與平板直向端下拉選單 (改為 lg:hidden) -->
         <div x-show="mobileMenu" x-transition x-cloak class="lg:hidden bg-white border-b border-slate-200 px-5 pt-2 pb-6 space-y-4 shadow-inner">
             <a href="#why-us" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-shield-heart mr-2 text-brand-500"></i> 為何選擇我們</a>
             <a href="#clinical-proof" @click="mobileMenu = false" class="block text-slate-700 hover:text-brand-600 py-2.5 text-base font-bold"><i class="fa-solid fa-chart-column mr-2 text-brand-500"></i> 實證數據</a>
@@ -227,8 +226,8 @@
                     <div class="lg:col-span-7 space-y-6">
                         <div class="inline-flex items-center space-x-3 bg-brand-500/10 border border-brand-500/20 px-4 py-2 rounded-full text-brand-700 text-sm sm:text-base font-bold shadow-sm backdrop-blur-sm">
                             <div class="flex -space-x-1.5 shrink-0">
-                                <img src="tsgh-logo.png" alt="內湖總院徽章" class="w-6 h-6 rounded-full ring-2 ring-white object-contain bg-white" onerror="this.onerror=null; this.src='https://placehold.co/50x50/14b8a6/ffffff?text=三總'">
-                                <img src="ss-logo.png" alt="松山分院徽章" class="w-6 h-6 rounded-full ring-2 ring-white object-contain bg-white" onerror="this.onerror=null; this.src='https://placehold.co/50x50/0f766e/ffffff?text=松山'">
+                                <img src="tsgh-logo.png" alt="內湖總院徽章" class="w-6 h-6 rounded-full ring-2 ring-white object-contain">
+                                <img src="ss-logo.png" alt="松山分院徽章" class="w-6 h-6 rounded-full ring-2 ring-white object-contain">
                             </div>
                             <span>三軍總醫院眼科團隊 官方屈光手術綠色通道</span>
                         </div>
@@ -976,27 +975,27 @@
                 <div class="flex overflow-x-auto md:justify-center border-b border-slate-200 pb-2 mb-12 space-x-3 md:space-x-4 beautiful-scrollbar" style="-webkit-overflow-scrolling: touch;">
                     <button @click="galleryTab = 'exam'" 
                             :class="galleryTab === 'exam' ? 'border-brand-500 text-brand-600 border-b-4 font-black bg-brand-50/50' : 'border-transparent text-slate-650 hover:text-slate-900'"
-                            class="px-6 py-4 text-base sm:text-lg font-bold transition-all whitespace-nowrap rounded-t-xl flex items-center shrink-0">
+                            class="px-6 py-4.5 text-base sm:text-lg font-bold transition-all whitespace-nowrap rounded-t-xl flex items-center shrink-0">
                         <i class="fa-solid fa-microscope mr-2 text-lg"></i> 1. 儀器精準檢測
                     </button>
                     <button @click="galleryTab = 'consult'" 
                             :class="galleryTab === 'consult' ? 'border-brand-500 text-brand-600 border-b-4 font-black bg-brand-50/50' : 'border-transparent text-slate-650 hover:text-slate-900'"
-                            class="px-6 py-4 text-base sm:text-lg font-bold transition-all whitespace-nowrap rounded-t-xl flex items-center shrink-0">
+                            class="px-6 py-4.5 text-base sm:text-lg font-bold transition-all whitespace-nowrap rounded-t-xl flex items-center shrink-0">
                         <i class="fa-solid fa-user-doctor mr-2 text-lg"></i> 2. 醫師精細診察
                     </button>
                     <button @click="galleryTab = 'prep'" 
                             :class="galleryTab === 'prep' ? 'border-brand-500 text-brand-600 border-b-4 font-black bg-brand-50/50' : 'border-transparent text-slate-650 hover:text-slate-900'"
-                            class="px-6 py-4 text-base sm:text-lg font-bold transition-all whitespace-nowrap rounded-t-xl flex items-center shrink-0">
+                            class="px-6 py-4.5 text-base sm:text-lg font-bold transition-all whitespace-nowrap rounded-t-xl flex items-center shrink-0">
                         <i class="fa-solid fa-clipboard-check mr-2 text-lg"></i> 3. 手術安全準備
                     </button>
                     <button @click="galleryTab = 'surgery'" 
                             :class="galleryTab === 'surgery' ? 'border-brand-500 text-brand-600 border-b-4 font-black bg-brand-50/50' : 'border-transparent text-slate-650 hover:text-slate-900'"
-                            class="px-6 py-4 text-base sm:text-lg font-bold transition-all whitespace-nowrap rounded-t-xl flex items-center shrink-0">
+                            class="px-6 py-4.5 text-base sm:text-lg font-bold transition-all whitespace-nowrap rounded-t-xl flex items-center shrink-0">
                         <i class="fa-solid fa-eye mr-2 text-lg"></i> 4. 頂規雷射手術
                     </button>
                     <button @click="galleryTab = 'followup'" 
                             :class="galleryTab === 'followup' ? 'border-brand-500 text-brand-600 border-b-4 font-black bg-brand-50/50' : 'border-transparent text-slate-650 hover:text-slate-900'"
-                            class="px-6 py-4 text-base sm:text-lg font-bold transition-all whitespace-nowrap rounded-t-xl flex items-center shrink-0">
+                            class="px-6 py-4.5 text-base sm:text-lg font-bold transition-all whitespace-nowrap rounded-t-xl flex items-center shrink-0">
                         <i class="fa-solid fa-notes-medical mr-2 text-lg"></i> 5. 術後細緻追蹤
                     </button>
                 </div>
@@ -1033,7 +1032,7 @@
                     <div x-show="galleryTab === 'consult'" x-transition x-cloak class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                         <div class="lg:col-span-6 space-y-4">
                             <span class="text-sm font-extrabold text-brand-600 bg-brand-100/60 px-3 py-1.5 rounded-full uppercase tracking-wider">Step 02. Consultation & Briefing</span>
-                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">醫師親自解說角膜圖譜與手術說明</h3>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900">醫師親自解說角膜圖譜與手術行行說明</h3>
                             <p class="text-slate-600 text-base sm:text-lg leading-relaxed font-semibold">
                                 精密數據量測後，由三總眼科專門主治醫師親自為您分析角膜地圖。不只詳細診斷您的角膜厚度是否合乎雷射切削標準，更會與您共同探討手術原理（醫病共享決策）。隨後，專業護理團隊將細心講解雷射同意書要點與術後照護守則，確保您在踏入手術房前全然安心。
                             </p>
@@ -1049,8 +1048,8 @@
                                 <span class="text-sm font-extrabold text-slate-800">醫師親自分析角膜地形圖數據</span>
                             </div>
                             <div class="bg-white border border-slate-200/60 p-3 rounded-2xl shadow-sm text-center">
-                                <img src="IMG_20250507_134924.jpg" alt="護理團隊手術行行說導" class="w-full h-48 object-cover rounded-xl border border-slate-100 mb-3 hover:scale-[1.02] transition-transform duration-200" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600'">
-                                <span class="text-sm font-extrabold text-slate-800">醫療團隊細緻解讀手術須知</span>
+                                <img src="IMG_20250507_134924.jpg" alt="護理團隊手術行前詳盡說導" class="w-full h-48 object-cover rounded-xl border border-slate-100 mb-3 hover:scale-[1.02] transition-transform duration-200" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600'">
+                                <span class="text-sm font-extrabold text-slate-800">醫療團隊細緻解讀手術行行守則</span>
                             </div>
                         </div>
                     </div>
@@ -1138,7 +1137,7 @@
             </div>
         </section>
 
-        <!-- ==================== SNQ 國家品質標章 肯定特區 ==================== -->
+        <!-- ==================== SNQ 國家品質標章 肯定特特區 ==================== -->
         <section id="snq-honors" class="py-16 bg-slate-50 border-b border-slate-200/60 relative w-full overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
@@ -1149,10 +1148,10 @@
                     </p>
                 </div>
 
-                <!-- 精密實物照片卡片排版 -->
+                <!-- 精密實物照片卡片排版 (iPad 直向改為單列，iPad 橫向與桌面端維持三列) -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
                     
-                    <!-- 卡片 1: 113SNQaward.jpg -->
+                    <!-- 卡片 1: 113SNQaward.jpg (官方海報) -->
                     <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                         <div>
                             <div class="overflow-hidden rounded-2xl bg-slate-100 aspect-[3/4] flex items-center justify-center cursor-pointer mb-4 relative"
@@ -1170,7 +1169,7 @@
                         <button @click="openLightbox('113SNQaward.jpg', 'SNQ 國家品質標章全台傑出醫護團隊海報')" class="mt-4 w-full bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-700 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center"><i class="fa-solid fa-expand mr-2"></i>放大海報圖檔</button>
                     </div>
 
-                    <!-- 卡片 2: 113SNQawardword.jpg -->
+                    <!-- 卡片 2: 113SNQawardword.jpg (官方證書紙) -->
                     <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                         <div>
                             <div class="overflow-hidden rounded-2xl bg-slate-100 aspect-[3/4] flex items-center justify-center cursor-pointer mb-4 relative"
@@ -1188,7 +1187,7 @@
                         <button @click="openLightbox('113SNQawardword.jpg', 'SNQ 國家品質標章官方認證證書')" class="mt-4 w-full bg-slate-100 hover:bg-brand-500 hover:text-white text-slate-700 py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center"><i class="fa-solid fa-expand mr-2"></i>放大證書圖檔</button>
                     </div>
 
-                    <!-- 卡片 3: 113年SNQDrWeng.jpg -->
+                    <!-- 卡片 3: 113年SNQDrWeng.jpg (翁醫師現場英姿) -->
                     <div class="bg-white p-5 rounded-3xl border border-slate-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
                         <div>
                             <div class="overflow-hidden rounded-2xl bg-slate-100 aspect-[3/4] flex items-center justify-center cursor-pointer mb-4 relative"
@@ -1233,14 +1232,14 @@
                         <div class="relative overflow-hidden w-full h-[400px] md:h-[480px] shrink-0">
                             <!-- 1. 松山分院官方 Logo Badge -->
                             <div class="absolute top-4 right-4 z-30 bg-white/95 backdrop-blur px-3.5 py-2 rounded-full flex items-center space-x-1.5 shadow-md border border-slate-200/10">
-                                <img src="ss-logo.png" alt="松山分院徽章" class="w-6 h-6 object-contain bg-white" onerror="this.onerror=null; this.src='https://placehold.co/50x50/14b8a6/ffffff?text=松'">
+                                <img src="ss-logo.png" alt="松山分院徽章" class="w-6 h-6 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=SS'">
                                 <span class="text-xs font-black text-slate-900">三總松山分院</span>
                             </div>
 
                             <!-- 2. 合併場景照片底層 -->
                             <img src="IMG_20250507_141134.jpg" alt="雷射定位場景" class="absolute inset-0 w-full h-full object-cover opacity-10 blur-[1px]" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1579684389782-64d84b5e901a?w=600'">
 
-                            <!-- 3. 黃醫師照片上層 (帶有精美 fallback 的插圖外觀) -->
+                            <!-- 3. 黃醫師去背照片上層 -->
                             <img src="hkhpic.png" alt="三總松山眼科主任 黃克豪 醫師" class="relative z-10 w-full h-full object-contain object-bottom transition-transform duration-300 hover:scale-105" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=600'">
 
                             <!-- 4. 底部斜切遮罩與文字疊加 -->
@@ -1248,7 +1247,7 @@
                                 <span class="text-sm font-black text-brand-400 bg-brand-400/10 px-3.5 py-1.5 rounded-full uppercase tracking-wider inline-block">松山分院眼科主任</span>
                                 <h3 class="relative text-4xl font-black text-white mt-3 inline-block">
                                     <span class="relative z-10">黃克豪</span>
-                                    <span class="absolute -bottom-1.5 -left-4 w-[calc(100%+2rem)] h-2/5 bg-amber-200/30 -rotate-3 z-0"></span>
+                                    <span class="absolute -bottom-1.5 -left-4 w-[calc(100%+2rem)] h-2/5 bg-amber-200/50 -rotate-3 z-0"></span>
                                 </h3>
                                 <p class="text-slate-350 text-base mt-2.5 font-bold">國防醫學大學醫學系醫學士 / 教育部部定講師</p>
                             </div>
@@ -1295,7 +1294,7 @@
                         <div class="relative overflow-hidden w-full h-[400px] md:h-[480px] shrink-0">
                             <!-- 1. 內湖總院官方 Logo Badge -->
                             <div class="absolute top-4 right-4 z-30 bg-white/95 backdrop-blur px-3.5 py-2 rounded-full flex items-center space-x-1.5 shadow-md border border-slate-200/10">
-                                <img src="tsgh-logo.png" alt="內湖總院徽章" class="w-6 h-6 object-contain bg-white" onerror="this.onerror=null; this.src='https://placehold.co/50x50/14b8a6/ffffff?text=總'">
+                                <img src="tsgh-logo.png" alt="內湖總院徽章" class="w-6 h-6 object-contain" onerror="this.onerror=null; this.src='https://placehold.co/50x50/e0f2fe/0369a1?text=TSGH'">
                                 <span class="text-xs font-black text-slate-900">三總內湖總院</span>
                             </div>
 
@@ -1377,17 +1376,17 @@
 
                     <!-- 關鍵修正：限制表格容器最大寬度並啟動水平滑動防護 -->
                     <div class="w-full max-w-full overflow-x-auto beautiful-scrollbar" style="-webkit-overflow-scrolling: touch;">
-                        <table class="w-full text-xs text-left text-slate-300 min-w-[1100px] table-fixed">
+                        <table class="w-full text-xs text-left text-slate-300 min-w-[780px]">
                             <thead>
                                 <tr class="bg-navy-950/50 text-slate-100 font-bold border-b border-slate-700/50">
-                                    <th class="py-3 px-4 rounded-l-xl w-[110px] text-sm">看診醫師</th>
-                                    <th class="py-3 px-4 w-[170px] text-sm">診療院區與診間</th>
-                                    <th class="py-3 px-4 w-[140px] text-sm text-center">週一 (Mon)</th>
-                                    <th class="py-3 px-4 w-[140px] text-sm text-center">週二 (Tue)</th>
-                                    <th class="py-3 px-4 w-[140px] text-sm text-center">週三 (Wed)</th>
-                                    <th class="py-3 px-4 w-[140px] text-sm text-center">週四 (Thu)</th>
-                                    <th class="py-3 px-4 w-[140px] text-sm text-center">週五 (Fri)</th>
-                                    <th class="py-3 px-4 rounded-r-xl w-[120px] text-sm text-center">通道指引</th>
+                                    <th class="py-3 px-4 rounded-l-xl w-28 text-sm">看診醫師</th>
+                                    <th class="py-3 px-4 w-40 text-sm">診療院區與診間</th>
+                                    <th class="py-3 px-4 text-sm">週一 (Mon)</th>
+                                    <th class="py-3 px-4 text-sm">週二 (Tue)</th>
+                                    <th class="py-3 px-4 text-sm">週三 (Wed)</th>
+                                    <th class="py-3 px-4 text-sm">週四 (Thu)</th>
+                                    <th class="py-3 px-4 text-sm">週五 (Fri)</th>
+                                    <th class="py-3 px-4 rounded-r-xl w-36 text-sm text-center">通道指引</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-800 font-medium">
@@ -1397,7 +1396,7 @@
                                     <td class="py-3 px-4 text-slate-200 font-semibold">松山分院 (29診)</td>
                                     
                                     <!-- 週一 -->
-                                    <td class="py-3 px-4 text-center">
+                                    <td class="py-3 px-4">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
                                             <i class="fa-solid fa-cloud-sun mr-1 text-[10px]"></i>下午診
                                         </span>
@@ -1405,10 +1404,10 @@
                                     </td>
                                     
                                     <!-- 週二 -->
-                                    <td class="py-3 px-4 text-center text-slate-650 font-normal">—</td>
+                                    <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
                                     <!-- 週三 -->
-                                    <td class="py-3 px-4 text-center">
+                                    <td class="py-3 px-4">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
                                             <i class="fa-solid fa-user-doctor mr-1 text-[10px]"></i>術後特約
                                         </span>
@@ -1416,7 +1415,7 @@
                                     </td>
                                     
                                     <!-- 週四 -->
-                                    <td class="py-3 px-4 text-center space-y-1.5">
+                                    <td class="py-3 px-4 space-y-1.5">
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
                                                 <i class="fa-solid fa-cloud-sun mr-1 text-[10px]"></i>下午診
@@ -1432,7 +1431,7 @@
                                     </td>
                                     
                                     <!-- 週五 -->
-                                    <td class="py-3 px-4 text-center">
+                                    <td class="py-3 px-4">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-sky-500/15 text-sky-300 border border-sky-500/20">
                                             <i class="fa-solid fa-sun mr-1 text-[10px]"></i>上午診
                                         </span>
@@ -1452,7 +1451,7 @@
                                     <td class="py-3 px-4 text-slate-200 font-semibold">內湖總院眼科</td>
                                     
                                     <!-- 週一 -->
-                                    <td class="py-3 px-4 text-center">
+                                    <td class="py-3 px-4">
                                         <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-emerald-500/15 text-emerald-300 border border-emerald-500/20">
                                             <i class="fa-solid fa-cloud-sun mr-1 text-[10px]"></i>下午診
                                         </span>
@@ -1460,7 +1459,7 @@
                                     </td>
                                     
                                     <!-- 週二 -->
-                                    <td class="py-3 px-4 text-center space-y-1.5">
+                                    <td class="py-3 px-4 space-y-1.5">
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
                                                 <i class="fa-solid fa-eye mr-1 text-[10px]"></i>屈光特約
@@ -1476,7 +1475,7 @@
                                     </td>
                                     
                                     <!-- 週三 -->
-                                    <td class="py-3 px-4 text-center space-y-1.5">
+                                    <td class="py-3 px-4 space-y-1.5">
                                         <div>
                                             <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-bold bg-sky-500/15 text-sky-300 border border-sky-500/20">
                                                 <i class="fa-solid fa-sun mr-1 text-[10px]"></i>上午診
@@ -1492,10 +1491,10 @@
                                     </td>
                                     
                                     <!-- 週四 -->
-                                    <td class="py-3 px-4 text-center text-slate-650 font-normal">—</td>
+                                    <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
                                     <!-- 週五 -->
-                                    <td class="py-3 px-4 text-center text-slate-650 font-normal">—</td>
+                                    <td class="py-3 px-4 text-slate-650 font-normal">—</td>
                                     
                                     <td class="py-3 px-4 text-center">
                                         <a href="https://wwwv.tsgh.ndmutsgh.edu.tw/docdet/191/10046/25623/2870" target="_blank" class="text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center gap-1.5 transition-all">
@@ -1708,7 +1707,7 @@
                                     術後立即視力大約落在 0.3 到 0.4 之間，配合我們在手術完為您戴上的治療保護型隱形眼鏡，已足以應付日常生活起居所須。
                                 </p>
                                 <p>
-                                    <strong>第 2 至第 3 天：</strong>為角膜上皮新生的黃金期，此時會有異物感、流淚、畏光或偶爾酸澀。請按時遵照醫囑施點舒緩藥物與口服止痛。
+                                    <strong>第 2 至第 3 天：</strong>為角膜上皮新生的黃金期，此時會有異物感、流淚、畏光或偶爾酸澀。請按時編寫舒緩藥物與口服止痛。
                                 </p>
                                 <p>
                                     <strong>第七天：</strong>通常角膜上皮已初步新生，可安排回診松山分院 or 內湖總院，由醫師確認上皮修補良好後移除保護型隱形眼鏡。此後視力會逐漸走向清晰，術後 1 週到 1 個月隨角膜水腫、微發炎反應代謝，視覺品質會越來越紮實。
@@ -1728,7 +1727,7 @@
                                     任何近視雷射在數年後，皆有些微度數回退的理論機率，回退程度因個人用眼習慣而異（通常術前度數越高、回退機率相對高一點）。
                                 </p>
                                 <p>
-                                    <strong>SMART TransPRK 手術因保留較多的角膜厚度，且角膜結構較穩定</strong>，度數回退機率在眼科臨床文獻中顯著低於其他傳統手術。術後仍需維持 30 分鐘休息 10 分鐘的良好用眼習慣，以確保清晰視力。
+                                    <strong>SMART TransPRK 手術因保留較多的角膜厚度，且角膜結構較穩定</strong>，度數回退機率在眼科臨床文獻中顯著低於其他傳統手術。術後仍需維持 30 分鐘休息 10 分鐘的良好用眼習慣，以確保長青視力。
                                 </p>
                             </div>
                         </div>
@@ -1771,7 +1770,7 @@
                         </div>
 
                         <div class="pt-2">
-                            <a href="https://lin.ee/P3r8xOR" target="_blank" class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base sm:text-lg px-8 py-4 rounded-2xl transition-all hover:scale-[1.02] shadow-xl shadow-emerald-600/30">
+                            <a href="https://lin.ee/P3r8xOR" target="_blank" class="inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base sm:text-lg px-8 py-4.5 rounded-2xl transition-all hover:scale-[1.02] shadow-xl shadow-emerald-600/30">
                                 <i class="fa-brands fa-line mr-3 text-3xl animate-bounce"></i> 立即點我，通往 Line 預約快速通道
                             </a>
                             <span class="block text-slate-605 text-xs sm:text-sm mt-4 font-bold leading-relaxed max-w-2xl bg-white/70 border border-slate-200 p-4 rounded-xl">
@@ -1805,7 +1804,7 @@
                 <div class="lg:col-span-6 space-y-4">
                     <div class="flex items-center space-x-3">
                         <div class="flex items-center space-x-1.5 shrink-0">
-                            <img src="Aerial Falcon Vision logo.png" alt="AFV logo" class="h-16 w-16 object-cover rounded-full shadow-sm bg-white p-0.5 border border-slate-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/14b8a6/ffffff?text=睛隼'">  
+                            <img src="Aerial Falcon Vision logo.png" alt="AFV logo" class="h-32 w-32 object-cover rounded-full shadow-sm bg-white p-0 border border-slate-100" onerror="this.onerror=null; this.src='https://placehold.co/100x100/e0f2fe/0369a1?text=TSGH'">  
                         </div>
                         <span class="font-extrabold text-xl text-white">睛隼視界眼科衛教門戶</span>
                     </div>
@@ -1916,7 +1915,7 @@
 
             <!-- 圖檔展演區 -->
             <div class="flex justify-center items-center overflow-hidden rounded-xl bg-slate-900 aspect-[4/3] max-h-[70vh] p-2 border border-slate-700/20">
-                <img :src="lightboxImg" :alt="lightboxTitle" class="max-w-full max-h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/1000x800/0f172a/94a3b8?text=睛隼視界榮譽記錄'">
+                <img :src="lightboxImg" :alt="lightboxTitle" class="max-w-full max-h-full object-contain" onerror="this.onerror=null; this.src='https://placehold.co/1000x800/0f172a/94a3b8?text=Image+Loading+Error'">
             </div>
 
             <div class="mt-4 text-center text-xs text-slate-500 font-bold">
@@ -1939,6 +1938,7 @@
         <div class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm" @click="showPrivacyModal = false"></div>
 
         <div class="flex min-h-screen items-center justify-center p-4">
+            <!-- safe-padding-bottom：預防彈窗按鈕被 iPhone 底部 Home Indicator 覆蓋 -->
             <div class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-hidden shadow-2xl flex flex-col transform transition-all safe-padding-bottom"
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -2044,6 +2044,7 @@
         <div class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm" @click="showTermsModal = false"></div>
 
         <div class="flex min-h-screen items-center justify-center p-4">
+            <!-- safe-padding-bottom：預防彈窗按鈕被 iPhone 底部 Home Indicator 覆蓋 -->
             <div class="relative bg-white rounded-3xl max-w-2xl w-full max-h-[85vh] overflow-hidden shadow-2xl flex flex-col transform transition-all safe-padding-bottom"
                  x-transition:enter="transition ease-out duration-300"
                  x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
